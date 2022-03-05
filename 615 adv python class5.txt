@@ -1,0 +1,366 @@
+types of methods:
+----------------
+in python,we can create methods in the following ways,
+
+	1).Instance Methods
+
+	2).Class Methods
+
+	3).Static Methods
+
+	4).Abstract Methods
+
+Instance Methods:
+------------------
+we can create instance methods dont required any decorator(function)
+
+the instance methods takes the 'self' as a default parameter
+
+in instance methods,we can access both class level(static) data and instance level(non-static) data.
+
+we can access the instance methods from outside the class by using reference variable only.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		def methodname(self):
+			--------
+			--------
+
+Class methods:
+--------------
+we can create a class methods to required classmethod decorator.
+
+the class methods,takes the 'cls' as a default parameter
+
+in class methods,we can access only class-level(static) data.
+
+we can access the class methods from outside of that class by using classname or reference_variable.
+
+	syntax
+	-------
+	class classname:
+		--------
+		--------
+		@classmethod
+		def methodname(cls):
+			-------
+			-------
+
+Static methods:
+---------------
+we can create a static methods by using staticmethod decorator
+
+the static methods dont take anything as a default parameter
+
+in generally,static methods is used to access the local data.
+
+we can access the static methods from outside the class by using classname or reference variable.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		@staticmethod
+		def methodname():
+			--------
+			--------
+
+ex:
+---
+
+class student:
+    col_name="Vagdevi"
+    def __init__(self):
+        self.sid=101
+        self.sname="siva"
+    @classmethod
+    def col_info(cls):
+        cls.col_add="Ameerpet"
+        print(student.col_name)
+        print(cls.col_add)
+    def std_info(self):
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+    @staticmethod
+    def add(x,y):
+        print(x+y)
+s1=student()
+s1.col_info()
+s1.std_info()
+s1.add(4,5)
+student.col_info()
+student.add(10,20)
+#student.std_info()
+
+output:
+------
+Vagdevi
+Ameerpet
+101
+siva
+Vagdevi
+Ameerpet
+9
+Vagdevi
+Ameerpet
+30
+
+
+note:
+----
+without staticmethod decorator we can create a static methods.
+
+ex:
+--
+class test:
+    @staticmethod
+    def m1():
+        print("hai")
+    def m2():
+        print("hello")
+t1=test()
+test.m1()
+t1.m1()
+test.m2()
+t1.m2()
+
+output:
+------
+hai
+hai
+hello
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 11, in <module>
+    t1.m2()
+TypeError: test.m2() takes 0 positional arguments but 1 was given
+
+nested classes:
+---------------
+	we can define a class inside another class is known as a nested class.
+
+	syntax
+	------
+	class classname: #outer class
+		-----
+		-----
+		-----
+		class classname: #inner class
+			-------
+			-------
+
+when we are using nested classes?
+---------------------------------
+	without existing of any one type of object there's no chance to existing of another type of object,in that case we are using nested classes concept.
+
+ex:
+---
+class Animal:
+    legs=4
+    class Cat:
+        def bark(self):
+            print("Cat's are haveing %d-Legs"%Animal.legs)
+            print("Cat's are barkeing maew maew...")
+    class Dog:
+        def bark(self):
+            print("Dog's are haveing %d-Legs"%Animal.legs)
+            print("Dog's are barkeing bow bow...")
+a=Animal()
+c=a.Cat()
+d=a.Dog()
+c.bark()
+d.bark()
+        
+output:
+------
+Cat's are haveing 4-Legs
+Cat's are barkeing maew maew...
+Dog's are haveing 4-Legs
+Dog's are barkeing bow bow...
+
+nested methods:
+--------------
+	we can define a method inside another method is known as a nested method.
+
+	syntax
+	------
+	class classname:
+		------
+		------
+		def methodname():
+			-------
+			-------
+			def methodname():
+				-------
+				-------
+
+
+why we are using nested methods?
+--------------------------------
+	we can achive the reusability of code with in the methods,in that case we are using nested methods concept.
+
+ex:
+----
+class cal:
+    def arith(self):
+        print("hai")
+        self.x=4
+        self.y=5
+        print(self.x+self.y)
+        print("hello")
+        self.x="siva"
+        self.y="krishna"
+        print(self.x+self.y)
+        print("Good evening")
+        self.x=2.3
+        self.y=3.2
+        print(self.x+self.y)
+        print("bye")
+c=cal()
+c.arith()
+
+output:
+------
+hai
+9
+hello
+sivakrishna
+Good evening
+5.5
+bye
+
+ex2:
+---
+class cal:
+    def arith(self):
+        print("hai")
+        def add(x,y):
+            print(x+y)
+        add(4,5)
+        print("hello")
+        add("siva","krishna")        
+        print("Good evening")
+        add(2.3,3.2)        
+        print("bye")
+c=cal()
+c.arith()
+
+output:
+------
+hai
+9
+hello
+sivakrishna
+Good evening
+5.5
+bye
+
+adding the attributes to the class and object from 
+outside of that class?
+--------------------------------------------------
+	we can add the static attributes to the class from outside of that class by using classname.
+
+	classname.attributename=value
+
+
+	we can add the non-static attributes to the object from outside of that class by using reference variable.
+
+	reference_variable.attributename=value
+
+delete the attributes from the class and object from 
+outside of that class?
+--------------------------------------------------
+	we can delete the static attributes from the class from outside of that class by using del keyword.
+
+	del classname.attributename
+
+
+	we can delete the non-static attributes from the object from outside of that class by using del keyword.
+
+	del reference_variable.attributename
+
+ex:
+--
+class test:
+    x=10
+    def m1(self):
+        self.a=1
+        print(test.x)
+        print(self.a)
+t1=test()
+t1.m1()
+test.y=20
+t1.b=2
+t2=test()
+t2.m1()
+test.z=30
+t2.b=3
+print(test.y)
+print(test.z)
+print(t1.b)
+print(t2.b)
+del test.y
+del t2.b
+print(t1.b)
+
+output:
+------
+10
+1
+10
+1
+20
+30
+2
+3
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

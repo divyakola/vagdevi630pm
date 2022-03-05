@@ -1,0 +1,122 @@
+	3).to convert Octal into Decimal
+
+>>> x=0o37 #octal
+>>> x
+31
+
+	4).to convert Decimal into Octal
+
+in python,we can convert any number system into octal number system by using oct()
+
+>>> y=39 #decimal
+>>> oct(y)
+0o47
+
+	5).to convert Hexadecimal into Decimal
+
+>>> p=0x2c #hexadecimal
+>>> p
+44
+
+	6).to convert Decimal into Hexadecimal
+
+in python,we can convert any number system into hexadecimal number system by using hex()
+
+>>> q=61
+>>> hex(q)
+0x3d
+
+	7).to convert binary into octal
+
+>>> x=0b1011101 #binary
+>>> oct(x)
+0o135
+
+	8).to convert Octal into Binary
+
+>>> y=0o307 #octal
+>>> bin(y)
+0b11000111
+
+	9).to convert binary into hexadecimal
+
+>>> x=0b1111000010 #binary
+>>> hex(x)
+0x3c2
+
+	10).to convert hexadecimal into binary
+
+>>> y=0x3d
+>>> bin(y)
+0b111101
+
+	11).to convert octal into hexadecimal
+
+>>> x=0o307 #octal
+>>> hex(x)
+0xc7
+
+	12).to convert hexadecimal into octal
+
+>>> y=0x3d #hexadecimal
+>>> oct(y)
+'0o75'
+
+ex:
+---
+wap to convert decimal number system into binary,octal and hexadecimal number systems?
+
+	sample.py
+	---------
+x=int(input("enter your decimal number: "))
+print("Binary value of '%d' is: '%s'"%(x,bin(x)))
+print("Octal value of '%d' is: '%s'"%(x,oct(x)))
+print("Hexadecimal value of '%d' is: '%s'"%(x,hex(x)))
+
+	output
+	------
+C:\Users\DELL\Desktop>python sample.py
+enter your decimal number: 39
+Binary value of '39' is: '0b100111'
+Octal value of '39' is: '0o47'
+Hexadecimal value of '39' is: '0x27'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

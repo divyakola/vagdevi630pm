@@ -1,0 +1,363 @@
+for loop:
+-------
+the for loop is used to execute the block of statements repeatedly with respect to each and every element from the given iterable object.
+
+	syntax
+	------
+	for variable in iterableobj:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+
+ex:
+----
+x=[4,7,2,9,1]
+for i in x:
+    print("hai",i)
+    print("siva krishna")
+    print("good evening")
+print("bye")
+
+output:
+------
+hai 4
+siva krishna
+good evening
+hai 7
+siva krishna
+good evening
+hai 2
+siva krishna
+good evening
+hai 9
+siva krishna
+good evening
+hai 1
+siva krishna
+good evening
+bye
+
+
+if no-more elements in our iterable object then only control will goto from outside the for loop.
+
+ex:
+--
+for j in "krishna":
+    print("hai",j)   
+print("bye")
+
+output:
+------
+hai k
+hai r
+hai i
+hai s
+hai h
+hai n
+hai a
+bye
+
+for else
+--------
+	for variable in iterableobj:
+		stmt_1
+		stmt_2
+		.....
+		stmt_n
+	else:
+	    stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+
+if no-more elements in our iterable object then only control will goto else block otherwise control dont goto the else block.
+
+ex:
+---
+for j in "krishna":
+    print("hai",j)
+else:
+    print("hello")
+print("bye")
+
+output:
+-------
+hai k
+hai r
+hai i
+hai s
+hai h
+hai n
+hai a
+hello
+bye
+
+ex:
+---
+for j in "krishna":
+    print("hai",j)
+    if j=='s':
+        break
+else:
+    print("hello")
+print("bye")
+
+output:
+--------
+hai k
+hai r
+hai i
+hai s
+bye
+
+ex:
+---
+for j in "krishna":    
+    if j=='s':
+        continue
+    print("hai",j)
+else:
+    print("hello")
+print("bye")
+
+output:
+------
+hai k
+hai r
+hai i
+hai h
+hai n
+hai a
+hello
+bye
+
+range()
+-------
+the range() is a builtin function in both python2.x and python3.x versions.
+
+in python2.x,the range() to return the list object,list object is a mutable object.
+
+in python3.x,the range() to return the range(),the range object is immutable object.
+
+	scenario-1
+	----------
+	range(stop)
+		here stop value is exclusive value
+		     by default starting from '0'
+		     by default incrment by '1'
+
+
+
+	sceanrio-2
+	----------
+	range(start,stop)
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     by default increment by '1'
+
+	scenario-3
+	----------
+	range(start,stop,step)
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     step value is either increment/decrement
+
+examples in python2.x
+----------------------
+>>> x=range(5)
+>>> x
+[0, 1, 2, 3, 4]
+>>> type(x)
+<type 'list'>
+
+>>> y=range(5,10)
+>>> y
+[5, 6, 7, 8, 9]
+>>> type(y)
+<type 'list'>
+
+>>> z=range(1,10,2)
+>>> z
+[1, 3, 5, 7, 9]
+>>> type(z)
+<type 'list'>
+
+>>> a=range(1,10,-2)
+>>> a
+[]
+
+>>> b=range(10,1,-2)
+>>> b
+[10, 8, 6, 4, 2]
+>>> type(b)
+<type 'list'>
+
+
+examples in python3.x
+---------------------
+x=range(5)
+x
+range(0, 5)
+type(x)
+<class 'range'>
+for ele in x:
+    print(ele)
+
+    
+0
+1
+2
+3
+4
+list(x)
+[0, 1, 2, 3, 4]
+
+
+y=range(5,10)
+y
+range(5, 10)
+type(y)
+<class 'range'>
+for ele in y:
+    print(ele)
+
+    
+5
+6
+7
+8
+9
+list(y)
+[5, 6, 7, 8, 9]
+
+
+z=range(1,10,2)
+z
+range(1, 10, 2)
+type(z)
+<class 'range'>
+for ele in z:
+    print(ele)
+
+    
+1
+3
+5
+7
+9
+
+
+a=range(10,1,-2)
+a
+range(10, 1, -2)
+type(a)
+<class 'range'>
+for ele in a:
+    print(ele)
+
+    
+10
+8
+6
+4
+2
+
+
+the range() always takes the parameter as Integer objects only,by mistakely we are passing boolean values internally that boolean values are also converting integers like True means 1 and False means 0.
+
+ex:
+---
+range(5)
+range(0, 5)
+
+range(True)
+range(0, 1)
+
+range(3.2)
+TypeError: 'float' object cannot be interpreted as an integer
+
+range(3j)
+TypeError: 'complex' object cannot be interpreted as an integer
+
+range("siva")
+TypeError: 'str' object cannot be interpreted as an integer
+
+range([5,3,7,2])
+TypeError: 'list' object cannot be interpreted as an integer
+
+range((5,3,7,2))
+TypeError: 'tuple' object cannot be interpreted as an integer
+
+range({5,3,7,2})
+TypeError: 'set' object cannot be interpreted as an integer
+
+range({'name':'siva','sal':2000})
+TypeError: 'dict' object cannot be interpreted as an integer
+
+in range(),we are passing both start and stop value as a same number in that case dont return anything i.e., in python2.x it will return empty list object and python3.x it will return empty range object.
+
+example in python2.x
+---------------------
+>>> x=range(5,5)
+>>> x
+[]
+>>> len(x)
+0
+
+example in python3.x
+--------------------
+x=range(5,5)
+x
+range(5, 5)
+len(x)
+0
+
+xrange()
+--------
+xrange() is a builtin function in python2.x version only.
+
+in python2.x,the xrange() to return the xrange object,the xrange object is a immutable object.
+
+
+	scenario-1
+	----------
+	xrange(stop)
+		here stop value is exclusive value
+		     by default starting from '0'
+		     by default incrment by '1'
+
+
+
+	sceanrio-2
+	----------
+	xrange(start,stop)
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     by default increment by '1'
+
+	scenario-3
+	----------
+	xrange(start,stop,step)
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     step value is either increment/decrement
+
+exmple in python2.x
+--------------------
+>>> a=xrange(5)
+>>> a
+xrange(5)
+>>> type(a)
+<type 'xrange'>
+>>> for ele in a:
+	print(ele)
+
+	
+0
+1
+2
+3
+4
+>>> list(a)
+[0, 1, 2, 3, 4]

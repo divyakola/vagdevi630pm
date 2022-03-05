@@ -1,0 +1,236 @@
+working with csv file's:
+------------------------
+csv means comma seperated values
+
+if we want to working with csv files,to required csv module
+
+			       csv
+			 	|
+		-------------------------------
+		|				|
+	    Reading          	     	     writeing
+                |				|
+        -----------------	    	-----------------
+       |		|		|               |
+    reader()      DictReader()      writer()      DictWriter()
+       |	        |		|               |
+reader object    dictreader objcet  writer obj    dictwriter obj
+				        |		|
+				    writerow()	   writerow()
+				    writerows()    writerows()
+
+
+ex1:
+---
+wap to read the data from csv file by using reader()?
+
+	emp.csv
+	--------
+eid,ename,sal,dno
+101,siva,2000,10
+102,rama,3000,20
+103,krishna,2500,30
+
+import csv
+with open('emp.csv') as f1:
+    reader_obj=csv.reader(f1)
+    for rec in reader_obj:
+        print(rec)
+
+output:
+-------
+['eid', 'ename', 'sal', 'dno']
+['101', 'siva', '2000', '10']
+['102', 'rama', '3000', '20']
+['103', 'krishna', '2500', '30']
+
+
+ex2:
+---
+wap to read the data from csv file by using DictReader()?
+
+	emp.csv
+	--------
+eid,ename,sal,dno
+101,siva,2000,10
+102,rama,3000,20
+103,krishna,2500,30
+
+import csv
+with open('emp.csv') as f1:
+    dictreader_obj=csv.DictReader(f1)
+    for rec in dictreader_obj:
+        print(rec)
+
+output:
+------
+{'eid': '101', 'ename': 'siva', 'sal': '2000', 'dno': '10'}
+{'eid': '102', 'ename': 'rama', 'sal': '3000', 'dno': '20'}
+{'eid': '103', 'ename': 'krishna', 'sal': '2500', 'dno': '30'}
+
+ex3:
+----
+wap to write the data into the csv file by using writerow() of writer object?
+
+import csv
+with open('cust.csv','w') as f1:
+    writer_obj=csv.writer(f1)
+    writer_obj.writerow(['cid','cname','cadd'])
+    writer_obj.writerow([101,'siva','hyd'])
+    writer_obj.writerow([102,'rama','pune'])
+    writer_obj.writerow([103,'krishna','vizag'])
+    
+output:
+------
+	cust.csv
+	----------
+cid,cname,cadd
+
+101,siva,hyd
+
+102,rama,pune
+
+103,krishna,vizag
+
+
+ex4:
+----
+wap to write the data into the csv file by using writerow() of writer object?
+   
+import csv
+with open('cust1.csv','w',newline="") as f1:
+    writer_obj=csv.writer(f1)
+    writer_obj.writerow(['cid','cname','cadd'])
+    writer_obj.writerow([101,'siva','hyd'])
+    writer_obj.writerow([102,'rama','pune'])
+    writer_obj.writerow([103,'krishna','vizag'])
+
+output
+------
+	cust1.csv
+	----------
+cid,cname,cadd
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+ex5:
+----
+wap to write the data into the csv file by using writerows() of writer object?
+   
+import csv
+with open('cust2.csv','w',newline="") as f1:
+    writer_obj=csv.writer(f1)
+    writer_obj.writerows([['cid','cname','cadd'],
+                          [101,'siva','hyd'],
+                          [102,'rama','pune'],
+                          [103,'krishna','vizag']])
+output:
+-------
+	cust2.csv
+	---------
+cid,cname,cadd
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+ex6:
+----
+wap to write the data into the csv file by using writerow() of writer object with iteration?
+    
+import csv
+data=[['cid','cname','cadd'],
+      [101,'siva','hyd'],
+      [102,'rama','pune'],
+      [103,'krishna','vizag']]
+with open('cust3.csv','w',newline="") as f1:
+    writer_obj=csv.writer(f1)
+    for row in data:
+        writer_obj.writerow(row)
+
+output:
+-------  
+	cust3.csv
+	---------
+cid,cname,cadd
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+ex7:
+----
+wap to write the data into the csv file by using writerow() of dictwriter object? 
+   
+import csv
+with open('cust4.csv','w',newline="") as f1:
+    dictwriter_obj=csv.DictWriter(f1,fieldnames=['cid',
+                                        'cname','cadd'])
+    dictwriter_obj.writerow({'cid':1,'cname':'abc',
+                             'cadd':'hyd'})
+    dictwriter_obj.writerow({'cid':2,'cname':'xyz',
+                             'cadd':'pune'})
+    dictwriter_obj.writerow({'cid':3,'cname':'pqr',
+                             'cadd':'vizag'})
+
+output:
+-------
+1,abc,hyd
+2,xyz,pune
+3,pqr,vizag
+
+ex8:
+----
+wap to write the data into the csv file with headers by using writerow() of dictwriter object?     
+    
+import csv
+with open('cust5.csv','w',newline="") as f1:
+    dictwriter_obj=csv.DictWriter(f1,fieldnames=['cid',
+                                        'cname','cadd'])
+    dictwriter_obj.writeheader()
+    dictwriter_obj.writerow({'cid':1,'cname':'abc',
+                             'cadd':'hyd'})
+    dictwriter_obj.writerow({'cid':2,'cname':'xyz',
+                             'cadd':'pune'})
+    dictwriter_obj.writerow({'cid':3,'cname':'pqr',
+                             'cadd':'vizag'})
+    
+    
+output:
+-------
+	cust5.csv
+	----------
+cid,cname,cadd
+1,abc,hyd
+2,xyz,pune
+3,pqr,vizag
+  
+ex9:
+----
+wap to write the data into the csv file with headers by using writerows() of dictwriter object?        
+ 
+import csv
+with open('cust6.csv','w',newline="") as f1:
+    dictwriter_obj=csv.DictWriter(f1,fieldnames=['cid',
+                                        'cname','cadd'])
+    dictwriter_obj.writeheader()
+    dictwriter_obj.writerows([{'cid':1,'cname':'abc',
+                             'cadd':'hyd'},
+                              {'cid':2,'cname':'xyz',
+                             'cadd':'pune'},
+                              {'cid':3,'cname':'pqr',
+                             'cadd':'vizag'}])
+    
+output:
+------
+	cust6.csv
+	----------
+cid,cname,cadd
+1,abc,hyd
+2,xyz,pune
+3,pqr,vizag
+    
+   
+    
+ 
+    
+    

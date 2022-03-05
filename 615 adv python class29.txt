@@ -1,0 +1,265 @@
+		File-Handling
+		------------
+	Generally the programming languages are suitable for processing the data.
+
+	the programming languages are not suitable storeing the data because the programming languages programs memory will be allocated in RAM.
+
+	RAM(Random Access Memory) is a Volatile memory i.e., once program execution is over/turnoff our computer/poweroff then automatically to errase the data from RAM.
+
+	if we are not store the data permanently,it is not suitable for use that data in future.
+	
+	if we want to store the data permanently in a non-volatile memory like Harddisk by using following concepts,they are
+
+	File's
+	Database's
+	HDFS
+	...
+	...
+
+what is File?
+-------------
+	a file is a named location on the disk,which is used to store the data permanently in a non-volatile memory like harddisk for future use/purpose.
+
+	the different file formates are .txt
+					.csv
+					.json
+					.xlsx
+					.pdf
+					.docs
+
+if we want to working with files first we need to open a file.
+
+we can open a file by using open() of builtins module.
+
+at the time of opening a file we need to specify the mode of that file.
+
+	mode		Description
+	----		-----------
+	r	-->	open a file in read mode
+			(it's by default)
+
+	w	-->	open a file in write mode,if file already 			existed in that case to delete the data 			from that file and to add new data into 			that file otherwise to create a new file 			and to write the data into that new file.
+
+	a	-->	open a file in append mode,if file 			already existed in that case the data 			will be added at the end of the already 			existed data otherwise to create a new 			file and write the data into that file. 
+
+	x	-->	open a file in exclusive creation mode,if 			file already existed the operation become 			Fail otherwise to create a new file and 			to write the data into that file.
+
+	t	-->	open a file in text mode
+			(it's by default)
+
+	b	-->	open a file in bytes mode
+
+	+	-->	to apply the multiple modes
+			w+b or wb
+
+the open() to return the file object.
+
+the file object provides some methods,to perform the operation on the files.
+
+	method		Description
+	------		-----------
+	read()		to read entire data from the file
+
+	read(n)		to read 'n'-charecters from the file
+
+	readline()	to read the line from the file
+
+	readlines()	to read all the lines from the file
+
+	write(s)	to write the data into the file
+
+	writelines()	to write the lines into the file
+
+	seek()		to change the file pointer position
+
+	tell()		to return the current file pointer 			position.
+
+	close()		to close the file
+
+after performeing the operation on the files next we need to close the file.
+
+we can close the file by calling close() of file object
+
+order of the file handling
+--------------------------
+	step1:
+	-----
+	open a file
+
+	file_obj=open('filename','mode')
+
+	ex:
+	---
+	f1=open('sample.txt') #read and text mode
+
+	f2=open('sample.txt','w') #write and text mode
+
+	f3=open('E:\\siva\\sample.txt','a') #append mode
+
+	f4=open('E:/siva/sample.txt','x') #exclusive creation
+
+	step2:
+	-----
+	to perform the operation on the files
+
+	file_obj.methodname()
+
+	ex:
+	---
+	f1.read()
+
+	f2.write(string)
+
+	step3:
+	-----
+	to close the file
+
+	file_obj.close()
+
+	ex:
+	--
+	f1.close()
+
+ex1:
+---
+wap to read the data from the file?
+
+	sample.txt
+	---------
+hai siva
+
+f1=open('sample.txt')
+print(f1.read())
+f1.close()
+
+output:
+------
+hai siva
+
+ex2:
+---
+	sample.txt
+	---------
+hai siva
+
+
+f1=open('sample.txt')
+x=f1.read()
+print(x)
+print(f1.name)
+print(f1.mode)
+print("Before:",f1.closed)
+f1.close()
+print("After:",f1.closed)
+
+output:
+-------
+hai siva
+sample.txt
+r
+Before: False
+After: True
+
+ex3:
+---
+write a program to write the data into the file by using 'w' mode,if file already existed?
+
+	sample.txt
+	---------
+hai siva
+
+
+f1=open('sample.txt','w')
+f1.write("hello krishna good evening")
+f1.close()
+
+output:
+------
+	sample.txt
+	---------
+hello krishna good evening
+
+ex4:
+---
+write a program to write the data into the file by using 'w' mode,if file does not existed?
+
+f1=open('sample1.txt','w')
+f1.write("hello krishna")
+f1.close()
+
+output:
+------
+	sample1.txt
+	----------
+hello krishna
+
+ex5:
+---
+write a program to write the data into the file by using 'a' mode,if file already existed?
+
+	sample1.txt
+	----------
+hello krishna
+
+f1=open('sample1.txt','a')
+f1.write("how are you")
+f1.close()
+
+output:
+------
+	sample1.txt
+	----------
+hello krishnahow are you
+
+ex6:
+---
+write a program to write the data into the file by using 'a' mode,if file doesnot existed?
+
+f1=open('sample2.txt','a')
+f1.write("how are you")
+f1.close()
+
+output:
+-----
+	sample2.txt
+	----------
+how are you
+
+ex7:
+---
+write a program to write the data into the file by using 'x' mode,if file already existed?
+
+	sample2.txt
+	----------
+how are you
+
+f1=open('sample2.txt','x')
+f1.write("good evening")
+f1.close()
+
+output:
+------
+FileExistsError: [Errno 17] File exists: 'sample2.txt'
+
+ex8:
+---
+write a program to write the data into the file by using 'x' mode,if file doesnot existed?
+
+f1=open('sample3.txt','x')
+f1.write("good evening")
+f1.close()
+
+output:
+-----
+	sample3.txt
+	-----------
+good evening
+
+
+
+
+
+
+
+
+	

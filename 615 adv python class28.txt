@@ -1,0 +1,230 @@
+user-defined exceptions:
+-----------------------
+	we can define a exception according to our business requirements,that type of exceptions are called user-defined exceptions.
+
+steps to implement the User-Defined Exceptions:
+-----------------------------------------------
+	step1:
+	-----
+	to create a user-defined exception class
+
+	class classname(Exception):
+		-------
+		-------
+		-------
+
+	step2:
+	------
+	to raise the exception 
+
+we can raise the exception manually by using 'raise' keyword.
+
+	raise ExceptionClassname
+
+	step3:
+	-----
+	to handle the exceptions
+
+we can handle the used-defined exceptions by using try and except blocks.
+
+ex:  Number Guessing Game?
+----
+
+class ValueTooSmall(Exception):
+    """value too small userdefined Exception class"""
+class ValueTooLarge(Exception):
+    """value too large userdefined Exception class"""
+import random
+x=random.randint(0,9)
+while True:
+    y=int(input("enter your option: "))
+    try:
+        if y>x:
+            raise ValueTooLarge
+        elif y<x:
+            raise ValueTooSmall
+        else:
+            break
+    except ValueTooLarge:
+        print("Value Too Large!Try Again")
+    except ValueTooSmall:
+        print("Value Too Small!Try Again")
+print("Your Guess is Correct")
+        
+output:
+------
+enter your option: 8
+Value Too Large!Try Again
+enter your option: 3
+Value Too Small!Try Again
+enter your option: 6
+Your Guess is Correct
+
+Assertion:
+---------
+	assertion is a boolean expression,whenever assertion to return True do-nothing in our program,our program contineously executed otherwise to stop the execution and to raise the AssertionError.
+
+	we can implement the assertions in python by using "assert" keyword
+
+	syntax
+	-----
+	assert expression
+
+	     (or)
+
+	assert expression,"error message"
+
+ex1:
+---
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    assert len(x)!=0
+    print(sum(x)/len(x))
+avg(obj)
+
+output1:
+-----
+enter your iterable object: [5,3,7,2]
+4.25
+
+output2:
+-------
+enter your iterable object: []
+
+    assert len(x)!=0
+AssertionError
+
+ex2:
+---
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    assert len(x)!=0,"length is zero"
+    print(sum(x)/len(x))
+avg(obj)
+
+output1:
+-----
+enter your iterable object: [5,3,7,2]
+4.25
+
+output2:
+-------
+enter your iterable object: []
+
+	assert len(x)!=0,"length is zero"
+AssertionError: length is zero
+
+ex3:
+---
+obj=eval(input("enter your iterable object: "))
+class mystr(Exception):
+    """mystr userdefined exception class"""
+class noniterable(Exception):
+    """noniterable userdefibed exception class"""
+def avg(x):
+    try:
+        if type(x)==str:
+            raise mystr
+        elif type(x) in [int,float,complex]:
+            raise noniterable
+        else:
+            assert len(x)!=0
+    except mystr:
+        print("we can't perform the average operation on\
+ string")
+    except noniterable:
+        print("enter the Iterable objects only")
+    except AssertionError:
+        print("length should not be zero")
+    else:
+        print(sum(x)/len(x))
+avg(obj)
+
+outputs:
+--------
+enter your iterable object: 89
+enter the Iterable objects only
+
+enter your iterable object: "siva"
+we can't perform the average operation on string
+
+enter your iterable object: []
+length should not be zero
+
+enter your iterable object: [5,3,7,2]
+4.25
+
+how to catch the multiple exceptions in a single except block?
+--------------------------------------------------------------
+ex1:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+except (ValueError,ZeroDivisionError) as e:
+    print(e)
+print("bye")
+
+output:
+------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+
+hai
+enter x value: 3
+enter y value: 0
+division by zero
+bye
+
+
+hai
+enter x value: 3
+enter y value: 2.3
+invalid literal for int() with base 10: '2.3'
+bye
+        
+ex2:
+----
+class ValueTooSmall(Exception):
+    """value too small userdefined Exception class"""
+    def __init__(self):
+        print("Value Too Small!Try Again")
+class ValueTooLarge(Exception):
+    """value too large userdefined Exception class"""
+    def __init__(self):
+        print("Value Too Large!Try Again")
+import random
+x=random.randint(0,9)
+while True:
+    y=int(input("enter your option: "))
+    try:
+        if y>x:
+            raise ValueTooLarge
+        elif y<x:
+            raise ValueTooSmall
+        else:
+            break
+    except (ValueTooLarge,ValueTooSmall) as e:
+        print(e)
+    
+print("Your Guess is Correct")
+        
+output:
+-----
+enter your option: 1
+Value Too Small!Try Again
+
+enter your option: 9
+Value Too Large!Try Again
+
+enter your option: 8
+Your Guess is Correct
+   
+        

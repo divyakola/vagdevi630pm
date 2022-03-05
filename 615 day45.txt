@@ -1,0 +1,279 @@
+uses lambda keyword:
+------------------
+to create a anonymus/nameless functions
+
+to create a single line functions.
+
+the lambda function's are used in higher-order functions like filter(),map(),reduce()
+
+filter()
+-------
+the filter() is a builtin function in both python2.x and python3.x versions.
+
+the filter() to return the filter object
+
+	filter(function,iterableobj)
+
+the filter() takes the one by one value from given iterable object,to check the condition,if condition is True to return that element otherwise to ignore that element.
+
+ex:
+--
+x=[4,8,9,7,6,2,3,1]
+y=filter(lambda i:i%2==0,x)
+print(y)
+print(type(y))
+for ele in y:
+    print(ele)
+
+output:
+-----
+<filter object at 0x00000234A940EA40>
+<class 'filter'>
+4
+8
+6
+2
+
+ex2:
+---
+print(list(filter(lambda i:i%2==0,[4,8,9,7,6,2,3,1])))
+
+output:
+------
+[4, 8, 6, 2]
+
+map()
+-----
+the map() is a builtin function in both python2.x and python3.x versions.
+
+the map() to return the map object
+
+	map(function,*iterableobj)
+
+the map() takes the one by one elements from given iterable object to perform the operation and to return the result.
+
+ex:
+---
+x=[4,8,9,7,6,2,3,1]
+y=map(lambda i:i%2==0,x)
+print(y)
+print(type(y))
+for ele in y:
+    print(ele)
+
+output:
+-------
+<map object at 0x000002715697EA40>
+<class 'map'>
+True
+True
+False
+False
+True
+True
+False
+False
+
+ex:
+---
+print(list(map(lambda i:i%2==0,[4,8,9,7,6,2,3,1])))
+print(list(map(lambda i:i+2,[4,8,9,7,6,2,3,1])))
+
+output:
+------
+[True, True, False, False, True, True, False, False]
+
+[6, 10, 11, 9, 8, 4, 5, 3]
+
+ex:
+---
+print(list(map(lambda i,j:i+j,[1,2,3],[4,5,6])))
+
+output:
+------
+[5, 7, 9]
+
+reduce()
+------
+the reduce() is used to reduce the no.of elements into single object/value.
+
+in python2.x only the reduce() is a builtin function.
+
+in python3.x, the reduce() is not a builtin function
+
+	reduce(function,iterableobj)
+
+example in python2.x
+-------------------
+x=[3,2,7,5]
+print(reduce(lambda i,j:i+j,x))
+
+output:
+------
+17
+
+exanple in python3.x
+--------------------
+from functools import reduce
+x=[3,2,7,5]
+print(reduce(lambda i,j:i+j,x))
+
+output:
+------
+17
+
+call by value:
+------------
+	in call by value our original value is not modified.
+
+ex:
+--
+x=10
+def f1(y):
+    print(y)
+    y+=5
+    print(y)
+f1(x)
+print(x)
+    
+output:
+------
+10
+15
+10
+
+ex2:
+---
+x=[1,2,3]
+def f1(y):
+    print(y)
+    y=[10,20,30]
+    print(y)
+f1(x)
+print(x)
+    
+output:
+------
+[1, 2, 3]
+[10, 20, 30]
+[1, 2, 3]
+
+call by reference:
+-----------------
+in call by reference original value is modified
+
+in python,we can implement the call by value by using indexing concept.
+
+ex:
+--
+x=[1,2,3]
+def f1(y):
+    print(y)
+    y[0]=10
+    y[1]=20
+    y[2]=30
+    print(y)
+f1(x)
+print(x)
+
+output:
+-----
+[1, 2, 3]
+[10, 20, 30]
+[10, 20, 30]
+
+ex:
+---
+create a function to return the no.of charecters/elements in a given iterable object?
+
+obj=eval(input("enter iterable object: "))
+def my_len(x):
+    c=0
+    for ele in x:
+        c+=1
+    print(c)
+my_len(obj)
+    
+outputs:
+-------
+enter iterable object: "siva"
+4
+
+enter iterable object: [5,3,7,2,9]
+5
+
+ex2:
+---
+ex:
+---
+create a function to return the sum of given iterable object elements?
+
+obj=eval(input("enter iterable object: "))
+def my_sum(x):
+    s=0
+    for ele in x:
+        s+=ele
+    print(s)
+my_sum(obj)
+    
+output:
+------
+enter iterable object: [5,3,7,2,9]
+26
+
+ex3:
+---
+create a function to return the maximum element from the given iterable object?
+
+obj=eval(input("enter iterable object: "))
+def my_max(x):
+    m=x[0]
+    for ele in x:
+        if m<ele:
+            m=ele
+    print(m)
+my_max(obj)
+    
+output:
+-------
+enter iterable object: [5,3,7,2,9]
+9
+
+ex4:
+---
+create a function to return the minimum element from the given iterable object?
+
+obj=eval(input("enter iterable object: "))
+def my_min(x):
+    m=x[0]
+    for ele in x:
+        if m>ele:
+            m=ele
+    print(m)
+my_min(obj)
+    
+output:
+------
+enter iterable object: [5,3,7,2,9]
+2
+
+ex5:
+----
+create a function to return the elements in ascending order?
+
+obj=eval(input("enter iterable object: "))
+def my_asc_ord(x):
+    for i in range(len(x)):
+        for j in range(i+1,len(x)):
+            if x[i]>x[j]:
+                x[i],x[j]=x[j],x[i]
+    print(x)
+
+my_asc_ord(obj)   
+
+output:
+------
+enter iterable object: [5,3,7,2,9]
+[2, 3, 5, 7, 9]
+
+

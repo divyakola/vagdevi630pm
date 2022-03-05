@@ -1,0 +1,152 @@
+	Advanced Python
+		---------------
+OOP's concepts:
+---------------
+OOP's means Object Oriented Programming Principle's/Concept's
+
+the OOP's concepts are certain rules to developing an applications.
+
+the OOP's concepts are
+		Class
+		Object
+		Encapsulation
+		Inheritance
+		Polymorphism
+		DataAbstarction
+
+we can developing any one application according to OOP's concepts,we will get some benefits in that application.
+
+the benefits OOP's concepts are
+		Security
+		Reusability
+		Flexibility
+
+any high-level programming language which support OOPs concepts,that type of high-level programming languages are called Object Oriented Programming languages.
+
+	ex:C++,Python,Java,.net,.....
+
+what is class?
+--------------
+	in generally,a class is a structure or blue-print.
+
+	a class is a syntaxer-structure,which is used to represent the related data members along with it's realted functionalities.
+
+	a class is a collection of objects.
+
+	syntax
+	------
+	class classname:
+		"""doc string"""
+		Data
+		Operations
+
+
+how to represent the data in class?
+-----------------------------------
+	we can represent the data in class by using variables/attributes.
+
+	in object oriented mechanism,the variables/attributes can be categorized into 3-types,they are
+
+	static variables/attributes
+	non-static variables/attributes
+	local variables
+
+how to represent the operations in class?
+-----------------------------------------
+	we can represent the operations in class by using methods concept.
+
+what is Method?
+---------------
+	a method is a syntaxer structure,which is used to represent the business logics to perform a particular operations with in the class.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		def methodname(self):
+			--------
+			--------
+
+ex1:
+---
+wap to print "hello world"?
+
+class test:
+    print("hello world")
+
+output:
+------
+hello world
+
+
+ex2:
+---
+class test:
+    """simple class example"""
+    print("hello world")
+    def msg(self):
+        print("hai siva")
+    print("good morning")
+print("bye")
+
+output:
+------
+hello world
+good morning
+bye
+
+note:
+----
+in the above example method is not executed.
+
+method is not executed automatically,whenever we are calling a method then only method logic will be executed.
+
+if we want to call the method first we need to create an object to that particular class.
+
+what is Object?
+----------------
+	in generally object is physical existance of class.
+
+	object is a instance of a class,which is used to allocate the memory space for non-static variables of class.
+
+	syntax
+	------
+	reference_variable=classname()
+
+
+what is reference_variable?
+---------------------------
+	the reference_variable is also same like as variable which holds the hash-code of that object.(whenever we are creating an object internally our python memory manager takes the address of that object,to generate hash-code by using __hash__() and that hashcode is passing to reference variable)
+
+	through that reference variable we can access the static,non-static attributes and methods from outside of that class.
+
+	through that reference variable we can add the non-static attributes to the object from outside of that class.
+
+ex:
+---
+class test:
+    """simple class example"""
+    print("hello world")
+    
+    def msg(self): #method definition
+        print("hai siva")
+        
+    print("good morning")
+t1=test() #object creation
+print(t1)
+print(id(t1))
+t1.msg()#method calling
+print("bye")
+
+output:
+------
+hello world
+good morning
+<__main__.test object at 0x000001F3AE21ECB0>
+2146110139568
+hai siva
+bye
+
+
+

@@ -1,0 +1,249 @@
+method overriding:
+------------------
+	the concept of defineing multiple methods with same name and same no.of parameters but we can define one method in super class and another method in sub class,is known as a method overriding.
+
+ex:
+---
+class test:
+    def m1(self):
+        print("hai")
+class demo(test):
+    def m1(self):
+        print("hello")
+d1=demo()
+d1.m1()
+    
+output:
+-----
+hello
+
+note:
+----
+in method-overriding by default sub class methods only executed.
+
+if we want to execute the super class methods in method overriding concept by using super().
+
+ex:
+---
+class test:
+    def m1(self):
+        print("hai")
+class demo(test):
+    def m1(self):
+        super().m1()
+        print("hello")
+d1=demo()
+d1.m1()
+    
+
+output:
+------
+hai
+hello
+
+ex3:
+----
+class x:
+    def m1(self):
+        print("hai")
+class y:
+    def m1(self):
+        print("siva")    
+class z(x,y):
+    def m1(self):
+        super().m1()
+        print("hello")
+z1=z()
+z1.m1()
+
+output:
+------
+hai
+hello
+
+Constructor Overriding:
+-----------------------
+	the concept of defineing multiple constructor's with same name and and same no.of parameters but we can define one constructor in one class(super)and another constructor in another class(sub class),is known as a constructor overriding.
+
+ex:
+---
+class test:
+    def __init__(self):
+        print("hai")
+class demo(test):
+    def __init__(self):        
+        print("hello")
+d1=demo()
+
+output:
+------
+hello
+
+ex2:
+----
+class test:
+    def __init__(self):
+        print("hai")
+class demo(test):
+    def __init__(self):
+        super().__init__()
+        print("hello")
+d1=demo()
+
+output:
+-------
+hai
+hello
+
+Data abstraction:
+-----------------
+	the concept of hide the unnecessory data and to visible the necessory data to the user/customer,is known as a Data abstarction.
+
+in python we can implement the Data abstraction by using ABC class and abstract methods of abc module.
+
+what abstract class?
+--------------------
+	any class which contains one or more abstract methods,that class is called abstract class
+
+	we can create abstract class by using ABC class of abc module.
+
+	syntax
+	------
+	from abc import ABC
+	class classname(ABC):
+		--------
+		--------
+
+what is abstract method?
+-----------------------
+	we can define a method with inthe abstract class with the help of abstractmethod decorator of abc module.
+
+	we can initialize the abstract methods in abstarct class but we can implement the abstract methods logics in sub classes.
+
+	syntax
+	------
+	from abc import ABC,abstractmethod
+	class classname(ABC):
+		--------
+		--------
+		@abstractmethod
+		def methodname(self):
+			-------
+			-------
+
+ex:
+---
+from abc import ABC,abstractmethod
+class animal(ABC):
+    legs=4
+    def __init__(self):
+        print("i am in Animal class")
+    def wishes(self):
+        print("hai siva")
+    @abstractmethod
+    def bark(self):
+        pass
+class cat(animal):
+    def __init__(self):
+        print("i am in cat class")
+    def bark(self):
+        print("cat's are haveing %d-legs"%cat.legs)
+        print("cat's are barkeing maew maew...")
+c1=cat()
+c1.bark()
+a1=animal()   
+    
+output:
+------
+i am in cat class
+cat's are haveing 4-legs
+cat's are barkeing maew maew...
+TypeError: Can't instantiate abstract class animal with abstract method bark
+    
+access modifier's:
+-----------------
+generally the access modifier's are
+
+	public
+	protected
+	private
+	
+		java			python
+		-----			------
+public	    public static int x=10       x=10
+
+
+protected   protect static int y=20      _y=20
+
+
+private     private static int z=30      __z=30
+
+ex1:
+----
+class test:
+    x=10 #public
+    _y=20 #protected
+    __z=30 #private
+    def m1(self):
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+t1=test()
+t1.m1()
+print(t1.x)
+print(t1._y)
+print(t1.__z)
+
+output:
+------
+10
+20
+30
+10
+20
+AttributeError: 'test' object has no attribute '__z'
+
+note:
+---
+we can hide the property of a class to put __(double underscores) at the begening of that property.
+
+we can't access the hidden property of a class directly from outside the class or with in another class.
+
+ex2:
+---
+class test:
+    x=10 #public
+    _y=20 #protected
+    __z=30 #private
+    def m1(self):
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+class demo(test):
+    def m2(self):
+        print(demo.x)
+        print(demo._y)
+        print(demo.__z)
+d1=demo()
+d1.m1()
+d1.m2()
+        
+output:
+------
+10
+20
+30
+10
+20
+AttributeError: type object 'demo' has no attribute '_demo__z'. Did you mean: '_test__z'?
+
+
+
+
+
+
+
+
+
+
+

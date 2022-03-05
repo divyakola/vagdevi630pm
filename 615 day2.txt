@@ -1,0 +1,379 @@
+python environment setup:
+-------------------------
+the python environment setup can be categorized into 3-parts,they are
+
+	1).Downloading python software
+
+	2).Installation of Python Software
+
+	3).Python Path setup
+
+how to Downloading python software?
+-----------------------------------
+	before Downloading python software first we need to identify which bit operating system we are using,because the python interpreter is changeing from one bit operating system to another bit operating system.
+
+		Operating System
+			|
+	--------------------------------
+	|		|		|
+    windows         linux/unix       mac-os
+        |
+     -------
+     |      |
+   32      64
+
+
+after identify the bit operating system,next we are going to python official website www.python.org
+			     |
+			goto downloads
+			     |
+			select your operating system
+			     |
+		----------------------------
+	        |		           |
+	     3.x                          2.x
+                |			   |
+windows installer for 64-bit	    x86 msi installer
+windows installer for 32-bit	    x86-64 msi installer
+embeddable zip for 64 bit
+embeddable zip for 32 bit
+        |
+to download any one file of that particula bit operating system
+
+how to install python?
+---------------------
+	installation of python2.x versions
+	-----------------------------------
+	double click on python2.x downloaded file
+			|
+	to select any one option and click on next
+			|
+	to select installation location and click on next
+			|
+		click on next
+			|
+		click on yes
+			|
+		click on finish
+
+
+	installation of python3.x versions
+	----------------------------------
+	double click on python3.x downloaded file
+			|
+	to select any one option(customize/installnow)
+			|
+	to enable all the optional features and click on next
+			|
+	to select installation location and click on install
+			|
+		click on yes
+
+Python Path setup
+-----------------
+what is path?
+-------------
+	a path is a system variable under the environement variables.
+
+why we need to set the path?
+----------------------------
+	after installation of python software by default we can access the python interpreter only on that particular installation location.
+
+C:\Users\DELL>python
+	"python" is not recognized
+
+C:\Users\DELL>cd ..
+
+C:\Users>cd ..
+
+C:\>cd python39
+
+C:\Python39>python
+Python 3.9.7 
+>>> print("hai")
+hai
+>>> ^Z   #ctrl+z
+
+
+C:\Python39>e:
+
+E:\>python
+   "python" is not recognized
+
+E:\>
+
+if we want to access python interpreter on any location of our computer in that case we need to set the path.
+
+how to set the path?
+--------------------
+step1: to copy the python installation location
+
+step2: goto ThisPc
+	   |
+       Right click on ThisPc
+	   |
+       click on Properties
+	   |
+       goto advanced system settings
+	   |
+       goto environment variables
+	   |
+       goto system variables
+           |
+       to select path variable and click on edit
+(windows8,10,11 again click on edittext and click on ok)
+	   |
+	to put ; and to paste the previous copied location
+				(reference to step1)
+	   |
+	click on ok
+	   |
+        click on ok
+           |
+        click on ok
+
+note:
+----
+after setting the path successfully,now onwards we can access the python interpreter on any location of our computer.
+
+C:\Users\DELL>python
+Python 3.9.7 information.
+>>> print("hai")
+hai
+>>> ^Z
+
+C:\Users\DELL>e:
+
+E:\>python
+Python 3.9.7 
+>>> print("hello")
+hello
+>>> ^Z
+
+E:\>
+
+
+how to find python version?
+----------------------------
+C:\Users\DELL>python --version
+Python 3.9.7
+
+	(or)
+
+C:\Users\DELL>python -V
+Python 3.9.7
+
+how to developing python applications or python programs python projects?
+---------------------------------------------------------------
+	we can developing python applications or python programs or python projects in two ways/modes,they are
+
+	1).Interactive Mode
+
+	2).Batch Mode
+
+Interactive Mode:
+-----------------
+	in Interactive Mode,we can write the one by one python statements directly on python interpreter and executeing.
+
+how to working with Interactive Mode?
+-------------------------------------
+	goto search by typing cmd/terminal
+			|
+	goto cmd or terminal and by typing python 
+	and to press enter
+
+C:\Users\DELL>python
+Python 3.9.7 
+>>> print("hello world")
+hello world
+>>> x=10
+>>> y=20
+>>> x+y
+30
+>>> x-y
+-10
+>>>
+
+how to exit from python interactive mode?
+-----------------------------------------
+	we can exit from python interactive mode by using ctrl+z or exit() or quit()
+
+note:
+----
+the python interactive mode working mechanism is based on REPL rule.
+
+	Read Evaluate Print Loop
+
+problems in Interactive Mode:
+-----------------------------
+	once we are exit from python interactive mode previous workdone will not be saved in any where,because of that reason python interactive mode is not suitable for development of the applications but it is suitable for learning the python.
+
+Batch Mode:
+-----------
+	in batch mode,we can write the one or more python statements into a single file,we can save that file with '.py' extension and executeing that file.
+
+how to implement the Batch MOde?
+--------------------------------
+	we can implement the Batch Mode in two ways,they are
+
+	1).by using Editors
+
+	2).by using IDE's
+
+what is Editor?
+---------------
+	Editor is a application,which will provides good environment to writeing the source-code(text/anything).
+
+	windows		--> notepad
+			    notepad++
+			    editplus
+			    sublime text editor
+			      ....
+			      ....
+
+	linux/unix/mac	--> Vi editor
+			    nano editor
+			    text editor
+			    sublime text editor
+				.....
+				.....
+
+how to working with editor's?
+-----------------------------
+	open any one editor from our computer
+			|
+	goto file menu and to select new file
+			|
+	to write the python statements into that file
+			|
+	to save that file with '.py' extension
+
+ex:
+---
+	demo.py
+	-------
+print("hello world")
+
+how to run python files/scripts through the cmd/terminal?
+----------------------------------------------------------
+	we can run python files/scripts through the cmd/terminal by using following syntax,
+
+	python filename.py
+
+ex:
+---
+C:\Users\DELL>python demo.py
+python: can't open file 'C:\Users\DELL\demo.py': [Errno 2] No such file or directory
+
+C:\Users\DELL>python desktop\demo.py
+hello world
+
+	(or)
+
+C:\Users\DELL>cd Desktop
+
+C:\Users\DELL\Desktop>python demo.py
+hello world
+
+	(or)
+
+C:\Users\DELL\Desktop>py demo.py
+hello world
+
+	(or)
+
+C:\Users\DELL\Desktop>demo.py
+hello world
+
+problems in editors:
+--------------------
+in editors,the development of the application takes more time.
+
+editor's dont supporting automatic debugging concept
+
+note:
+-----
+to overcome the problems in Editor's we are going to IDE's concept.
+
+IDE's
+------
+IDE's(Integrated Development Environment's)
+
+IDE's is a Tool,which will provides good environment to implement the applications.
+
+IDE's are to Reduce the development time
+IDE's are supports Automatic Debugging concept.
+
+the python supported IDE's are 
+		idle
+		Pycharm
+		Spyder
+		Eclipse
+		NetBeans
+		VS code
+		Atom
+		JupyterNotebook
+		....
+		....etc.,
+
+idle
+----
+idle is a default python IDE on windows environment but it is not a standard IDE.
+
+idle supports both Interactive Mode and Batch Mode
+
+how to working with Interactive mode in idle?
+---------------------------------------------
+	goto search
+	    |
+	by typeing python idle
+	    |
+	to select any one idle from our computer
+
+>>> print("hello world")
+hello world
+>>> x=10
+>>> y=20
+>>> x+y
+30
+>>> x-y
+-10
+>>> 
+
+how to working with Batch mode in idle?
+---------------------------------------------
+	goto search
+	    |
+	by typeing python idle
+	    |
+	to select any one idle from our computer
+	    |
+	goto file menu and to select new file
+	    |
+	to write the python statements into that file
+	    |
+	to save that file with .py extension
+
+how to run python files in idle?
+--------------------------------
+	goto run menu
+	     |
+	click on run module
+
+		(or)
+
+	 to press F5 or Fn+F5
+
+
+
+
+
+
+
+
+
+
+
+
+
+

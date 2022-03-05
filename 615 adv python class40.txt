@@ -1,0 +1,238 @@
+Closure's:
+-----------
+	a closure is a function,we can treat any function as a closure function,that function should follows some rules,
+
+	rule1:
+	------
+	the function must be defined as a nested function
+
+	rule2:
+	-----
+	the inner function must refer to a value that is defined in the enclosed/outer function
+
+	rule3:
+	-----
+	the outer function must return a nested function
+
+ex:
+---
+def f1(x): #outer/enclosed
+    def f2(): #inner/nested
+        print("hai")
+        print(x)
+        print("good evening")
+    return f2
+a=f1("siva krishna")
+a()
+print("bye")
+        
+output:
+------
+hai
+siva krishna
+good evening
+bye
+
+Decorator's:
+------------
+Decorator is a function,it is similar to closure function but it will takes the input as either function or method,to add some functionalities to that function/methods and return that function/method.
+
+ex:
+---
+def f1(x): #outer/enclosed
+    def f2(): #inner/nested
+        print("hai")
+        x()
+        print("good evening")
+    return f2
+def f3():
+    print("siva krishna")
+a=f1(f3)
+a()
+print("bye")
+        
+output:
+------
+hai
+siva krishna
+good evening
+bye
+
+ex2:
+---
+def f1(x): 
+    def f2(): 
+        print("hai")
+        x()
+        print("good evening")
+    return f2
+@f1
+def f3():
+    print("siva krishna")
+f3()
+print("bye")
+        
+output:
+------
+hai
+siva krishna
+good evening
+bye
+
+ex3:
+---
+ 	sample.py
+	---------
+def f1(x): 
+    def f2(): 
+        print("hai")
+        x()
+        print("good evening")
+    return f2
+
+	demo.py
+	-------
+import sample
+@sample.f1
+def f3():
+    print("siva krishna")
+f3()
+print("bye")
+
+	output
+	------
+hai
+siva krishna
+good evening
+bye
+
+working with 'print' function:
+------------------------------
+in python2.x,the print is a keyword not a function.
+
+in python3.x,the print is a function not a keyword.
+
+	print(values,.....,sep=" ",end="\n",file=sys.stdout,
+	      flush=False)
+
+the print() is used to print the value/result to the output window or output screen.
+
+ex1:
+---
+print("hai")
+
+output:
+-----
+hai
+
+ex2:
+---
+print("hai","siva")
+
+output:
+------
+hai siva
+
+ex3:
+---
+print("hai","siva","krishna")
+
+output:
+-------
+hai siva krishna
+
+ex4:
+---
+print("hai","siva","krishna",sep=",")
+
+output:
+------
+hai,siva,krishna
+
+ex5:
+----
+for i in range(3):
+    print("hai")
+
+output:
+------
+hai
+hai
+hai
+
+ex6:
+----
+for i in range(3):
+    print("hai",end=" ")
+
+output:
+------
+hai hai hai
+
+ex7:
+----
+for i in range(3):
+    print("hai",end="")
+
+output:
+------
+haihaihai
+
+ex8:
+---
+for i in range(3):
+    print("hai","siva")
+
+output:
+-------
+hai siva
+hai siva
+hai siva
+
+ex9:
+----
+for i in range(3):
+    print("hai","siva",sep=",",end=" ")
+
+output:
+-------
+hai,siva hai,siva hai,siva 
+
+ex10:
+-----
+f1=open('demo.txt','w')
+print("hai siva krishna")
+print("good evening",file=f1)
+f1.close()
+
+output			demo.txt
+------			---------      
+hai siva krishna       	good evening
+
+
+ex11:
+---
+f1=open('demo1.txt','w')
+print("hai siva krishna")
+print("good evening",file=f1)
+
+output			demo1.txt
+------			---------      
+hai siva krishna       	empty file is created(dont write anything
+			because we can't close the file)
+
+
+ex12:
+----
+f1=open('demo2.txt','w')
+print("hai siva krishna")
+print("good evening",file=f1,flush=True)
+
+output			demo2.txt
+------			---------      
+hai siva krishna       	good evening
+        
+        
+
+
+

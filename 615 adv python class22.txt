@@ -1,0 +1,265 @@
+		Packages
+		========
+a package is a Folder/directory.
+
+we can treat any package as a python package,that package should contains minimum one python file(__init__.py).
+
+	(or)
+
+a package is a Collection of python modules
+
+some time a package contains sub-packages also,we can treat that sub package as a python sub-package,that sub package contains __init__.py file.
+
+ex:
+---
+	C:\Python310\example\main_pack\addition.py
+	-----------------------------------------
+a=10
+b=20
+def add(x,y):
+    z=x+y
+    print(z)
+
+	C:\Python310\example\main_pack\subtraction.py
+	---------------------------------------------
+c=30
+d=40
+def sub(x,y):
+    z=x-y
+    print(z)
+
+
+	C:\Python310\example\main_pack\__init__.py
+	------------------------------------------
+empty file
+
+
+	C:\Python310\example\main_pack\sub_pack\multiplication.py
+	---------------------------------------------------------
+e=50
+f=60
+def mul(x,y):
+    z=x*y
+    print(z)
+
+	C:\Python310\example\main_pack\sub_pack\__init__.py
+	---------------------------------------------------
+empty file
+
+normal importing  a package:
+----------------------------
+
+	C:\Python310\example\test.py
+	-----------------------------
+import main_pack.addition
+import main_pack.subtraction
+import main_pack.sub_pack.multiplication
+print(main_pack.addition.a)
+print(main_pack.addition.b)
+main_pack.addition.add(4,5)
+print(main_pack.subtraction.c)
+print(main_pack.subtraction.d)
+main_pack.subtraction.sub(10,20)
+print(main_pack.sub_pack.multiplication.e)
+print(main_pack.sub_pack.multiplication.f)
+main_pack.sub_pack.multiplication.mul(2,3)
+
+output:
+-----
+10
+20
+9
+30
+40
+-10
+50
+60
+6
+
+renameing a package
+-------------------
+	C:\Python310\example\test.py
+	-----------------------------
+import main_pack.addition as ma
+import main_pack.subtraction as ms
+import main_pack.sub_pack.multiplication as msm
+print(ma.a)
+print(ma.b)
+ma.add(4,5)
+print(ms.c)
+print(ms.d)
+ms.sub(10,20)
+print(msm.e)
+print(msm.f)
+msm.mul(2,3)
+
+output:
+-------
+10
+20
+9
+30
+40
+-10
+50
+60
+6
+
+from importing a package
+-------------------------
+	C:\Python310\example\test.py
+	-----------------------------
+from main_pack.addition import a,b,add
+from main_pack.subtraction import c,d,sub
+from main_pack.sub_pack.multiplication import e,f,mul
+print(a)
+print(b)
+add(4,5)
+print(c)
+print(d)
+sub(10,20)
+print(e)
+print(f)
+mul(2,3)
+
+output:
+-----
+10
+20
+9
+30
+40
+-10
+50
+60
+6
+
+from import with *
+-------------------
+	C:\Python310\example\test.py
+	-----------------------------
+from main_pack.addition import *
+from main_pack.subtraction import *
+from main_pack.sub_pack.multiplication import *
+print(a)
+print(b)
+add(4,5)
+print(c)
+print(d)
+sub(10,20)
+print(e)
+print(f)
+mul(2,3)
+
+output:
+------
+10
+20
+9
+30
+40
+-10
+50
+60
+6
+
+		Multi-Threading
+		---------------
+what is Multi-Tasking?
+----------------------
+	the concept of doing/executeing multiple/several tasks parallely,is known as a Multi-Tasking.
+
+the Multi-Tasking Can be categorized into two types,they are
+
+	1).Thread Based Multi-Tasking
+		ex: Multi-Threading
+
+	2).Process Based Multi-Tasking
+		ex: Multi-Processing
+
+
+what is Multi-Threading?
+-----------------------
+	the concept of doing/executeing multiple/several threads parallely,is known as a Multi-Threading.
+
+what is Thread?
+--------------
+	a thread is a light-weight process,which is used to represent the business logics,to perform a particular operation.
+
+		(or)
+
+	a thread is a small piece of code in our progrm,to perform particular action.
+
+we can implement the multi-threading in python,by using threading module.
+
+in object oriented programming languages,every program act as a one thread,that thread is called main thread.
+
+how to create a thread?
+-----------------------
+	we can define any logic as a thread by overriding run() of Thread class of threading module.
+
+ex1:
+---
+import threading
+print("welcome")
+class test(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+t1=test()
+t1.run()
+for j in range(5):
+    print("siva")
+
+output:
+-------
+welcome
+hai
+hai
+hai
+hai
+hai
+siva
+siva
+siva
+siva
+siva
+
+note:
+----
+in the above example we are creating a thread but it is not activated.
+
+we can start's the our thread activity(to activate the thread) by calling run() method logic through the start() of Thread class of threading module.
+
+whenever we are calling run() logic directly,in that case that run() logic act as a normal method dont act as a thread.
+
+ex2:
+----
+import threading
+print("welcome")
+class test(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+t1=test()
+t1.start()
+for j in range(5):
+    print("siva")
+
+output:
+------
+welcome
+haisiva
+
+haisiva
+
+haisiva
+
+haisiva
+
+haisiva
+
+
+
+
+

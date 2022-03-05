@@ -1,0 +1,374 @@
+isalnum()
+---------
+to check wheather given string object contains only alphabets or digits or both combination of alphabets and digits or not
+
+	strobj.isalnum()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva123"
+>>> b="siva@123"
+>>> c="123"
+>>> x.isalnum()
+True
+>>> y.isalnum()
+True
+>>> z.isalnum()
+True
+>>> a.isalnum()
+True
+>>> b.isalnum()
+False
+>>> c.isalnum()
+True
+
+isalpha()
+---------
+	to check wheather given string object contains only alphabets or not.
+
+	strobj.isalpha()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva123"
+>>> b="siva@123"
+>>> c="123"
+>>> x.isalpha()
+True
+>>> y.isalpha()
+True
+>>> z.isalpha()
+True
+>>> a.isalpha()
+False
+>>> b.isalpha()
+False
+>>> c.isalpha()
+False
+
+isdigit()
+--------
+to check wheather given string object contains only digits or not
+
+	strobj.isdigit()
+
+>>> a="siva123"
+>>> b="siva@123"
+>>> c="123"
+>>> a.isdigit()
+False
+>>> b.isdigit()
+False
+>>> c.isdigit()
+True
+
+casefold()
+---------
+if we want to perform caseless comparissions in that case we are using casefold()
+
+internally the casefold() to convert the string into lowercase and compare the strings.
+
+	strobj.casefold()
+
+the casefold() is used to ignore cases.
+
+ex:
+---
+>>> x="rama"
+>>> y="rama"
+>>> z="Rama"
+>>> x==y
+True
+>>> x==z
+False
+>>> x==z.casefold()
+True
+>>> x==z.lower()
+True
+
+format()
+-------
+to format the string into our required format
+
+	strobj.format()
+
+>>> "{}{}".format("hai","siva","krishna")
+'haisiva'
+
+>>> "{0} {2}".format("hai","siva","krishna")
+'hai krishna'
+
+>>> "{} {} {}".format("hai","siva","krishna")
+'hai siva krishna'
+
+>>> "{1} {2} {0}".format("hai","siva","krishna")
+'siva krishna hai'
+
+>>> "{} {} {} {}".format("hai","siva","krishna")
+IndexError: Replacement index 3 out of range for positional args tuple
+
+>>> "{} {2} {0}".format("hai","siva","krishna")
+ValueError: cannot switch from automatic field numbering to manual field specification
+
+>>> "{1} {2} {}".format("hai","siva","krishna")
+ValueError: cannot switch from manual field specification to automatic field numbering
+
+ex:
+---
+	demo.py
+	------
+name="siva"
+age=29
+print("my name is",name,"and my age is",age)
+print("my name is %s and my age is %d"%(name,age))
+print("my name is {} and my age is {}".format(name,age))
+print(f"my name is {name} and my age is {age}")
+
+	output
+	------
+C:\Users\DELL\Desktop>python demo.py
+my name is siva and my age is 29
+my name is siva and my age is 29
+my name is siva and my age is 29
+my name is siva and my age is 29
+
+note:
+----
+from python3.9 versions onwards in str class to introduce two new methods,they are
+
+	removeprefix()
+	removesuffix()
+
+>>> x="aabbaa"
+>>> x.lstrip('a')
+'bbaa'
+>>> x
+'aabbaa'
+>>> x.removeprefix('a')
+'abbaa'
+>>> x
+'aabbaa'
+>>> x.rstrip('a')
+'aabb'
+>>> x
+'aabbaa'
+>>> x.removesuffix('a')
+'aabba'
+>>> x
+'aabbaa'
+
+		Operators
+		---------
+what is operator?
+---------------
+	operator is a special charecter,which is used to perform the operation on the data of the operands/objects.
+
+	x=10
+	y=20
+	
+	x + y	---> expression(it is a combination both operands 
+				and operators)
+
+		--> here x and y are the operands
+		         + is a operator
+			10 and 20 are the data of the operands
+
+types of operators:
+------------------
+	1).Arithmetic Operators
+	2).Comparission/Relational Operators
+	3).Logical Operators
+	4).Bitwise Operators
+	5).Assignment Operators
+	6).Identity Operators
+	7).Membership Operators
+
+Arithmetic Operators:
+---------------------
+	These operators are used to perform Arithmetic calculations/operations.
+
+Arithmetic 	Arithmetic 	inputs		result
+   calculation	     operator   x=10,y=3        
+--------------	-------------	---------	--------
+addition		+	x+y		13
+
+subtraction		-	x-y		7
+
+multiplication		*	x*y		30
+
+division		/	x/y		3.3333335
+	   (floating point division)
+
+floor division		//			3
+		(integer division)
+
+modulo			%	x%y		1
+
+exponent		**	x**y		1000
+
+
+ex:
+---
+	arith.py
+	--------
+x,y=10,3
+print(x+y)
+print(x-y)
+print(x*y)
+print(x/y)
+print(x//y)
+print(x%y)
+print(x**y)
+
+	output
+	-------
+C:\Users\DELL\Desktop>python arith.py
+13
+7
+30
+3.3333333333333335
+3
+1
+1000
+
+example in python2.x
+--------------------
+>>> x=10
+>>> y=3
+>>> x/y
+3
+>>> x//y
+3
+
+example in python3.x
+--------------------
+>>> x=10
+>>> y=3
+>>> x/y
+3.3333333333333335
+>>> x//y
+3
+
+string concatination:
+----------------------
+	if we want to performeing string concatination to required both inputs are string objects only.
+
+>>> x="siva"
+>>> y="krishna"
+>>> z=3
+>>> x+y
+'sivakrishna'
+>>> x+z
+TypeError: can only concatenate str (not "int") to str
+
+string multiplication:
+---------------------
+	if we want to perform string multiplication to required minimum one input is integer object.
+
+>>> x="siva"
+>>> y="krishna"
+>>> z=3
+>>> x*y
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> x*z
+'sivasivasiva'
+>>> z*x
+'sivasivasiva'
+>>> y*z
+'krishnakrishnakrishna'
+
+
+Comparission/Relational Operators:
+----------------------------------
+	these operators are used to compare the data of the objects/operands.
+
+	these operators to return the output as a boolean values.
+
+the Comparission/Relational Operators are
+
+	equal too			--> ==
+
+	not equal too			--> !=
+
+	lessthan			--> <
+
+	lessthan or equal too		--> <=
+
+	greaterthan			--> >
+
+	greaterthan or equal too	--> >=
+
+ex:
+---
+	comp.py
+	-------
+x,y=10,3
+print(x==y)
+print(x!=y)
+print(x<y)
+print(x<=y)
+print(x>y)
+print(x>=y)
+
+	output
+	------
+C:\Users\DELL\Desktop>python comp.py
+False
+True
+False
+False
+True
+True
+	
+
+Logical Operators:
+------------------
+	these operators are used to perform mathmatical logical operfations.
+
+	these operators takes the input as boolean and to return the output as boolean.
+
+	logical operation	logical operators
+				c/c++		python
+	------------------	-----------------------
+	logical and		&&		and
+
+	logical or		||		or
+
+	logical not		!		not
+
+
+truth table of logical opertaors
+----------------------------------
+   input's			output's
+----------------------------------------------------------------
+ip_1	ip_2	ip_1 and ip_2	ip_1 or ip_2  not ip_1  not ip_2
+-------------   -------------------------------------------------
+False	False	    False	    False	True	True	     
+
+False   True	    False	    True	True	False
+
+True	False	    False	    True	False	True
+
+True	True	    True	    True	False	False
+
+
+	log.py
+	------
+print(True and not False)
+print(False or not True)
+print(not True or True)
+print(False and True)
+print(True or False)
+print(not True)
+
+	output
+	-------
+C:\Users\DELL\Desktop>python log.py
+True
+False
+True
+False
+True
+False

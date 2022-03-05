@@ -1,0 +1,252 @@
+dict object dont supporting both indexing and slicing concepts.
+
+dict object supporting hashing concept(by using keys)
+
+we can retreive the value from the dict object by using hashing concept.
+
+>>> x={"siva":7,(5,6):7.2,False:[5,6],4j:{7,8},2:"rama"}
+>>> x
+{'siva': 7, (5, 6): 7.2, False: [5, 6], 4j: {8, 7}, 2: 'rama'}
+>>> x['siva']
+7
+>>> x[(5,6)]
+7.2
+>>> x[False]
+[5, 6]
+>>> x[4j]
+{8, 7}
+>>> x[2]
+'rama'
+
+we can add the item into the dict object by using hashing concept.
+>>> y={'m':45,'sc':89,'tel':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 90}
+>>> y['hin']=75
+>>> y
+{'m': 45, 'sc': 89, 'tel': 90, 'hin': 75}
+
+we can update the dict object values by using hashing concept.
+>>> y={'m':45,'sc':89,'tel':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 90}
+>>> y['sc']=95
+>>> y
+{'m': 45, 'sc': 95, 'tel': 90}
+
+we can't assign dict object as a key to the another dict object but we can asign dict object as a value to the another dict object.
+
+>>> a={'sname':'siva','marks':{'m':78,'sc':74}}
+>>> a
+{'sname': 'siva', 'marks': {'m': 78, 'sc': 74}}
+
+>>> b={'sname':'siva',{'m':78,'sc':74}:'marks'}
+TypeError: unhashable type: 'dict'
+
+working with functions:
+----------------------
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> len(y)
+4
+>>> min(y)
+'m'
+>>> max(y)
+'tel'
+>>> sorted(y)
+['m', 'sc', 'so', 'tel']
+>>> sorted(y,reverse=True)
+['tel', 'so', 'sc', 'm']
+>>> min(y.values())
+23
+>>> max(y.values())
+90
+>>> sorted(y.values())
+[23, 45, 89, 90]
+>>> sorted(y.values(),reverse=True)
+[90, 89, 45, 23]
+>>> min(y.items())
+('m', 45)
+>>> max(y.items())
+('tel', 23)
+>>> sorted(y.items())
+[('m', 45), ('sc', 89), ('so', 90), ('tel', 23)]
+>>> sorted(y.items(),reverse=True)
+[('tel', 23), ('so', 90), ('sc', 89), ('m', 45)]
+
+
+note:
+----
+from python3.8 onwards dict object act as a reversible object.
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> reversed(y)
+<dict_reversekeyiterator object at 0x00000129D5BF1E00>
+>>> dict(reversed(y.items()))
+{'so': 90, 'tel': 23, 'sc': 89, 'm': 45}
+
+working with dict class methods:
+--------------------------------
+copy()
+-----
+to create a shallow copy of a dict object
+
+	dictobj.copy()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> x=y.copy()
+>>> x
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+
+clear()
+------
+to clear the dict object
+     (or)
+to remove all the items from the dict object at a time
+
+	dictobj.clear()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> len(y)
+4
+>>> y.clear()
+>>> y
+{}
+>>> len(y)
+0
+
+pop()
+----
+to remove an particular item from the dict object based on key.
+
+	dictobj.pop(key)
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> y.pop('sc')
+89
+>>> y
+{'m': 45, 'tel': 23, 'so': 90}
+>>> y.pop('py')
+KeyError: 'py'
+
+popitem()
+-------
+to remove an item from the dict object
+
+in sequences,by default it will remove from right to left.
+
+	dictobj.popitem()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> y.popitem()
+('so', 90)
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23}
+>>> y.popitem()
+('tel', 23)
+>>> y
+{'m': 45, 'sc': 89}
+
+keys()
+----
+to return all the keys from the given dict object
+
+	dictobj.keys()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y.keys()
+dict_keys(['m', 'sc', 'tel', 'so'])
+>>> for k in y.keys():
+        print(k)
+
+m
+sc
+tel
+so
+
+
+values():
+---------
+to return all the values from the dict object
+
+	dictobj.values()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y.values()
+dict_values([45, 89, 23, 90])
+>>> for v in y.values():
+        print(v)
+
+45
+89
+23
+90
+
+items()
+-----
+to return the items from the dict object
+
+	dictobj.items()
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y.items()
+dict_items([('m', 45), ('sc', 89), ('tel', 23), ('so', 90)])
+>>> for i in y.items():
+        print(i)
+
+('m', 45)
+('sc', 89)
+('tel', 23)
+('so', 90)
+
+get()
+-----
+to get the value from the dict object based on key
+
+	dictobj.get(key)
+
+>>> y={'m':45,'sc':89,'tel':23,'so':90}
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> y['sc']
+89
+>>> y.get('sc')
+89
+>>> y['py']
+KeyError: 'py'
+>>> y.get('py')
+>>> y
+{'m': 45, 'sc': 89, 'tel': 23, 'so': 90}
+>>> y.get('sc',56)
+89
+>>> y.get('py',56)
+56
+
+fromkeys()
+--------
+to assign the single value to the multiple keys at a time.
+
+	dictobj.fromkeys(key,value)
+
+		here key must be iterable object
+		     value is iterable/non-iterable
+
+>>> {}.fromkeys("siva",4)
+{'s': 4, 'i': 4, 'v': 4, 'a': 4}
+>>> {}.fromkeys(['m','sc'],67)
+{'m': 67, 'sc': 67}
+>>> {}.fromkeys(['m','sc'],[6,3])
+{'m': [6, 3], 'sc': [6, 3]}
+>>> {}.fromkeys(4,"siva")
+TypeError: 'int' object is not iterable

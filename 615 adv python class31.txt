@@ -1,0 +1,161 @@
+ex25:
+----
+wap to return no.of occurencess of given charecter/substr in a file?
+
+	sample3.txt
+	-----------
+hai
+siva krishna
+good evening
+hello
+rama krishna
+good night  
+
+s=input("enter your charecter/substr: ")
+with open('sample3.txt') as f1:
+    if len(s)==1:
+        print(f1.read().count(s))
+    else:
+        print(f1.read().split().count(s))
+
+outputs:
+-------
+enter your charecter/substr: i
+6
+
+enter your charecter/substr: g
+4
+
+enter your charecter/substr: krishna
+2
+
+ex26:
+---
+wap to print the palindrom words in a given file?
+
+	sample5.txt
+	------------
+hai madam
+i dont know malayalam but i know python is a high level programming language.
+
+
+with open('sample5.txt') as f1:
+    for w in f1.read().split():
+        if w==w[::-1]:
+            print(w)
+
+output:
+------
+madam
+i
+malayalam
+i
+a
+level
+
+
+Serialization and Deserialization:
+----------------------------------
+	the process of converting Python supported(native) format into file supported format,is known as a Serialization.
+
+	the process of converting file supported format into Python supported(native) format,is known as a DeSerialization.
+
+	in python,the serialization is also known as a pickeling/marshaling an object.
+
+	the deserialization is also known as a unpickeling/unmarshaling an object.
+
+	we can implement the serialization and deserialization in python by using pickle module.
+
+	we can implement the serialization concept in python by calling dump() of pickle module.
+
+	we can implement the Deserialization concept in python by calling load() of pickle module.
+
+ex1:
+---
+import pickle
+x=[2,3.1,"siva",4j,(6,7)]
+with open('sample6.txt','wb') as f1:
+    pickle.dump(x,f1)
+
+output:
+------
+	sample6.txt
+	------------
+€•J       ]”(KG@ÌÌÌÌÌÍŒsiva”Œbuiltins”Œcomplex”“”G        G@      †”R”KK†”e.
+
+ex2:
+---
+	sample6.txt
+	------------
+€•J       ]”(KG@ÌÌÌÌÌÍŒsiva”Œbuiltins”Œcomplex”“”G        G@      †”R”KK†”e.
+
+
+import pickle
+with open('sample6.txt','rb') as f1:
+    print(pickle.load(f1))
+
+output:
+-------
+[2, 3.1, 'siva', 4j, (6, 7)]
+
+working with json files:
+------------------------
+	json means java script object notation.
+
+	the json files to store the data in the form of key-value pairs,it's like as a dictionary object in python.
+
+	if we want to working json files to required json package.
+
+	we can write the data into json files by calling dump() of json package.
+
+	we can read the data from json files by calling load() of json package.
+
+ex1:
+---
+import json
+data={"emp":[{'eid':101,'ename':"siva",'sal':3000},
+             {'eid':102,'ename':"rama",'sal':2000},
+             {'eid':103,'ename':"krishna",'sal':4000}
+             ],
+      "cust":[{"cid":1,"cname":'abc',"cadd":'hyd'},
+              {"cid":2,"cname":'pqr',"cadd":'pune'},
+              {"cid":3,"cname":'xyz',"cadd":'vizag'}
+              ]
+      }
+with open('sample6.json','w') as f1:
+    json.dump(data,f1)
+
+output:
+------
+	sample6.json
+	-----------
+{"emp": [{"eid": 101, "ename": "siva", "sal": 3000}, {"eid": 102, "ename": "rama", "sal": 2000}, {"eid": 103, "ename": "krishna", "sal": 4000}], "cust": [{"cid": 1, "cname": "abc", "cadd": "hyd"}, {"cid": 2, "cname": "pqr", "cadd": "pune"}, {"cid": 3, "cname": "xyz", "cadd": "vizag"}]}
+
+ex2:
+---
+	sample6.json
+	-----------
+{"emp": [{"eid": 101, "ename": "siva", "sal": 3000}, {"eid": 102, "ename": "rama", "sal": 2000}, {"eid": 103, "ename": "krishna", "sal": 4000}], "cust": [{"cid": 1, "cname": "abc", "cadd": "hyd"}, {"cid": 2, "cname": "pqr", "cadd": "pune"}, {"cid": 3, "cname": "xyz", "cadd": "vizag"}]}
+
+
+import json
+with open('sample6.json') as f1:
+    x=json.load(f1)
+    print(x)
+    print('*'*20)
+    print(x['cust'])
+    print('*'*20)
+    print(x['cust'][1])
+    print('*'*20)
+    print(x['cust'][1]['cname'])
+
+output:
+------
+{'emp': [{'eid': 101, 'ename': 'siva', 'sal': 3000}, {'eid': 102, 'ename': 'rama', 'sal': 2000}, {'eid': 103, 'ename': 'krishna', 'sal': 4000}], 'cust': [{'cid': 1, 'cname': 'abc', 'cadd': 'hyd'}, {'cid': 2, 'cname': 'pqr', 'cadd': 'pune'}, {'cid': 3, 'cname': 'xyz', 'cadd': 'vizag'}]}
+********************
+[{'cid': 1, 'cname': 'abc', 'cadd': 'hyd'}, {'cid': 2, 'cname': 'pqr', 'cadd': 'pune'}, {'cid': 3, 'cname': 'xyz', 'cadd': 'vizag'}]
+********************
+{'cid': 2, 'cname': 'pqr', 'cadd': 'pune'}
+********************
+pqr
+	

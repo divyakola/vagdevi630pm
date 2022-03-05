@@ -1,0 +1,75 @@
+		Module's
+		--------
+a module is a python file,which contains executable statements,variables,function's and classes.
+
+python file name is a module name.
+
+	ex:
+	---
+		sample.py	--> sample is a module name
+
+in python,by default every python file act as a one module,that module is called main module.
+
+if we want to access the data from one module to another module first we need to import that module into our program.
+
+whenever we are importing a module,that imported module act as a sub module.
+
+modules provides reusability of code from outside the program
+
+modules provides better modularity of our applications.
+
+how python interpreter work's internally?
+-----------------------------------------
+the python interpreter takes the input as our source code
+		|
+to convert that source code into tokens(Lexing/lexer)
+		|
+to convert tokens into Abstract syntax Trees(ABS) (Parser)
+		|
+to convert Abstract syntax Trees into 
+Intermediate Level Code(Bytecode) (compiler)
+		|
+the python virtual machine(PVM) takes the Bytecode and execute that byte code,finally to produce the result to the user.
+
+
+whenever we are executeing python modules internally .pyc files are generated.
+
+main module related .pyc files are generated everytime but main module .pyc files are not visible.
+
+the sub module .pyc files are generated at only once at the time first execution,that .pyc files are visible.
+
+the sub module related .pyc files are located in __pycache__ folder.
+
+ex:
+---
+	C:\\Python310\\rama\\demo.py
+	----------------------------
+print("hai")
+
+	C:\\Python310\\rama\\msg.py
+	----------------------------
+import demo
+print("siva")
+print("good evening")
+
+	output
+	------
+hai
+siva
+good evening
+
+structure:
+---------
+	C:\\Python310
+	     |--->rama
+             |     |--->__pycache__
+             |     |        |---> demo.pyc
+             |     |--->demo.py
+             |     |--->msg.py
+
+
+
+
+
+
+

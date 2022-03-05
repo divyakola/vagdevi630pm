@@ -1,0 +1,237 @@
+		Database Connectivity
+		---------------------
+what is Data?
+-----------
+	it is a raw fact,that can be processed.
+
+types of data:
+-------------
+in generally,the data can be categorized into 3-types,they are
+
+	1).Structured data    --> tables
+
+	2).semi-structured data	--> csv,xml,json
+
+	3).unstructured data	--> maps,graphs,images,audio,video
+
+what is database?
+-----------------
+it is a collection organized,related data.
+
+types of databases:
+-------------------
+	1).SQL Databases
+		ex: mysql,oracle,sqlite3,postgresql,
+		    ms-sql server,....etc.,
+
+	2).No-SQL Databases
+		ex: mongoDB,Cassandra,DynamoDB,Bigtable,...,etc.,
+
+what is DBMS?
+-------------
+DBMS(DataBase Management System) is a software,which is used to create,manipulate and delete the databases.
+
+	RDBMS(Relational DataBase Management System's)
+	ORDBMS(Object Relational DataBase Management System's)
+
+what is SQL?
+-------------
+SQL(Structured Query Language) is a Query Language,which is used to communicate the databases.
+
+the Basic SQL commands are
+
+	1).DDL(Data Definition Languages)
+		these commands are auto-commited statements
+
+		Create
+		Alter
+            	   add
+	    	   modify
+	    	   rename
+	    	   drop
+		Rename
+		Drop
+		Truncate
+
+	2).DML(Data manipulation Languages)
+		these commands are Commited statements
+
+		Update
+		Insert
+		Delete
+
+	3).DRL/DQL(Data Retreival/Query Languages)
+
+		Select
+		
+	4).DCL(Data Control Languages)
+
+		Grant
+		Revoke
+
+	5).TCL(Transaction Control Languages)
+
+		Commit
+		Rollback
+		SavePoint
+
+if we want to connect and communicate the databases through python progra/script,to required following things
+
+	1). Database server	
+
+	2).python Database API/Package
+
+
+	Database server		python DatabaseAPI
+	---------------		-------------------
+	oracle			cx_Oracle
+	mysql			mysql-connector-python,
+				mysqlclient
+
+	postgresql		psycopg2
+	sqlite			sqlite3
+	ms-sql server		pyodbc
+	mongodb			pymongo
+	  ...			...
+
+how to install and uninstall 3rd party packages in python?
+-----------------------------------------------------------
+	we can install and uninstall 3rd party packages in python by using "pip".
+
+	pip(python installation package) is a python package manager to handle the install and uninstall the other packages.
+
+	pip install packagename
+
+	pip uninstall packagename
+
+ex:
+---
+C:\Python310\Scripts>pip install cx_Oracle
+
+C:\Python310\Scripts>pip uninstall cx_Oracle
+
+
+working with sqlite database:
+-----------------------------
+	if we want working with sqlite database to required sqlite3 python package.
+
+	the sqlite3 is a builtin package
+
+note:
+----
+to visualize the sqlite3 database files by using sqlitestudio.
+
+	https://sqlitestudio.pl/
+
+ex1:
+----
+wap to create a database?
+
+import sqlite3
+sqlite3.connect("employe.db")
+print("Database created successfully")
+
+output:
+------
+Database created successfully
+
+ex2:
+---
+wap to create a table?
+
+	create table tablename(colum_name_1 datatype(size) constraint,
+			       colum_name_2 datatype(size),
+					....
+			       colum_name_n datatype(size));
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""create table emp(eid integer primary key,
+ename string,sal double(6,2),dno integer)""")
+print("Table created successfully")
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+Table created successfully
+Connection Closeing
+
+ex3:
+---
+wap to insert the data into the database?
+
+	insert into tablename values(value_1,value_2,...,value_n);
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("insert into emp values(101,'siva',3000,10)")
+cur_obj.execute("insert into emp values(102,'drvid',3100,20)")
+cur_obj.execute("insert into emp values(103,'krishna',2900,30)")
+cur_obj.execute("insert into emp values(104,'laxman',3000,10)")
+cur_obj.execute("insert into emp values(105,'virat',2800,30)")
+cur_obj.execute("insert into emp values(106,'dhoni',2500,10)")
+cur_obj.execute("insert into emp values(107,'rohith',3100,20)")
+cur_obj.execute("insert into emp values(108,'sachin',2700,30)")
+cur_obj.execute("insert into emp values(109,'shewag',2900,10)")
+cur_obj.execute("insert into emp values(110,'mithali',3000,20)")
+print("Records are Inserted Successfully")
+cur_obj.execute("commit")
+print("commit completed")
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+Records are Inserted Successfully
+commit completed
+Connection Closeing
+
+ex4:
+---
+wap to retreive the data from the database?
+
+	select * from tablename;
+
+		(or)
+
+	select column_name_1,column_name_2,.... from tablename;
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+(101, 'siva', 3000.0, 10)
+(102, 'drvid', 3100.0, 20)
+(103, 'krishna', 2900.0, 30)
+(104, 'laxman', 3000.0, 10)
+(105, 'virat', 2800.0, 30)
+(106, 'dhoni', 2500.0, 10)
+(107, 'rohith', 3100.0, 20)
+(108, 'sachin', 2700.0, 30)
+(109, 'shewag', 2900.0, 10)
+(110, 'mithali', 3000.0, 20)
+Connection Closeing
+
+		
+

@@ -1,0 +1,235 @@
+named except block:
+------------------
+	the named except block can handle that particular type of exceptions only.
+
+	except ExceptionClassname:
+		stmt_1
+		stmt_2
+		.....
+		stmt_n
+
+
+ex1:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+except ZeroDivisionError:
+    print("sno can't be zero")
+print("bye")
+
+
+output1: without any exception
+------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2: with exception can be handled
+--------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+output3: with exception can't be handled
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+ValueError: invalid literal for int() with base 10: '2.3'
+
+single try with multiple except blocks?
+---------------------------------------
+	in single try with multiple except blocks,we can define the default except block must be last.
+
+	syntax
+	------
+	try:
+	    stmt_1
+	    ......
+	    stmt_n
+	except ExceptionClassname:
+	    stmt_1
+	    ......
+	    stmt_n
+	except ExceptionClassname:
+	    stmt_1
+	    ......
+	    stmt_n
+	except ExceptionClassname:
+	    stmt_1
+	    ......
+	    stmt_n
+	--------
+	--------
+	except:
+	    stmt_1
+	    ......
+	    stmt_n
+
+ex:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+    a=[10,20,30,40]
+    i=int(input("enter index value: "))
+    print(a[i])
+    b={'m':34,'sc':31,'tel':90}
+    j=input("enter key: ")
+    print(b[j])
+    print(c)
+except ZeroDivisionError:
+    print("sno can't be zero")
+except ValueError:
+    print("Enter Integers only")
+except IndexError:
+    print("Index out of range")
+except KeyError:
+    print("Missing Key")
+except:
+    print("name 'c' is not defined")
+print("bye")
+
+output1:
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+enter index value: 2
+30
+enter key: sc
+31
+name 'c' is not defined
+bye
+
+output2:
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+enter index value: 1
+20
+enter key: py
+Missing Key
+bye
+
+output3:
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+enter index value: 4
+Index out of range
+bye
+
+output4:
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+Enter Integers only
+bye
+
+output5:
+-------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+nested try:
+-----------
+	we can define a try block inside another try block,is known as a nested try.
+
+	syntax
+	------
+	try:  #outer try
+	    stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+	    try: #inner try
+	       stmt_1
+	       stmt_2
+	       .....
+	       stmt_n
+
+
+if any exception occured in our outer-try block,that can be handled by using outer-try-except block only,wheather it is not handled our program execution will be terminates abnormally.
+
+ex1:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    try:
+        z=x/y
+        print(z)
+    except ZeroDivisionError:
+        print("sno can't be zero")
+except ValueError:
+    print("Enter Integers only")
+print("bye")
+
+output1: without any exception
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2: with exception in outer-try,that can be handled
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+Enter Integers only
+bye
+
+ex2:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    try:
+        z=x/y
+        print(z)    
+    except ValueError:
+        print("Enter Integers only")
+except ZeroDivisionError:
+        print("sno can't be zero")
+print("bye")
+
+output1: without any exception
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2: with exception in outer-try,that can't be handled
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+ValueError: invalid literal for int() with base 10: '2.3'
+	

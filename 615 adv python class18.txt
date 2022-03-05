@@ -1,0 +1,183 @@
+working with datetime module:
+-----------------------------
+	if we want to display the properties of datetime module by using following command
+
+	import datetime
+	dir(datetime)
+
+ex:
+---
+>>> import datetime
+>>> x=datetime.datetime.now()
+>>> x
+datetime.datetime(2021, 12, 24, 18, 48, 11, 304296)
+>>> type(x)
+<class 'datetime.datetime'>
+>>> x.year
+2021
+>>> x.month
+12
+>>> x.day
+24
+>>> x.hour
+18
+>>> x.minute
+48
+>>> x.second
+11
+>>> x.microsecond
+304296
+>>> x.ctime()
+'Fri Dec 24 18:48:11 2021'
+>>> x.min
+datetime.datetime(1, 1, 1, 0, 0)
+>>> x.max
+datetime.datetime(9999, 12, 31, 23, 59, 59, 999999)
+>>> x.strftime('%Y-%m-%d')
+'2021-12-24'
+>>> x.strftime('%Y-%m-%d %H:%M:%S')
+'2021-12-24 18:48:11'
+>>> x.weekday()
+4
+
+ex2:
+----
+>>> import datetime
+>>> y=datetime.datetime(1991,1,14,8,23,34,2312)
+>>> y
+datetime.datetime(1991, 1, 14, 8, 23, 34, 2312)
+>>> type(y)
+<class 'datetime.datetime'>
+
+ex3:
+----
+>>> import datetime
+>>> z=datetime.date.today()
+>>> z
+datetime.date(2021, 12, 24)
+>>> type(z)
+<class 'datetime.date'>
+>>> z.year
+2021
+>>> z.month
+12
+>>> z.day
+24
+>>> z.min
+datetime.date(1, 1, 1)
+>>> z.max
+datetime.date(9999, 12, 31)
+>>> z.ctime()
+'Fri Dec 24 00:00:00 2021'
+>>> z.strftime('%Y-%m-%d')
+'2021-12-24'
+
+ex4:
+----
+>>> import datetime
+>>> a=datetime.date(1991,1,14)
+>>> a
+datetime.date(1991, 1, 14)
+>>> type(a)
+<class 'datetime.date'>
+
+ex5:
+---
+>>> import datetime
+>>> b=datetime.time()
+>>> b
+datetime.time(0, 0)
+>>> type(b)
+<class 'datetime.time'>
+
+
+>>> c=datetime.time(19,10,23,2456)
+>>> c
+datetime.time(19, 10, 23, 2456)
+>>> c.hour
+19
+>>> c.minute
+10
+>>> c.second
+23
+>>> c.microsecond
+2456
+>>> c.strftime('%H:%M:%S')
+'19:10:23'
+>>> c.strftime('%H:%M:%S %p')
+'19:10:23 PM'
+>>> c.strftime('%I:%M:%S %p')
+'07:10:23 PM'
+
+ex6:
+----
+>>> import datetime
+>>> x=datetime.datetime.now()
+>>> x
+datetime.datetime(2021, 12, 24, 19, 15, 48, 170143)
+>>> str(x)
+'2021-12-24 19:15:48.170143'
+>>> str(x-datetime.timedelta(days=1))
+'2021-12-23 19:15:48.170143'
+>>> str(x+datetime.timedelta(days=1))
+'2021-12-25 19:15:48.170143'
+>>> str(x-datetime.timedelta(hours=1))
+'2021-12-24 18:15:48.170143'
+>>> str(x+datetime.timedelta(hours=1))
+'2021-12-24 20:15:48.170143'
+
+ex7:
+---
+wap to implement the simple age calculator?
+
+from datetime import date
+name=input("enter your name: ")
+byear=int(input("enter your birth year: "))
+cyear=date.today().year
+print("Hey %s,You are %d'Years Old"%(name,cyear-byear))
+
+output:
+------
+enter your name: siva
+enter your birth year: 1991
+Hey siva,You are 30'Years Old
+
+ex8:
+---
+wap to implement the birthday remainder application?
+
+from datetime import datetime
+from calendar import isleap
+name=input("enter your name: ")
+m=int(input("enter month number: "))
+d=int(input("enter day: "))
+date=datetime.now()
+d1=date.year
+
+days=date.timetuple()
+cy=date.today().year
+cm=date.today().month
+cd=date.today().day
+if cm<m:
+    pass
+else:
+    if isleap(cy):
+        re_days=366-days.tm_yday
+        x=datetime(d1+1,m,d)
+        y=x.timetuple()
+        print(y.tm_yday+re_days)
+    else:
+        re_days=365-days.tm_yday
+        x=datetime(d1+1,m,d)
+        y=x.timetuple()
+        print("hey %s,%dday's are left"%(name,y.tm_yday+re_days-1))
+        
+
+
+        
+        
+        
+    
+
+
+

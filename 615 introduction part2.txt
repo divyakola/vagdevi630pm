@@ -1,0 +1,90 @@
+what is an Algorithm?
+---------------------
+	Algorithm is a step-by-step process to implement the solution for the given problem.
+
+	Algorithm is a Natural Language
+
+ex:
+--
+write an algorithm to perform addition of two numbers?
+
+step1: start
+step2: takes the inputs from the user
+step3: to perform the addition operation
+step4: to return the result
+step5: stop
+
+ex2:
+----
+write an algorithm to check wheather given number is Even or Odd?
+
+step1: start
+step2: take the number from the user
+step3: if number is divisible by 2
+          then to return given number is Even
+       else 
+	  to return given number is Odd
+step4: stop
+
+what is Flowchart?
+------------------
+	a flowchart is a visual/pictorial representation of an algorithm for easily understanding.
+
+what is PsuedoCode?
+-------------------
+Psuedocode is a mixing of natural langauge and programming language.
+
+it is common for all the programming language
+
+ex:
+--
+write a psuedocode to perform the addition of two numbers?
+
+input: x=10,y=20
+process: sum=x+y
+output: print sum
+
+what is program?
+-------------
+a program is a set of instructions to intend the computer or machine for performeing a one task.
+
+ex:
+---
+write a c-program to perform addition of two numbers?
+
+#include<stdio.h>
+void main()
+{
+ int x=10,y=20,sum;
+ sum=x+y;
+ printf(sum);
+}
+
+ex:
+---
+write a python program to pritn addtion of two numbers;
+
+x=10;y=20;sum
+sum=x+y
+print(sum)
+
+
+what is Python?
+---------------
+python is a General purpose programming Langauge
+python is a High-Level Programming Langauge
+python is a multi-paradigm
+python langauge supporting both interactive and batch mode
+
+		(or)
+
+Python is a General-purpose,High-Level,Interpreted,Interactive,
+Dynamically typed,garbage-collected,modular,procedure-oriented, object-oriented and Scripting Programming langauge.
+
+
+
+
+
+
+
+

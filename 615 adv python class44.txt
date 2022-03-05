@@ -1,0 +1,153 @@
+GUI(Graphical user Interface) application Development:
+------------------------------------------------------
+	if we want to developing GUI applications through python,the python provides various libraries/frameworks,they are
+
+	tkinter(3.x)/Tkinter(2.x)
+	wxpython
+	PyQt/QT5
+	...
+	...
+
+tkinter is a builtin and satndard GUI framework,it makes eaiser to build the GUI application with python.
+
+the tkinter provides various widgets like labels,button's,radiobuttons,check buttons,entry fields,...etc.,
+
+the tkinter provides various geometry configurations like 		pack(),place() and grid()
+
+ex1:
+---
+wap to create a simple plane window?
+
+import tkinter
+window=tkinter.Tk()
+#write something here
+window.mainloop()
+
+ex2:
+---
+wap to create a simple plane window with specific size?
+
+import tkinter
+window=tkinter.Tk()
+window.geometry("500x400")
+window.mainloop()
+
+ex3:
+---
+wap to create a simple plane window with title?
+
+import tkinter
+window=tkinter.Tk()
+window.geometry("500x400")
+window.title("Vagdevi Technologies")
+window.mainloop()
+
+ex4:
+----
+wap to create a simple plane window with background color?
+
+import tkinter
+window=tkinter.Tk()
+window.geometry("500x400")
+window.title("Vagdevi Technologies")
+window['bg']="red"
+window.mainloop()
+
+ex5:
+----
+wap to create a simple plane window with our logo?
+
+	first we need to convert our images like .jpg,.png,.jfif into .ico format
+
+
+import tkinter
+window=tkinter.Tk()
+window.geometry("500x400")
+window.title("Vagdevi Technologies")
+window['bg']="red"
+window.iconbitmap('guido.ico')
+window.mainloop()
+
+ex6:
+---
+wap to create a window with label?
+
+from tkinter import *
+window=Tk()
+L=Label(window,text="Welcome to Vagdevi Technologies")
+L.pack()
+window.mainloop()
+
+ex7:
+----
+wap to create a window with lables?
+
+from tkinter import *
+window=Tk()
+L1=Label(window,text="Welcome to Vagdevi Technologies")
+L1.pack()
+L2=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow")
+L2.pack(side="left")
+L3=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow",bg="red")
+L3.pack(side="right")
+L4=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",font=('elephant',20,'italic'))
+L4.pack(side="bottom")
+window.mainloop()
+
+	(or)
+
+from tkinter import *
+window=Tk()
+L1=Label(window,text="Welcome to Vagdevi Technologies")
+L1.place(x=10,y=20)
+L2=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow")
+L2.place(x=50,y=70)
+L3=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow",bg="red")
+L3.place(x=90,y=120)
+L4=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",font=('elephant',20,'italic'))
+L4.place(x=130,y=170)
+window.mainloop()
+
+	(or)
+
+from tkinter import *
+window=Tk()
+L1=Label(window,text="Welcome to Vagdevi Technologies")
+L1.grid(row=0,column=0)
+L2=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow")
+L2.grid(row=0,column=1)
+L3=Label(window,text="Welcome to Vagdevi Technologies",
+         fg="yellow",bg="red")
+L3.grid(row=1,column=0)
+L4=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",font=('elephant',20,'italic'))
+L4.grid(row=1,column=1)
+window.mainloop()
+
+ex8:
+---
+wap to create a window with radio buttons?
+
+from tkinter import *
+window=Tk()
+window.geometry("1000x900")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+L1=Label(window,text="Select Your Gender:",fg="blue",
+         font=30)
+L1.place(x=50,y=50)
+R1=Radiobutton(window,text="Male",value="m",font=30)
+R1.place(x=200,y=50)
+R2=Radiobutton(window,text="Female",value="f",font=30)
+R2.place(x=300,y=50)
+window.mainloop()
+
+

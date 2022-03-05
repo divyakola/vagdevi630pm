@@ -1,0 +1,332 @@
+mixing of both arbitrary and normal arguments:
+----------------------------------------------
+ex1:
+---
+def f1(*x,y):
+    print(x,type(x))
+    print(y,type(y))
+f1()
+
+output:
+------
+TypeError: f1() missing 1 required keyword-only argument: 'y'
+
+ex2:
+----
+def f1(*x,y):
+    print(x,type(x))
+    print(y,type(y))
+f1(3,2.5,4j,False)
+
+output:
+-----
+TypeError: f1() missing 1 required keyword-only argument: 'y'
+
+ex3:
+----
+def f1(*x,y):
+    print(x,type(x))
+    print(y,type(y))
+f1(3,2.5,4j,y=False)
+
+output:
+-----
+(3, 2.5, 4j) <class 'tuple'>
+False <class 'bool'>
+
+kw args:
+---------
+kw args takes 0 or more keyword arguments
+by default the kw args type is dict
+
+	syntax
+	------
+	def functionname(**parameter):
+		------
+		------
+		------
+ex1:
+----
+def f1(**x):
+    print(x,type(x))
+f1()
+
+output:
+------
+{} <class 'dict'>
+
+ex2:
+----
+def f1(**x):
+    print(x,type(x))
+f1(name="siva",sal=3000)
+
+output:
+------
+{'name': 'siva', 'sal': 3000} <class 'dict'>
+
+ex3:
+---
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1()
+
+output:
+------
+TypeError: f1() missing 1 required positional argument: 'x'
+
+
+ex4:
+---
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(5)
+
+output:
+-----
+5 <class 'int'>
+() <class 'tuple'>
+{} <class 'dict'>
+
+ex5:
+----
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,5,name="siva",sal=3000)
+
+output:
+------
+2.3 <class 'float'>
+(4j, False, 5) <class 'tuple'>
+{'name': 'siva', 'sal': 3000} <class 'dict'>
+
+ex5:
+---
+def f1(*x,y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,5,name="siva",sal=3000)
+
+output:
+------
+TypeError: f1() missing 1 required keyword-only argument: 'y'
+
+ex6:
+----
+def f1(*x,y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,y=5,name="siva",sal=3000)
+
+output:
+-------
+(2.3, 4j, False) <class 'tuple'>
+5 <class 'int'>
+{'name': 'siva', 'sal': 3000} <class 'dict'>
+
+working with return statement:
+------------------------------
+return is a keyword in python,which is used to returneing a value.
+
+ex1:
+---
+def f1(x,y):
+    z=x+y
+    print(z)
+f1(4,5)
+
+output:
+-----
+9
+
+ex2:
+---
+def f1(x,y):
+    z=x+y
+    return z
+f1(4,5)
+
+output:
+------
+no-output(here return statement can't be handled)
+
+how to handle the return statement?
+------------------------------------
+	we can handle the return statement in two ways,they are
+
+scenario-1
+----------
+def f1(x,y):
+    z=x+y
+    return z
+print(f1(4,5))
+
+output:
+------
+9
+
+scenario-2:
+-----------
+def f1(x,y):
+    z=x+y
+    return z
+a=f1(4,5)
+print(a)
+
+output:
+-----
+9
+
+ex:
+---
+def f1(x,y):
+    z=x+y
+    return z
+a=f1(4,5)
+print(a)
+def f2(b):
+    c=a-b
+    print(c)
+f2(4)
+
+output:
+------
+9
+5
+
+in python,we can return multiple values also possible,by default these multiple values to return the output as a tuple format.
+
+def cal(x,y):
+    return x+y,x-y,x*y,x/y,x%y
+print(cal(4,5))
+
+output:
+------
+(9, -1, 20, 0.8, 4)
+
+in python,by default return value is None
+
+def msg():
+    print("hai")
+    print("siva")
+    return
+print(msg())
+
+output:
+------
+hai
+siva
+None
+
+once control reach the return statement then immediately control will come out from that function.
+
+ex:
+---
+def msg():
+    print("hai")
+    print("siva")
+    return
+    print("good evening")
+print(msg())
+print("bye")
+
+output:
+------
+hai
+siva
+None
+bye
+
+Variables:
+----------
+the variables are used to store the data for future purpose/future use.
+
+in procedure oriented mechanism,the variables can be categorized into 3-types,they are
+
+	1).Local Variables
+
+	2).Global Variables
+
+	3).Non-Local Variables
+
+Local Variables:
+---------------
+we can define a variables inside/within the function,that type of variables are called Local variables.
+
+we can access the local variables data with in that function only.
+
+we can't access the local variables data from outside of that function and with in another functions.
+
+ex1:
+---
+def f1():
+    x=10 #local
+    print(x)
+f1()
+
+output:
+------
+10
+
+ex2:
+---
+def f1():
+    x=10 #local    
+f1()
+print(x)
+
+output:
+------
+NameError: name 'x' is not defined
+
+ex3:
+----
+def f1():
+    x=10 #local    
+f1()
+def f2():
+    print(x)
+f2()
+
+output:
+------
+NameError: name 'x' is not defined
+
+Global Varibles:
+-----------------
+we can define variables above the function definition or at the begening of the progra,that type of variables are called Global variables.
+
+we can access the Global variables data in any where in our program.
+
+ex:
+---
+x=10 #global
+def f1():
+    print(x)   
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+------
+10
+10
+10
+
+
+
+
+
+
+
+

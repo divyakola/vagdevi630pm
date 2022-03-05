@@ -1,0 +1,275 @@
+assignment-1:
+--------------
+wap to read the string object as a input and to return the palindrom words in that given string?
+
+input:
+	hai madam i dont know malayalam
+
+output:
+	madam
+	i
+	malayalam
+
+
+x=input("enter your string: ")
+words=x.split()
+i=0
+while i<len(words):
+    if words[i]==words[i][::-1]:
+        print(words[i])
+    i+=1
+
+break statement:
+---------------
+break is a keyword in python,which is used in the looping statements.
+
+if we want to exit from the loop execution at the time of middle of the loop execution,in that case we are using break statement.
+
+ex:
+---
+i=0
+while True:
+    print("hai",i)
+    if i==3:
+        break
+    i+=1
+print("bye")
+
+output:
+------
+hai 0
+hai 1
+hai 2
+hai 3
+bye
+
+note:
+----
+whenever control reach the break statement then immediately control will comeout from that loop execution.
+
+continue statement:
+------------------
+continue is a keyword in python,which is used in the looping statements.
+
+if we want to skip the execution of one particular iteration in that case we are using continue statement.
+
+ex:
+---
+i=0
+while i<5:
+    i+=1
+    if i==3:
+        continue
+    print("hai",i)
+print("bye")
+
+output:
+------
+hai 1
+hai 2
+hai 4
+hai 5
+bye
+
+pass statement:
+---------------
+pass is a keyword in python,which is used to create empty blocks(if block,else block,for block,while block,function,class,method,...) in python.
+
+	c/c++			python
+	-----			-------
+	if(condition)		if condition:
+	 {				pass
+
+				(or)
+          }			
+				if conbdition:
+					...
+
+ex:
+---
+print("hai")
+if 3<5:
+print("bye")
+
+syntax error: expected an indentation block after if condition
+
+ex2:
+---
+print("hai")
+if 3<5:
+    pass
+print("bye")
+
+output:
+-----
+hai
+bye
+
+ex3:
+----
+print("hai")
+if 3<5:
+    ...
+print("bye")
+
+output:
+------
+hai
+bye
+
+ex:
+---
+while True:
+    uname=input("enter your FB UserName: ")
+    if uname!='siva':
+        print("Invalid UserName")
+        continue
+    else:
+        while True:
+            pwd=input("enter your FB password: ")
+            if pwd=='krish@143':
+                break
+            else:
+                print("Invalid Password")
+                continue
+    break
+print("successfully login")
+                
+output:
+------
+enter your FB UserName: abc
+Invalid UserName
+enter your FB UserName: xyz
+Invalid UserName
+enter your FB UserName: siva
+enter your FB password: krish@123
+Invalid Password
+enter your FB password: krish@143
+successfully login
+
+while else
+----------
+	while condition:
+		stmt_1
+		stmt_2
+		.....
+		stmt_n
+	else:
+	    stmt_1
+	    stmt_2
+	    .....
+	    stmt_n
+
+whenever our while condition is Fail/False then only control will goto else block otherwise control dont goto the else block.
+
+ex:
+---
+i=0
+while i<5:
+    print("hai",i)
+    i+=1
+else:
+    print("hello")
+print("bye")
+
+output:
+------
+hai 0
+hai 1
+hai 2
+hai 3
+hai 4
+hello
+bye
+
+ex2:
+---
+i=0
+while i<5:
+    print("hai",i)
+    if i==2:
+        break
+    i+=1
+else:
+    print("hello")
+print("bye")
+
+output:
+------
+hai 0
+hai 1
+hai 2
+bye
+
+ex3:
+----
+i=0
+while i<5:
+    i+=1
+    if i==2:
+        continue
+    print("hai",i)
+else:
+    print("hello")
+print("bye")
+
+output:
+-------
+hai 1
+hai 3
+hai 4
+hai 5
+hello
+bye
+
+assignment-1:
+-----------
+wap to print multiplication table of the given number?
+
+input:
+	num=5
+
+output:
+	5 X 1 = 5
+	5 X 2 = 10
+	 ......
+	 ......
+	5 X 10 = 50
+
+
+assignment-2:
+------------
+wap to print words from the given string,that words starts with Vowel?
+
+input:
+	hai siva how are you
+
+output:
+	are
+
+assignment-3:
+------------
+wap to print words from the given string,that words ends with Vowel?
+
+input:
+	hai siva how are you
+
+output:
+	hai
+	siva
+	are
+	you
+
+
+
+
+
+
+
+
+
+
+
+
+
+

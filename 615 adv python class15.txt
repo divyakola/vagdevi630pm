@@ -1,0 +1,205 @@
+ex12:
+-----
+wap to implement simple Dice Game?
+
+
+from random import randint
+pname=input("enter Player Name: ")
+wallet=float(input("enter deposit balance: "))
+while True:
+    bet=float(input("enter Game Bet: "))
+    if wallet>bet:
+        roll_up=randint(1,6)
+        choice=int(input("Hey %s,select your option: "
+                         %pname))
+        if choice>=1 and choice<=6:
+            print("Dice Face Value is:",roll_up)
+            if roll_up==choice:
+                print("Congrates %s,you are the Winner"
+                      %pname)
+                wallet+=bet
+                print("after update your current wallet\
+ balance is %.2fRs"%wallet)
+            else:
+                print("Sorry %s,you are the Looser"
+                      %pname)
+                wallet-=bet
+                print("after update your current wallet\
+ balance is %.2fRs"%wallet)
+                opt=input("Do you continue this Game: ")
+                if opt in ['Yes','YES','Y','y','yes']:
+                    continue
+                else:
+                    break
+        else:
+            print("Invalid Option")
+            opt=input("Do you continue this Game: ")
+            if opt in ['Yes','YES','Y','y','yes']:
+                continue
+            else:
+                break
+    else:
+        print("Sorry %s,Insufficient ammount in your wallet"
+              %pname)
+        opt=input("Do you want to add the wallet balance: ")
+        if opt in ['Yes','YES','Y','y','yes']:
+            bal=float(input("enetr deposit ammount: "))
+            wallet+=bal
+            print("Sucessfully balance added")
+            print("your current wallet balance is %.2fRs"
+                  %wallet)
+        else:
+            break
+print("Thanks for playing my game")
+            
+output:
+-------
+enter Player Name: siva
+enter deposit balance: 20
+enter Game Bet: 5
+Hey siva,select your option: 3
+Dice Face Value is: 3
+Congrates siva,you are the Winner
+after update your current wallet balance is 25.00Rs
+enter Game Bet: 10
+Hey siva,select your option: 4
+Dice Face Value is: 5
+Sorry siva,you are the Looser
+after update your current wallet balance is 15.00Rs
+Do you continue this Game: y
+enter Game Bet: 20
+Sorry siva,Insufficient ammount in your wallet
+Do you want to add the wallet balance: y
+enetr deposit ammount: 20
+Sucessfully balance added
+your current wallet balance is 35.00Rs
+enter Game Bet: 30
+Hey siva,select your option: 3
+Dice Face Value is: 6
+Sorry siva,you are the Looser
+after update your current wallet balance is 5.00Rs
+Do you continue this Game: no
+Thanks for playing my game
+
+working with 'calendar' module
+-----------------------------
+	if we want to display all the properties of calendar module by using following command
+
+	import calendar
+	print(dir(calendar))
+
+
+ex1:
+---
+wap to print the calendar of the Given year?
+
+from calendar import calendar
+year=int(input("which year calendar you want to print? "))
+print(calendar(year))
+
+	(or)
+
+from calendar import calendar
+year=int(input("which year calendar you want to print? "))
+print(calendar(year,m=2))
+
+	(or)
+
+from calendar import prcal
+year=int(input("which year calendar you want to print? "))
+prcal(year,m=2)
+
+output:
+------
+which year calendar you want to print? 2020
+                     2020
+
+      January                   February
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+       1  2  3  4  5                      1  2
+ 6  7  8  9 10 11 12       3  4  5  6  7  8  9
+13 14 15 16 17 18 19      10 11 12 13 14 15 16
+20 21 22 23 24 25 26      17 18 19 20 21 22 23
+27 28 29 30 31            24 25 26 27 28 29
+
+       March                     April
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+                   1             1  2  3  4  5
+ 2  3  4  5  6  7  8       6  7  8  9 10 11 12
+ 9 10 11 12 13 14 15      13 14 15 16 17 18 19
+16 17 18 19 20 21 22      20 21 22 23 24 25 26
+23 24 25 26 27 28 29      27 28 29 30
+30 31
+
+        May                       June
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+             1  2  3       1  2  3  4  5  6  7
+ 4  5  6  7  8  9 10       8  9 10 11 12 13 14
+11 12 13 14 15 16 17      15 16 17 18 19 20 21
+18 19 20 21 22 23 24      22 23 24 25 26 27 28
+25 26 27 28 29 30 31      29 30
+
+        July                     August
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+       1  2  3  4  5                      1  2
+ 6  7  8  9 10 11 12       3  4  5  6  7  8  9
+13 14 15 16 17 18 19      10 11 12 13 14 15 16
+20 21 22 23 24 25 26      17 18 19 20 21 22 23
+27 28 29 30 31            24 25 26 27 28 29 30
+                          31
+
+     September                  October
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+    1  2  3  4  5  6                1  2  3  4
+ 7  8  9 10 11 12 13       5  6  7  8  9 10 11
+14 15 16 17 18 19 20      12 13 14 15 16 17 18
+21 22 23 24 25 26 27      19 20 21 22 23 24 25
+28 29 30                  26 27 28 29 30 31
+
+      November                  December
+Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+                   1          1  2  3  4  5  6
+ 2  3  4  5  6  7  8       7  8  9 10 11 12 13
+ 9 10 11 12 13 14 15      14 15 16 17 18 19 20
+16 17 18 19 20 21 22      21 22 23 24 25 26 27
+23 24 25 26 27 28 29      28 29 30 31
+30
+
+ex2:
+---
+wap to print the month calendar of the Given year and month?
+           
+from calendar import month
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+print(month(year,mon_num))
+
+	(or)
+
+from calendar import prmonth
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+prmonth(year,mon_num)
+
+output:
+------
+enter year: 2022
+enter month number: 1
+    January 2022
+Mo Tu We Th Fr Sa Su
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+31
+
+
+             
+
+        
+                
+            
+                
+                
+

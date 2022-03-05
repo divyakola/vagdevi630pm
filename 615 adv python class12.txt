@@ -1,0 +1,212 @@
+how to access the data from one module to another module?
+----------------------------------------------------------
+	we can access the data from one module to another module in  3-ways,they are
+
+	1).Normal importing a module
+
+	2).from importing a module
+
+	3).from importing a module with *
+
+Normal importing a module
+-------------------------
+	import modulename
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+x=10
+y="siva"
+def add(a,b):
+    c=a+b
+    print(c)
+add(4,5)
+class test:
+    def sub(self,a,b):
+        self.a=a
+        self.b=b
+        print(self.a-self.b)
+t1=test()
+t1.sub(5,3)
+
+	output
+	------
+hai
+__main__
+9
+2
+
+	sample.py
+	----------
+import arithmeticoperations
+print(__name__)
+print(arithmeticoperations.x)
+print(arithmeticoperations.y)
+arithmeticoperations.add(10,20)
+t2=arithmeticoperations.test()
+t2.sub(4,2)
+
+	output
+	-----
+hai
+arithmeticoperations
+9
+2
+__main__
+10
+siva
+30
+2
+
+working with if __name__=='__main__' condition?
+------------------------------------------------
+	to check wheather our module is main module or not,wheather it is main module then only that condition is True otherwise that condition is Fail/False.
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+x=10
+y="siva"
+def add(a,b):
+    c=a+b
+    print(c)
+if __name__=='__main__':
+    add(4,5)
+class test:
+    def sub(self,a,b):
+        self.a=a
+        self.b=b
+        print(self.a-self.b)
+if __name__=='__main__':
+    t1=test()
+    t1.sub(5,3)
+
+	output
+	------
+hai
+__main__
+9
+2
+
+	sample.py
+	--------
+import arithmeticoperations
+print(__name__)
+print(arithmeticoperations.x)
+print(arithmeticoperations.y)
+arithmeticoperations.add(10,20)
+t2=arithmeticoperations.test()
+t2.sub(4,2)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+30
+2
+
+Renameing a module
+------------------
+	we can renameing/aliasing a modulename by using 'as' keyword.
+
+once we can rename a module after that we can access the properties from that particular module by using rename only.
+
+	syntax
+	------
+	import modulename as renameofthatmodulename
+
+ex:
+---
+	sample.py
+	--------
+import arithmeticoperations as ao
+print(__name__)
+print(ao.x)
+print(ao.y)
+ao.add(10,20)
+t2=ao.test()
+t2.sub(4,2)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+30
+2
+
+from importing a module
+---------------------
+	from modulename import p_1,p_2,....,p_n
+
+ex:
+---
+	sample.py
+	--------
+from arithmeticoperations import x,y,add,test
+print(__name__)
+print(x)
+print(y)
+add(10,20)
+t2=test()
+t2.sub(4,2)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+30
+2
+
+from importing a module with *
+-------------------------------
+	from modulename import *
+
+ex:
+---
+	sample.py
+	----------
+from arithmeticoperations import *
+print(__name__)
+print(x)
+print(y)
+add(10,20)
+t2=test()
+t2.sub(4,2)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+30
+2
+
+module search Path?
+--------------------
+	whenever we are importing a module then immediately our python interpreter searching for that module in the following order,
+
+	Main Module Location/Current working directory
+	Python Path/default python installation location
+
+our imported module is not available in the above location,our python interpreter to raise the ModuleNotFoundError exception.
+
+
+
+

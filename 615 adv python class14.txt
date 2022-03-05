@@ -1,0 +1,277 @@
+working with string module
+--------------------------
+	if we want to display all the properties of string module by using following command
+
+	import string
+	print(dir(string))
+
+ex:
+---
+>>> import string
+>>> string.ascii_letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+>>> string.ascii_lowercase
+'abcdefghijklmnopqrstuvwxyz'
+
+>>> string.ascii_uppercase
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+>>> string.digits
+'0123456789'
+
+>>> string.octdigits
+'01234567'
+
+>>> string.hexdigits
+'0123456789abcdefABCDEF'
+
+>>> string.printable
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
+
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+>>> string.whitespace
+' \t\n\r\x0b\x0c'
+
+>>> string.capwords("hai rama krishna good evening")
+'Hai Rama Krishna Good Evening'
+
+>>> string.capwords("hai rama krishna good 123evening")
+'Hai Rama Krishna Good 123evening'
+
+>>> "hai rama krishna good 123evening".title()
+'Hai Rama Krishna Good 123Evening'
+
+>>> "hai rama krishna good 123evening".capitalize()
+'Hai rama krishna good 123evening'
+
+
+working with 'random' module
+---------------------------
+	if we want to display all the properties of random module by using following cpmmand
+
+	import random
+	print(dir(random))
+
+ex1: 
+---
+to generate the random floating point values from 0 to 1?
+
+>>> import random
+>>> random.random()
+0.023693354812552192
+>>> random.random()
+0.6530563157499252
+>>> random.random()
+0.5311983067089422
+>>> random.random()
+0.760287817636768
+>>> random.random()
+0.7382161111632684
+
+ex2: 
+---
+to generate the random integers from the given range of values?
+
+	random.randint(x,y) # x and y are inclusive values
+
+>>> import random
+>>> random.randint(1,5)
+2
+>>> random.randint(1,5)
+3
+>>> random.randint(1,5)
+1
+>>> random.randint(1,5)
+4
+>>> random.randint(1,5)
+5
+
+ex3:
+---
+to generate the random integers from the given range of values by using randrange()?
+
+	random.randrange(stop)	
+			#here stop value is a exclusive
+			 by default starting from '0'
+			 by default increment by '1'
+
+>>> import random
+>>> random.randrange(5)
+4
+>>> random.randrange(5)
+1
+>>> random.randrange(5)
+0
+>>> random.randrange(5)
+2
+>>> random.randrange(5)
+3
+
+ex4:
+---
+to generate the random integers from the given range of values by using randrange()?
+
+	random.randrange(start,stop)	
+			#here stop value is a exclusive
+			      start value is a inclusive
+			      by default increment by '1'
+
+
+>>> import random
+>>> random.randrange(1,5)
+3
+>>> random.randrange(1,5)
+2
+>>> random.randrange(1,5)
+4
+>>> random.randrange(1,5)
+1
+
+ex5:
+---
+to generate the random integers from the given range of values by using randrange()?
+
+	random.randrange(start,stop,step)	
+		#here stop value is a exclusive
+		      start value is a inclusive
+		      step value is either increment/decrement
+
+>>> import random
+>>> random.randrange(1,10,2)
+5
+>>> random.randrange(1,10,2)
+7
+>>> random.randrange(1,10,2)
+9
+>>> random.randrange(1,10,2)
+3
+>>> random.randrange(1,10,2)
+1
+
+ex6:
+---
+to generate the random floating point numbers from the given range of values?
+
+	random.uniform(x,y)
+
+>>> import random
+>>> random.uniform(2,5)
+2.4710450261119723
+>>> random.uniform(2,5)
+2.7698616614937936
+>>> random.uniform(2,5)
+2.2450953576178345
+>>> random.uniform(2,5)
+2.0042069653807784
+>>> random.uniform(2,5)
+4.439465412633329
+>>> random.uniform(2,5)
+4.149619773141204
+
+ex7:
+----
+wap to generate the random number/value from the given list of values?
+
+>>> import random
+>>> x=[5,3.2,4j,False,"siva",[5,6]]
+>>> random.choice(x)
+False
+>>> random.choice(x)
+5
+>>> random.choice(x)
+'siva'
+>>> random.choice(x)
+[5, 6]
+>>> random.choice(x)
+4j
+>>> random.choice(x)
+3.2
+
+ex8:
+---
+wap to generate the morethan one random number/value from the given list of values?
+
+>>> import random
+>>> x=[5,3.2,4j,False,"siva",[5,6]]
+>>> random.choices(x)
+[4j]
+>>> random.choices(x)
+[[5, 6]]
+>>> random.choices(x,k=2)
+[3.2, 'siva']
+>>> random.choices(x,k=2)
+[5, 3.2]
+>>> random.choices(x,k=3)
+[[5, 6], 'siva', False]
+
+
+ex9:
+---
+wap to shuffeling the data?
+
+>>> import random
+>>> x=[5,3.2,4j,False,"siva",[5,6]]
+>>> random.shuffle(x)
+>>> x
+[False, 5, 3.2, [5, 6], 4j, 'siva']
+>>> random.shuffle(x)
+>>> x
+[[5, 6], 'siva', 3.2, False, 4j, 5]
+>>> random.shuffle(x)
+>>> x
+['siva', 4j, [5, 6], 3.2, 5, False]
+
+ex10:
+----
+wap to generate random digits(OTP) upto given specified number?
+
+from random import randint
+num=int(input("enter number of digits: "))
+for i in range(num):
+    print(randint(0,9),end="")
+
+output:
+------
+enter number of digits: 3
+776
+
+enter number of digits: 4
+6852
+
+enter number of digits: 5
+37615
+
+enter number of digits: 6
+760816
+
+ex11:
+----
+wap to generate random strings(Passwords) upto given specified number of charecters?
+
+
+from random import choice
+from string import ascii_letters,digits
+s=ascii_letters+'@#$^&*'+digits
+num=int(input("enter no.of charecters: "))
+for i in range(num):
+    print(choice(s),end="")
+
+
+	(or)
+
+from random import choices
+from string import ascii_letters,digits
+s=ascii_letters+'@#$^&*'+digits
+num=int(input("enter no.of charecters: "))
+print(''.join(choices(s,k=num)))
+
+outputs:
+-------
+enter no.of charecters: 9
+XrsyfYqW$
+
+enter no.of charecters: 6
+Evazle

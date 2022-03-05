@@ -1,0 +1,284 @@
+working with builtin functions:
+-------------------------------
+print()
+-------
+the print() is used to print the value to the output window/screen.
+
+in python2.x,print is a keyword not a function
+
+ex:
+---
+>>> print("hai")
+hai
+>>> print"hai"
+hai
+
+in python3.x,print is a function not a keyword
+
+	print(values,.....,sep=" ",end="\n",
+		file=sys.stdout,flush=False)
+
+ex:
+---
+>>> print("hai")
+hai
+>>> print"hai"
+SyntaxError: invalid syntax
+
+id()
+----
+to identify the object
+
+	(or)
+
+to return the address of the object
+
+>>> x=10
+>>> id(x)
+2613317102160
+
+>>> y=20
+>>> id(y)
+2613317102480
+
+type()
+------
+in python2.x,the type() to return the type of the object.
+
+>>> x=10
+>>> type(x)
+<type 'int'>
+
+>>> y=2.3
+>>> type(y)
+<type 'float'>
+
+in python3.x,the type() to return the class of the object.
+
+>>> x=10
+>>> type(x)
+<class 'int'>
+
+>>> y=2.3
+>>> type(y)
+<class 'float'>
+
+Datatypes:
+---------
+the Datatypes are used to represent the type of the data.
+
+in generally,the datatypes can be categorized into 2-types,they are
+
+	1).Static DataTypes
+
+	2).Dynamic DataTypes
+
+Static DataTypes:
+----------------
+	the programmer/developer to assign the datatype to the variables by explicitly at the time of defineing a variables,is known as a Static DataTypes.
+
+	any programming language which support Static Datatypes concept that type of programming languages are called Static Typed languages.
+
+	ex: C-language,C++,Java,.Net,.....
+
+example in c-language
+--------------------
+	int x=10
+
+	float y=2.3
+
+Dynamic DataTypes
+-----------------
+	the programmer/developer dont assign the datatype to the variables by explicitly at the time of defineing a variables,is known as a Dynamic DataTypes.
+
+	at runtime to assign the datatype to the variables automatically based on the value of that variable.
+
+	any programming langauge which support dynamic datatypes concept,that type of programming languages are called Dynamically typed languages.
+
+	ex: Python,JavaScript,Shell-Scripting,....
+
+example in python
+-----------------
+	x=10
+
+	y=2.3
+
+Python DataTypes:
+-----------------
+python is a Dynamically typed language
+
+in python,every datatype haveing it's own class
+
+the python supported datatypes are
+
+	1).Numeric datatypes
+		a).Integer datatype
+		b).Floating point datatype
+		c).Complex datatype
+
+	2).Boolean datatype
+
+	3).text-sequence datatype
+		a).string datatype
+
+	4).Number-sequence datatypes
+		a).List datatype
+		b).tuple datatype
+		c).range
+
+	5).set datatypes
+		a).set
+		b).frozenset
+
+	6).mapping datatype
+		a).dictionary
+
+	7).binary sequences
+		a).bytes
+		b).bytearray
+		c).memoryview
+
+	8).None datatype
+
+
+Numeric datatypes:
+-----------------
+	these datatypes are used to store the numerical values.
+
+	in python,the Numeric datatypes can be categorized into 3-types,they are
+
+	a).Integer datatype
+	b).Floating point datatype
+	c).Complex datatype
+
+Integer datatype:
+-----------------
+in python,the Integer datatype haveing 'int' class
+
+in python2.x,the integer datatype haveing two types,they are
+
+	int
+
+	long	--> value >= 2**31
+
+
+>>> x=10
+>>> x
+10
+>>> type(x)
+<type 'int'>
+
+>>> y=986858578476
+>>> y
+986858578476L
+>>> type(y)
+<type 'long'>
+
+in python3.x,there's no long datatype
+
+>>> x=10
+>>> x
+10
+>>> type(x)
+<class 'int'>
+
+>>> y=986858578476
+>>> y
+986858578476
+>>> type(y)
+<class 'int'>
+
+we can assign any number system as a integer object.
+
+>>> x=0b1010 #binary
+>>> type(x)
+<class 'int'>
+
+>>> y=0o37 #octal
+>>> type(y)
+<class 'int'>
+
+>>> z=39 #decimal
+>>> type(z)
+<class 'int'>
+
+>>> p=0x2c #hexadecimal
+>>> type(p)
+<class 'int'>
+
+Floating point datatype:
+------------------------
+the Floating point datatype haveing 'float' class
+
+>>> x=2.3
+>>> x
+2.3
+>>> type(x)
+<class 'float'>
+
+>>> y=2.3e2
+>>> y
+230.0
+>>> type(y)
+<class 'float'>
+
+>>> z=2.3e-2
+>>> z
+0.023
+>>> type(z)
+<class 'float'>	
+
+we can assign only decimal number system as a floating point object.
+
+>>> x=0b101.01 #Binary 
+SyntaxError: invalid syntax
+
+>>> y=0o32.3 #octal
+SyntaxError: invalid syntax
+
+>>> z=0x2c.2 #hexadecimal 
+SyntaxError: invalid syntax
+
+>>> q=39.3
+>>> type(q)
+<class 'float'>
+
+Complex number datatype:
+-----------------------
+the complex number datatype haveing 'complex' class
+
+>>> x=2+3j
+>>> x
+(2+3j)
+>>> type(x)
+<class 'complex'>
+
+>>> y=3j
+>>> y
+3j
+>>> type(y)
+<class 'complex'>
+
+>>> z=2+4J
+>>> z
+(2+4j)
+>>> type(z)
+<class 'complex'>
+
+>>> a=2+3i 
+SyntaxError: invalid syntax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

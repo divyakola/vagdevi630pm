@@ -1,0 +1,346 @@
+		String Handling
+		---------------
+what is String?
+--------------
+	a string is a charecter or collection of charecters or sequence of words.
+
+in python string object is a sequence,iterable and immutable object.
+
+in python,the string object haveing 'str' class
+
+how to represent the string objects in python?
+----------------------------------------------
+	we can represent the string objects in python in two ways,they are
+
+	1).Single-Line strings
+
+		a).single-single quote's
+			x='siva'
+
+		b).single-double quote's
+			x="siva"
+
+	2).Multi-Line strings
+		a).tripple-single quote's
+			x='''siva'''
+		
+		b).tripple-double quote's
+			x="""siva"""
+
+ex:
+---
+	strep.py
+	---------
+x='siva'
+y="rama"
+z='''siva
+ameerpet
+hyderabad
+telangana
+500016'''
+a="""krishna
+guntur
+amaravathi
+andhrapradesh
+522646"""
+print(x)
+print('*'*20)
+print(y)
+print('*'*20)
+print(z)
+print('*'*20)
+print(a)
+
+	output
+	-------
+C:\Users\DELL\Desktop>python strep.py
+siva
+********************
+rama
+********************
+siva
+ameerpet
+hyderabad
+telangana
+500016
+********************
+krishna
+guntur
+amaravathi
+andhrapradesh
+522646
+
+a quote inside different quote is possible but a quote inside same quote is not possible.
+
+ex2:
+---
+	strep.py
+	--------
+x='hai "siva" krishna'
+y="hai 'siva' rama"
+z='''siva
+"ameerpet"
+'hyderabad'
+"""telangana"""
+500016'''
+a="""krishna
+'guntur'
+"amaravathi"
+'''andhrapradesh'''
+522646"""
+print(x)
+print('*'*20)
+print(y)
+print('*'*20)
+print(z)
+print('*'*20)
+print(a)
+
+	output
+	------
+C:\Users\DELL\Desktop>python strep.py
+hai "siva" krishna
+********************
+hai 'siva' rama
+********************
+siva
+"ameerpet"
+'hyderabad'
+"""telangana"""
+500016
+********************
+krishna
+'guntur'
+"amaravathi"
+'''andhrapradesh'''
+522646
+
+ex3:
+---
+x='hai 'siva' krishna'
+print(x)
+
+output:
+-----
+SyntaxError: invalid syntax
+
+ex4:
+---
+x="hai "siva" krishna"
+print(x)
+
+output:
+-----
+SyntaxError: invalid syntax
+
+ex5:
+----
+x="""hai
+"""siva"""
+krishna"""
+print(x)
+
+output:
+-----
+SyntaxError: invalid syntax
+
+ex6:
+----
+x='''hai
+'''siva'''
+krishna'''
+print(x)
+
+output:
+-----
+SyntaxError: invalid syntax
+
+ex7:
+----
+x='hai\nsiva krishna\ngood evening'
+print(x)
+
+outut:
+-----
+C:\Users\DELL\Desktop>python strep.py
+hai
+siva krishna
+good evening
+
+ex8:
+---
+x='hai\tsiva krishna\tgood evening'
+print(x)
+
+output:
+-----
+C:\Users\DELL\Desktop>python strep.py
+hai     siva krishna    good evening
+
+
+string object supporting indexing concept,in python indexing can be categorized into two types,they are
+
+	1).Positive/Forward indexing
+
+	2).Negative/Backward indexing
+
+			indexing
+			    |
+		-------------------------
+		|			|
+	Positive/Forward	Negative/Backward
+		|			|
+takes from Left to Right	takes from Right to Left
+	(or)			        (or)
+takes from Top to Bottom	takes from Bottom to Top
+	|				|
+starts from '0'			starts from '-1'
+
+
+in string object each and every charecter haveing unique indexing
+
+we can retreive one by one charecter from the string object by using indexing concept.
+
+indexing should be represented with square brackets i.e., [ ] only
+
+>>> x="siva krishna"
+>>> x[2]
+'v'
+>>> x[-10]
+'v'
+>>> x[4]
+' '
+>>> x[-8]
+' '
+>>> x[9]
+'h'
+>>> x[-3]
+'h'
+
+string object supporting slicing concept
+
+	if we want to retreive morethan one charecter from the string object in that case we are using slicing concept.
+
+	if we want to print first N-charecters from the string object in that case we are using following syntax
+
+	strobj[:stop]
+
+		here stop index value is exclusive
+		     by default starting from '0'
+		     by default increment by '1'
+
+>>> x="siva krishna"
+>>> x[:4]
+'siva'
+>>> x[:-8]
+'siva'
+
+	if we want to print last-N charecters from the string object in that case we are using following syntax,
+
+	strobj[start:]
+
+		here start value is a Inclusive
+		     by default increment by '1'
+
+>>> x="siva krishna"
+>>> x[-7:]
+'krishna'
+>>> x[5:]
+'krishna'
+
+	if we want to print some middle charecters from the string object in that case we are using following syntax...
+
+	strobj[start:stop]
+
+		here start value is a Inclusive
+		     stop value is a exclusive
+		     by default increment by '1'
+
+>>> x="siva krishna"
+>>> x[5:10]
+'krish'
+>>> x[-7:-2]
+'krish'
+>>> x[5:-2]
+'krish'
+>>> x[-7:10]
+'krish'
+
+note:
+----
+	strobj[start:stop:step],if we are not passing any start value,stop value and step value in that case our original string exactly printed.
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x[::]
+'siva'
+>>> x[ : : ]
+'siva'
+>>> x[::1]
+'siva'
+
+	strobj[start:stop:step],if we are not passing any start value,stop value but we are passing step value as negative in that case our string printed from right to left(Reverse order).
+
+>>> x="siva"
+>>> x[::-1]
+'avis'
+
+ex:
+--
+wap to print the given string in a reverse order?
+
+x=input("enter your string: ")
+print(x[::-1])
+
+	(or)
+
+x=input("enter your string: ")
+print("the reverse order of the '%s' is: '%s'"%(x,x[::-1]))
+
+outputs:
+------
+C:\Users\DELL\Desktop>python strrev.py
+enter your string: siva
+avis
+
+	(or)
+
+C:\Users\DELL\Desktop>python strrev.py
+enter your string: siva
+the reverse order of the 'siva' is: 'avis'
+
+	     
+ex:
+--
+wap to print even indexing and odd indexing charecters seperately in the given string?
+
+x=input("enter your string: ")
+print("Even indexing charecters:",x[::2])
+print("Odd indexing charecters:",x[1::2])
+
+output:
+------
+enter your string: sivakrishna
+Even indexing charecters: svkiha
+Odd indexing charecters: iarsn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,223 @@
+in python,directly we cant modify the global variables data with in the function.
+
+ex:
+---
+x=10 #global
+def f1():
+    print(x)
+    x+=5
+    print(x)
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+-------
+UnboundLocalError: local variable 'x' referenced before assignment
+
+
+if we want to modify the global variables data with in the function by using forward decleration mechanism.
+
+	global globalvariablename
+
+once we can modify the global variables data that is effected in remaining all other cases.
+
+ex:
+---
+x=10 #global
+def f1():
+    global x
+    print(x)
+    x+=5
+    print(x)
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+------
+10
+15
+15
+15
+
+non-local variables:
+--------------------
+we can define a variable inside the outer function and above the inner function,that type of variables are called non-local variables.
+
+we can access the non-local variables data with in the outer function only i.e., inside the inner function and outside the inner function.
+
+ex:
+---
+def f1(): #outer
+    x=10
+    def f2(): #inner
+        print(x)
+    f2()
+    print(x)
+f1()
+print(x)
+
+output:
+-------
+10
+10
+NameError: name 'x' is not defined
+
+in python,directly we can't modify the non-local variables data with in the inner function.
+
+ex:
+---
+def f1(): #outer
+    x=10
+    def f2(): #inner
+        print(x)
+        x+=5
+        print(x)
+    f2()
+    print(x)
+f1()
+
+output:
+------
+UnboundLocalError: local variable 'x' referenced before assignment
+
+
+if we want to modify the non-local variables data with in the inner function by using forward decleration mechanism
+
+	nonlocal nonlocalvariablename
+
+once we can modify the non-local variables data that is effected in remaing all other cases.
+
+ex:
+---
+def f1(): #outer
+    x=10
+    def f2(): #inner
+        nonlocal x
+        print(x)
+        x+=5
+        print(x)
+    f2()
+    print(x)
+f1()
+
+output:
+------
+10
+15
+15
+
+ex:
+---
+x=1
+def f1():
+    global x
+    y=2
+    x+=10
+    def f2():
+        global x
+        nonlocal y
+        z=3
+        print(x)
+        print(y)
+        print(z)
+        z+=10
+        x+=10
+        y+=10
+        print(x)
+        print(y)
+        print(z)
+    f2()
+    print(x)
+    print(y)
+f1()
+print(x)
+    
+output:
+------
+11
+2
+3
+21
+12
+13
+21
+12
+21
+
+scope of the variables:
+-----------------------
+	in python,the scope of the variables are follows LEGB rule.
+
+	Local Encloseing(Nonlocal) Global Builtins
+
+ex:
+---
+x=1
+y=2
+z=3
+def f1():
+    y=20
+    z=30
+    def f2():
+        z=300
+        print(x)
+        print(y)
+        print(z)
+    f2()
+    print(x)
+    print(y)
+    print(z)
+f1()
+print(x)
+print(y)
+print(z)
+
+output:
+------
+1
+20
+300
+1
+20
+30
+1
+2
+3
+
+ex2:
+---
+def f1():
+    def sum(x):
+        print(len(x))
+    sum([5,3,7,2])
+f1()
+print(sum([5,3,7,2]))
+            
+output:
+------
+4
+17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

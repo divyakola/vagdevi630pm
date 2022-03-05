@@ -1,0 +1,242 @@
+what is Constructor?
+--------------------
+	a constructor is a special kind of method,which is used to initialize the non-static variables of a class.
+
+	in python,the constructor name should be __init__
+
+	the constructor will be executed automatically at the time of creating an object.
+
+ex:
+---
+class test:
+    def __init__(self):
+        print("i am in constructor")
+    def m1(self):
+        print("i am in method-m1")
+t1=test()
+
+output:
+-------
+i am in constructor
+
+
+with respect to one object the constructor will be executed at only once but with respect to one object we can call one method N-no.of times.
+
+ex2:
+---
+class test:
+    def __init__(self):
+        print("i am in constructor")
+    def m1(self):
+        print("i am in method-m1")
+t1=test()
+t1.m1()
+t1.m1()
+t1.m1()
+t2=test()
+t2.m1()
+t2.m1()
+t3=test()
+t3.m1()
+
+output:
+------
+i am in constructor
+i am in method-m1
+i am in method-m1
+i am in method-m1
+i am in constructor
+i am in method-m1
+i am in method-m1
+i am in constructor
+i am in method-m1
+
+ex3:
+----
+class student:
+    col_name="Vagdevi"
+    col_add="Ameerpet"
+    def __init__(self):
+        self.sid=101
+        self.sname="siva"
+    def std_info(self):
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+s1=student()
+s1.std_info()
+
+output:
+------
+101
+siva
+Vagdevi
+Ameerpet
+
+
+ex4: parametrized constructor
+----
+class student:
+    col_name="Vagdevi"
+    col_add="Ameerpet"
+    def __init__(self,sid,name):
+        self.sid=sid
+        self.sname=name
+    def std_info(self):
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+s1=student(101,'siva')
+s1.std_info()
+s2=student(102,'rama')
+s2.std_info()
+
+output:
+------
+101
+siva
+Vagdevi
+Ameerpet
+102
+rama
+Vagdevi
+Ameerpet
+
+ex5:
+---
+class cust:
+    bname="KOTAK"
+    def __init__(self,acno,name):
+        self.cacno=acno
+        self.cname=name
+        self.bal=0
+    def deposit(self,amt):
+        self.damt=amt
+        self.bal+=self.damt
+        print("hello %s,After deposit your current balance is\
+ %.2fRs"%(self.cname,self.bal))
+    def withdraw(self,amt):
+        self.wamt=amt
+        if self.wamt>self.bal:
+            print("Sorry %s,Insufficient Funds in Your Account"
+                  %self.cname)
+            choice=input("do you want to check the balance: ")
+            if choice=='yes':
+                print("Your Current Balance Is %.2fRs"%self.bal)
+            else:
+                print("Thankyou")
+        else:
+            self.bal-=self.wamt
+            print("hello %s,After withdraw your current balance is\
+ %.2fRs"%(self.cname,self.bal))
+    def cust_info(self):
+        print("Bank Name:",cust.bname)
+        print("Acc.No:",self.cacno)
+        print("Name:",self.cname)
+c1=cust(1001,'siva')
+c1.deposit(3000)
+c1.withdraw(2200)
+c1.cust_info()
+print('*'*20)
+c2=cust(1002,'rama')
+c2.deposit(2000)
+c2.withdraw(2100)
+c2.cust_info()
+            
+output1:
+--------hello siva,After deposit your current balance is 3000.00Rs
+hello siva,After withdraw your current balance is 800.00Rs
+Bank Name: KOTAK
+Acc.No: 1001
+Name: siva
+********************
+hello rama,After deposit your current balance is 2000.00Rs
+Sorry rama,Insufficient Funds in Your Account
+do you want to check the balance: yes
+Your Current Balance Is 2000.00Rs
+Bank Name: KOTAK
+Acc.No: 1002
+Name: rama
+
+output2:
+---------
+hello siva,After deposit your current balance is 3000.00Rs
+hello siva,After withdraw your current balance is 800.00Rs
+Bank Name: KOTAK
+Acc.No: 1001
+Name: siva
+********************
+hello rama,After deposit your current balance is 2000.00Rs
+Sorry rama,Insufficient Funds in Your Account
+do you want to check the balance: no
+Thankyou
+Bank Name: KOTAK
+Acc.No: 1002
+Name: rama
+
+ex6: creating an objects through iteration
+----
+class cust:
+    bname="KOTAK"
+    def __init__(self):
+        self.cacno=int(input("enter Account Number: "))
+        self.cname=input("enter Name: ")
+        self.bal=0
+    def deposit(self):
+        self.damt=float(input("enter Deposit Ammount: "))
+        self.bal+=self.damt
+        print("hello %s,After deposit your current balance is\
+ %.2fRs"%(self.cname,self.bal))
+    def withdraw(self):
+        self.wamt=float(input("enter Withdraw Ammount: "))
+        if self.wamt>self.bal:
+            print("Sorry %s,Insufficient Funds in Your Account"
+                  %self.cname)
+            choice=input("do you want to check the balance: ")
+            if choice=='yes':
+                print("Your Current Balance Is %.2fRs"%self.bal)
+            else:
+                print("Tankyou")
+        else:
+            self.bal-=self.wamt
+            print("hello %s,After withdraw your current balance is\
+ %.2fRs"%(self.cname,self.bal))
+    def cust_info(self):
+        print("Bank Name:",cust.bname)
+        print("Acc.No:",self.cacno)
+        print("Name:",self.cname)
+
+while True:
+    c=cust()
+    c.deposit()
+    c.withdraw()
+    c.cust_info()
+    print('*'*20)
+    choice=input("do you want to continue: ")    
+    if choice=='yes':
+        continue
+    else:
+        break    
+print("Thanks for using my application")
+
+output:
+------
+enter Account Number: 1001
+enter Name: siva
+enter Deposit Ammount: 2000
+hello siva,After deposit your current balance is 2000.00Rs
+enter Withdraw Ammount: 1200
+hello siva,After withdraw your current balance is 800.00Rs
+Bank Name: KOTAK
+Acc.No: 1001
+Name: siva
+********************
+do you want to continue: no
+Thanks for using my application            
+
+
+
+
+

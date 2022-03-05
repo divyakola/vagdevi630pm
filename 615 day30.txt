@@ -1,0 +1,240 @@
+pop()
+-----
+to remove an particular element from list object based on indexing
+
+	listobj.pop(index=-1)
+
+>>> x=[10,20,30,40,50]
+>>> x
+[10, 20, 30, 40, 50]
+>>> x.pop(1)
+20
+>>> x
+[10, 30, 40, 50]
+>>> x.pop(x.index(40))
+40
+>>> x
+[10, 30, 50]
+>>> x.pop()
+50
+>>> x
+[10, 30]
+>>> x.pop(3)
+IndexError: pop index out of range
+
+remove()
+--------
+to remove an particular element from list object based on element.
+
+	listobj.remove(element)
+
+in our list object duplicate elements are there in that case the remove() to remove the first-occurencess of that element from left to right.
+
+>>> x=[10,20,30,40,50]
+>>> x.remove(10)
+>>> x
+[20, 30, 40, 50]
+>>> x.remove(40)
+>>> x
+[20, 30, 50]
+>>> x.remove(60)
+ValueError: list.remove(x): x not in list
+
+
+>>> y=[10,20,30,10,20,10,30,20,40,10]
+>>> y.remove(10)
+>>> y
+[20, 30, 10, 20, 10, 30, 20, 40, 10]
+>>> y.remove(20)
+>>> y
+[30, 10, 20, 10, 30, 20, 40, 10]
+>>> y.remove(10)
+>>> y
+[30, 20, 10, 30, 20, 40, 10]
+>>> y.remove(30)
+>>> y
+[20, 10, 30, 20, 40, 10]
+
+ex1:
+---
+wap to remove all the possible occurencess of given element in a list object?
+
+y=[10,20,30,10,10,20,20,10,30,30,20,40,10]
+print(y)
+ele=int(input("enter element: "))
+x=[]
+for i in y:
+    if i!=ele:
+        x.append(i)
+print(x)
+
+output:
+------
+[10, 20, 30, 10, 10, 20, 20, 10, 30, 30, 20, 40, 10]
+enter element: 10
+[20, 30, 20, 20, 30, 30, 20, 40]
+
+
+[10, 20, 30, 10, 10, 20, 20, 10, 30, 30, 20, 40, 10]
+enter element: 20
+[10, 30, 10, 10, 10, 30, 30, 40, 10]
+
+
+ex2:
+---
+wap to return unique elements from the given list object?
+		(or)
+wap to remove all the duplicate elements in a given list objects?
+
+
+y=[10,20,30,10,10,20,20,10,30,30,20,40,10]
+print(y)
+x=[]
+for i in y:
+    if i not in x:
+        x.append(i)
+print(x)
+
+output:
+-------
+[10, 20, 30, 10, 10, 20, 20, 10, 30, 30, 20, 40, 10]
+[10, 20, 30, 40]
+
+assignment-1:
+------------
+wap to move the zeros at ending position in our list?
+
+input:
+	[3,0,9,8,0,4,7,0,5]
+
+output:
+	[3,9,8,4,7,5,0,0,0]
+
+
+assignmet-2:
+------------
+wap to return the no.of occurencess of each and every element in our list with element?
+
+input:
+	[10,20,30,10,30,10,40,20,30,10]
+
+output:
+	10 : 4
+	20 : 2
+	30 : 3
+	40 : 1
+
+sort()
+-----
+to return the elements in sorting order from the given list object.
+
+	listobj.sort( reverse=False)
+
+by default,the sort() to perform Inplace Order Operation
+
+by default,the sort() to perform ascending order operation
+
+>>> x=[4,3,6,2]
+>>> x.sort()
+>>> x
+[2, 3, 4, 6]
+
+>>> z=[4,3,6,2]
+>>> z.sort(reverse=True)
+>>> z
+[6, 4, 3, 2]
+
+reverse()
+---------
+to return the elements in reverse order from the given iterable object.
+
+	listobj.reverse()
+
+reverse() to perform Inplace order operation
+
+>>> x=[4,6,3,7]
+>>> x.reverse()
+>>> x
+[7, 3, 6, 4]
+
+ex1:
+---
+wap to read the list object as a input from the user?
+
+x=eval(input("enter list object: "))
+print(x)
+print(type(x))
+
+output:
+------
+enter list object: [4,2.3,4j,False]
+[4, 2.3, 4j, False]
+<class 'list'>
+
+ex2:
+---
+wap input to the elements into list object?
+
+x=eval(input("enter empty list object: "))
+num=int(input("enter no.of elements we want to inserted: "))
+for i in range(num):
+    x.append(eval(input("enter element: ")))
+print(x)
+
+output:
+-----
+enter empty list object: []
+enter no.of elements we want to inserted: 5
+enter element: 3
+enter element: 2.1
+enter element: 4j
+enter element: False
+enter element: 9
+[3, 2.1, 4j, False, 9]
+
+ex3:
+---
+wap input to the elements into nested list?
+
+x=eval(input("enter empty nested list object: "))
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(eval(input()))
+print(x)
+
+output:
+------
+enter empty nested list object: [[],[]]
+4
+3.2
+4j
+False
+[[4, 3.2], [4j, False]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

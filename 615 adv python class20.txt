@@ -1,0 +1,148 @@
+ex9:
+---
+wap to print some specific files from the given location?
+
+import os
+os.chdir('siva')
+for i in os.listdir():
+    if os.path.isfile(i):
+        if i.endswith('.py'):
+            print(i)
+
+output:
+------
+demo.py
+sample.py
+
+ex10:
+---
+wap to rename the files and directories?
+
+import os
+os.chdir('siva')
+print(os.listdir())
+print('*'*20)
+os.rename('django','dj')
+os.rename('addition.java','add.java')
+os.rename('style.css','style.py')
+print(os.listdir())
+          
+output:
+------
+['addition.java', 'demo.py', 'django', 'flask', 'python', 'sample.py', 'style.css', 'welcome.html']
+********************
+['add.java', 'demo.py', 'dj', 'flask', 'python', 'sample.py', 'style.py', 'welcome.html']
+
+ex11:
+----
+wap to return the no.of items,no.of files and no.of directories in the given location?
+
+import os
+os.chdir('siva')
+f_c,d_c=0,0
+for i in os.listdir():
+    if os.path.isdir(i):
+        d_c+=1
+    else:
+        f_c+=1
+print("Total No.of.Items:",len(os.listdir()))
+print("Total No.of.Folders:",d_c)
+print("Total No.of.Files:",f_c)
+          
+output:
+------
+Total No.of.Items: 8
+Total No.of.Folders: 3
+Total No.of.Files: 5
+
+ex12:
+---
+wap to remove the files and directories?
+
+import os
+os.chdir('siva')
+print(os.listdir())
+print('*'*20)
+os.rmdir('dj')
+os.remove('add.java')
+print(os.listdir())
+          
+output:
+------
+['add.java', 'demo.py', 'dj', 'flask', 'python', 'sample.py', 'style.py', 'welcome.html']
+********************
+['demo.py', 'flask', 'python', 'sample.py', 'style.py', 'welcome.html']
+
+ex13:
+----
+C:\Python310\siva
+	      |--->flask
+	      |      |-->restapi
+	      |      |      |--->addition.py
+	      |      |-->cal.py
+	      |      |-->demo.txt
+	      |--->python
+              |      |--->style.py
+	      |--->sample.py
+	      |--->welcome.html
+
+
+import os
+for r,d,f in os.walk('C:\\Python310\\siva'):
+    print(r,d,f)
+          
+output:
+------
+C:\Python310\siva ['flask', 'python'] ['sample.py','welcome.html']
+
+C:\Python310\siva\flask ['restapi'] ['cal.py', 'demo.txt']
+
+C:\Python310\siva\flask\restapi [] ['addition.py']
+
+C:\Python310\siva\python [] ['style.py']
+
+ex14:
+----
+import os
+for r,d,f in os.walk('C:\\Python310\\siva'):
+    os.chdir(r)
+    for i in os.listdir():        
+        if os.path.isfile(i):
+            print(i)
+
+output:
+-----
+sample.py
+welcome.html
+cal.py
+demo.txt
+addition.py
+style.py
+
+ex15:
+----
+import os
+for r,d,f in os.walk('E:\\'):
+    os.chdir(r)
+    for i in os.listdir():        
+        if os.path.isfile(i):
+            if i.endswith('.py'):
+                print(i)
+          
+
+ex16:
+----
+wap to get the os name?
+
+>>> import os
+>>> os.name
+'nt'
+
+ex17:
+---
+wap to get os path?
+
+>>> import os
+>>> os.path
+<module 'ntpath' from 'C:\\Python310\\lib\\ntpath.py'>
+

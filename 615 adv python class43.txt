@@ -1,0 +1,31 @@
+what is debugging?
+------------------
+	the process of to identify the bugs/errors and fixing the bugs or errors,is known as a debugging.
+
+	the debugging is performed by the developer
+
+	the process of evaluate the our source code execution,is known as a debugging.
+
+we can perform debugging in two ways,they are
+
+	1).by using GUI mode
+
+	2).by using Command mode
+
+if we want to debug our python code through the command prompt/terminal by uisng "pdb" module.
+
+ex:
+---
+import pdb
+pdb.set_trace()
+def add(x,y):
+    z=x+y
+    print(z)
+a=int(input("enter a value: "))
+b=int(input("enter b value: "))
+add(a,b)
+print("bye")
+
+
+
+

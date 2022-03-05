@@ -1,0 +1,249 @@
+enumerate()
+-----------
+to return the list of thread objects currently alive
+
+ex:
+---
+import threading
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+class y(threading.Thread):
+    def run(self):
+        print("hello")
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+print(threading.enumerate())
+print("bye")
+
+output:
+------
+hai
+[<_MainThread(MainThread, started 11236)>, <Thread(SockThread, started daemon 2764)>, <x(Thread-1, started 11988)>, <y(Thread-2, started 5292)>]
+hello
+bye
+
+activeCount()  --> active_count()
+-------------
+to return the no.of thread objects currently alive
+
+ex:
+---
+import threading
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+class y(threading.Thread):
+    def run(self):
+        print("hello")
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+print(threading.active_count())
+print("bye")
+
+output:
+------
+haihello4bye
+
+currentThread()  --> current_thread()
+----------------
+to return the current thread object name
+
+ex:
+---
+import threading
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+class y(threading.Thread):
+    def run(self):
+        print("hello")
+        
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+print(threading.current_thread())
+print("bye")
+
+output:
+------
+haihello<_MainThread(MainThread, started 10336)>bye
+
+ex:
+---
+import threading
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+x1=x()
+x1.start()
+x1.join()
+print(x1.name)
+x1.name="myfirstthread"
+print(x1.name)
+
+output:
+------
+hai
+Thread-1
+myfirstthread
+
+ex:
+---
+import threading
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+x1=x()
+x1.start()
+print(x1.is_alive())
+x1.join()
+print(x1.is_alive())
+
+output:
+-----
+haiTrueFalse
+
+note:
+-----
+run()		--> to create a thread
+
+start()		--> to start's the Thread activity
+
+name		--> to get the name of the Thread and
+		    to set the thread name
+
+join()		--> wait until thread termination
+
+is_alive()	--> to check wheather the thread object is alive 		    or not
+
+enumerate()	--> to return the list of all the thread objects
+		    currently alive.
+
+active_count()	--> to return the no.of thread objects currently 		    alive
+
+current_thread() --> to return the current thread object name
+
+
+ex:
+---
+import threading
+print("welcome")
+def msg(x):
+    print("hai",x,"good evening")
+t1=threading.Thread(target=msg,args=("siva",))
+t1.start()
+t1.join()
+t2=threading.Thread(target=msg,args=("krishna",))
+t2.start()
+t2.join()
+print("bye")
+
+output:
+------
+welcome
+hai siva good evening
+hai krishna good evening
+bye
+
+what is GIL?
+-------------
+GIL(Global Interpreter Lock) allows only one thread execution at a time.
+
+in python,by using multi-threading we can achive the concurrency.
+
+in python,by using multi-processing we can achive the parllelism.
+
+
+		Exception-Handling
+		------------------
+	in Generally,any programming language programs,we will get the two types of errors, they are
+
+	1).Syntax Errors
+
+	2).Runtime Errors
+
+Syntax Errors:
+-------------
+	the error which occur because of syntax mistakes,that type of errors are called Syntax Errors.
+
+		(or)
+
+	before starting the program execution,we will get the errors,that type of errors are called Syntax Errors.
+
+	if any syntax error occured in our python program,in that case our python program dont start the execution.
+
+ex1:
+---
+print("hai)
+
+syntax error: unterminated string literal
+
+sol:
+----
+print("hai")
+
+ex2:
+---
+print("hai"
+
+syntax error: '(' was never closed
+
+sol:
+----
+print("hai")
+
+ex3:
+---
+print("hai")
+if 3<5:
+print("siva")
+print("bye")
+
+syntax error: expected an indented block after 'if' statement
+
+sol:
+----
+print("hai")
+if 3<5:
+    print("siva")
+print("bye")
+
+ex4:
+----
+print("hai")
+if 3<5
+    print("siva")
+print("bye")
+
+syntax error: expected ':' at the end of if condition
+
+sol:
+----
+print("hai")
+if 3<5:
+    print("siva")
+print("bye")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

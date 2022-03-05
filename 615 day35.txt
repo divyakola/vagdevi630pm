@@ -1,0 +1,266 @@
+Frozenset datatype:
+-------------------
+in python,the frozenset datatype haveing frozenset class
+
+we can create a frozenset object by calling frozenset() or frozenset(iterableobj)
+
+>>> x=frozenset()
+>>> x
+frozenset()
+>>> type(x)
+<class 'frozenset'>
+
+>>> y=frozenset("siva")
+>>> y
+frozenset({'s', 'a', 'i', 'v'})
+>>> type(y)
+<class 'frozenset'>
+
+>>> z=frozenset([6,4,8,9])
+>>> z
+frozenset({8, 9, 4, 6})
+>>> type(z)
+<class 'frozenset'>
+
+frozenset object is a immutable object but it allows only immutable objects.
+
+>>> x=frozenset([2,3.2,4j,False,"siva",(7,8)])
+>>> x
+frozenset({False, 2, 3.2, 4j, 'siva', (7, 8)})
+
+>>> y=frozenset([2,3.2,4j,False,"siva",[7,8]])
+TypeError: unhashable type: 'list'
+
+in frozenset object insertion order is not preserved because of that reason frozenset object is a non-sequence object.
+
+the frozenset object dont allow the duplicate elements
+
+>>> x=frozenset([5,6,7,6,7,8,9,8,7])
+>>> x
+frozenset({5, 6, 7, 8, 9})
+
+the frozenset object allows both homogenious and hetrogenious data/elements/objects.
+
+	homogenious
+	-----------
+>>> a=frozenset([5,7,9,8])
+>>> a
+frozenset({8, 9, 5, 7})
+>>> b=frozenset(("siva","rama","krishna","suresh"))
+>>> b
+frozenset({'suresh', 'siva', 'rama', 'krishna'})
+
+	hetrogenious
+	------------
+>>> x=frozenset([2,3.2,4j,False,"siva",(7,8)])
+>>> x
+frozenset({False, 2, 3.2, 4j, 'siva', (7, 8)})
+
+the frozenset object dont supporting both indexing and slicing operations/concepts.
+
+>>> x=frozenset([2,3.2,4j,False,"siva",(7,8)])
+>>> x
+frozenset({False, 2, 3.2, 4j, 'siva', (7, 8)})
+>>> x[0]
+TypeError: 'frozenset' object is not subscriptable
+>>> x[:3]
+TypeError: 'frozenset' object is not subscriptable
+
+the frozenset object supporting nested frozenset mechanism.
+
+>>> x=frozenset([5,7.3,frozenset((5j,False)),"siva"])
+>>> x
+frozenset({frozenset({False, 5j}), 'siva', 5, 7.3})
+
+working with functions:
+-----------------------
+>>> a=frozenset([5,7,9,8])
+>>> a
+frozenset({8, 9, 5, 7})
+>>> len(a)
+4
+>>> min(a)
+5
+>>> max(a)
+9
+>>> sum(a)
+29
+>>> sorted(a)
+[5, 7, 8, 9]
+>>> sorted(a,reverse=True)
+[9, 8, 7, 5]
+>>> reversed(a)
+TypeError: 'frozenset' object is not reversible
+
+working with frozenset class methods:
+--------------------------------------
+	help(frozenset)
+
+	dir(frozenset)
+
+copy()
+-----
+>>> a=frozenset([5,7,9,8])
+>>> a
+frozenset({8, 9, 5, 7})
+>>> b=a.copy()
+>>> b
+frozenset({8, 9, 5, 7})
+
+union()
+-------
+>>> x=frozenset([1,2,3,4])
+>>> y=frozenset([3,4,5,6])
+>>> x
+frozenset({1, 2, 3, 4})
+>>> y
+frozenset({3, 4, 5, 6})
+>>> x.union(y)
+frozenset({1, 2, 3, 4, 5, 6})
+>>> x|y
+frozenset({1, 2, 3, 4, 5, 6})
+
+intersection()
+-------------
+>>> x=frozenset([1,2,3,4])
+>>> y=frozenset([3,4,5,6])
+>>> x
+frozenset({1, 2, 3, 4})
+>>> y
+frozenset({3, 4, 5, 6})
+>>> x.intersection(y)
+frozenset({3, 4})
+>>> x&y
+frozenset({3, 4})
+
+difference()
+-------------
+>>> x=frozenset([1,2,3,4])
+>>> y=frozenset([3,4,5,6])
+>>> x
+frozenset({1, 2, 3, 4})
+>>> y
+frozenset({3, 4, 5, 6})
+>>> x.difference(y)
+frozenset({1, 2})
+>>> x-y
+frozenset({1, 2})
+>>> y.difference(x)
+frozenset({5, 6})
+>>> y-x
+frozenset({5, 6})
+
+symmetric_difference()
+-----------------------
+>>> x=frozenset([1,2,3,4])
+>>> y=frozenset([3,4,5,6])
+>>> x
+frozenset({1, 2, 3, 4})
+>>> y
+frozenset({3, 4, 5, 6})
+>>> x.symmetric_difference(y)
+frozenset({1, 2, 5, 6})
+>>> x^y
+frozenset({1, 2, 5, 6})
+>>> x-y|y-x
+frozenset({1, 2, 5, 6})
+
+issuperset()
+-------------
+>>> a=frozenset([1,2,34,5])
+>>> b=frozenset([1,3,5])
+>>> d=frozenset([1,2,5])
+>>> a
+frozenset({1, 2, 34, 5})
+>>> b
+frozenset({1, 3, 5})
+>>> d
+frozenset({1, 2, 5})
+>>> a.issuperset(b)
+False
+>>> a.issuperset(d)
+True
+
+issubset()
+-----------
+>>> a=frozenset([1,2,34,5])
+>>> b=frozenset([1,3,5])
+>>> d=frozenset([1,2,5])
+>>> a
+frozenset({1, 2, 34, 5})
+>>> b
+frozenset({1, 3, 5})
+>>> d
+frozenset({1, 2, 5})
+>>> b.issubset(a)
+False
+>>> d.issubset(a)
+True
+
+isdisjoint()
+------------
+>>> x=frozenset([1,2,3,4,5])
+>>> y=frozenset([7,8,9])
+>>> z=frozenset([0,2,5,6])
+>>> x
+frozenset({1, 2, 3, 4, 5})
+>>> y
+frozenset({8, 9, 7})
+>>> z
+frozenset({0, 2, 5, 6})
+>>> x.isdisjoint(y)
+True
+>>> x.isdisjoint(z)
+False
+>>> y.isdisjoint(z)
+True
+
+Dictionary datatype:
+--------------------
+in python,the dictionary datatype haveing 'dict' class
+
+we can create a dict object by using { } or by calling dict()
+
+>>> x={}
+>>> x
+{}
+>>> type(x)
+<class 'dict'>
+
+>>> y=dict()
+>>> y
+{}
+>>> type(y)
+<class 'dict'>
+
+dict object contains group of key-value pairs,each key-value pair act as a one item in our dict object.
+
+	{key:value,key:value,.....,key:value}
+         --------- ---------       ---------
+	    |         |               |
+         item_1      item_2         item_n
+
+dict object is a mutable object but keys must be immutable objects and values are mutable or immutable objects.
+
+in python2.x and python3.x(3.0 to 3.4.x),these versions dict object act as a non-sequence object.
+
+ex:
+--
+>>> x={"siva":4,4.2:[5,6],4j:{6,7},(3,2):"rama",9:False}
+>>> x
+{9: False, (3, 2): 'rama', 4.2: [5, 6], 4j: set([6, 7]), 'siva': 4}
+
+from python3.5+ versions onwards dict object act as a sequence object.
+
+ex:
+---
+>>> x={"siva":4,4.2:[5,6],4j:{6,7},(3,2):"rama",9:False}
+>>> x
+{'siva': 4, 4.2: [5, 6], 4j: {6, 7}, (3, 2): 'rama', 9: False}
+
+dict object dont allow the duplicate keys but it allows duplicate values.
+
+>>> y={'m':43,'sc':67,'tel':90,'so':67,'m':31}
+>>> y
+{'m': 31, 'sc': 67, 'tel': 90, 'so': 67}
+

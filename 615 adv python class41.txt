@@ -1,0 +1,253 @@
+Testing:
+--------
+the process of identify the bugs/errors in our application/source code,is known as a Testing.
+
+		(or)
+
+to verify our application to meets the client requirements or not.
+
+how to measure the Software Quality?
+------------------------------------
+	the softwares are not a touch,smell and taste,to measure the software quality(that software is good or bad) by using testing.
+
+the testing can be categorized into two types,they are
+
+	1).Unit Testing --> to test individual functionalities
+		the unit testing is performed by the Developer
+
+		the unit testing libraries are unittest --> default
+					       pytest
+		
+	2).Integration Testing --> entire application testing
+		the Integration testing is performed by the Tester
+
+		the integartion testing libraries are Selenium
+						         +
+						     Robot framework
+
+working with unittest library:
+------------------------------
+	unittest is a builtin unittesting library in python.
+
+ex1:
+---
+	demo.py
+	--------
+import unittest
+class mytest(unittest.TestCase):
+    def test_1(self):
+        pass
+
+if __name__=='__main__':
+    unittest.main()
+
+output:
+------
+C:\Users\DELL\Desktop>python demo.py
+.
+------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+ex2:
+----
+	demo.py
+	-------
+import unittest
+class mytest(unittest.TestCase):
+    def test_1(self):
+        pass
+    def test_2(self):
+        pass
+    def test_3(self):
+        pass
+
+if __name__=='__main__':
+    unittest.main()
+
+	output
+	------
+C:\Users\DELL\Desktop>python demo.py
+...
+-----------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+
+	(or)
+
+C:\Users\DELL\Desktop>python demo.py -v
+test_1 (__main__.mytest) ... ok
+test_2 (__main__.mytest) ... ok
+testp (__main__.mytest) ... ok
+
+----------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+
+note:
+-----
+we are writeing the testcase by using "AAA" model
+
+	Arrang	: to arrange what are the prerequsites are needed to 		  implement the test case.
+
+	Act	: to perform the operation
+
+	Assert	: to verify the result
+
+
+ex3:
+----
+	demo.py
+	------
+import unittest
+def add(x,y):
+    return x+y
+
+class mytest(unittest.TestCase):
+    def test_add(self):
+        #Arrange
+        self.a=5
+        self.b=4
+        #Act
+        res=add(self.a,self.b)
+        #Assert
+        self.assertEqual(res,self.a+self.b)
+        
+
+if __name__=='__main__':
+    unittest.main()
+
+	output
+	------
+C:\Users\DELL\Desktop>python demo.py
+.
+----------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+ex4:
+----
+	addition.py
+	-----------
+def add(x,y):
+    return x+y
+
+	subtraction.py
+	--------------
+def sub(x,y):
+    return x-y
+
+	demo.py
+	-------
+import unittest
+import addition,subtraction
+
+class mytest(unittest.TestCase):
+    def test_add(self):
+        #Arrange
+        self.a=5
+        self.b=4
+        #Act
+        res=addition.add(self.a,self.b)
+        #Assert
+        self.assertEqual(res,self.a+self.b)
+    def test_sub(self):
+        #Arrange
+        self.a=5
+        self.b=4
+        #Act
+        res=subtraction.sub(self.a,self.b)
+        #Assert
+        self.assertEqual(res,self.a-self.b)     
+        
+
+if __name__=='__main__':
+    unittest.main()
+
+	output
+	------
+C:\Users\DELL\Desktop>python demo.py
+..
+-----------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+
+ex5:
+----
+	demo.py
+	-------
+import unittest
+import addition,subtraction
+
+class mytest(unittest.TestCase):
+    def setUp(self):
+        #Arrange
+        self.a=5
+        self.b=4        
+    def test_add(self):        
+        #Act
+        res=addition.add(self.a,self.b)
+        #Assert
+        self.assertEqual(res,self.a+self.b)
+    def test_sub(self):        
+        #Act
+        res=subtraction.sub(self.a,self.b)
+        #Assert
+        self.assertEqual(res,self.a-self.b)       
+        
+
+if __name__=='__main__':
+    unittest.main()
+
+output:
+------
+C:\Users\DELL\Desktop>python demo.py
+..
+-----------------------------------
+Ran 2 tests in 0.001s
+
+OK
+
+ex7:
+----
+	reverseorder.py
+	-----------------
+def strreverse(x):
+    y=''
+    i=len(x)-1
+    while i>-1:
+        y+=x[i]
+        i-=1
+    return y
+
+	demo.py
+	------
+import unittest
+from reverseorder import strreverse
+
+class mytest(unittest.TestCase):       
+    def test_palindrom(self):
+        #Arrange
+        self.a="madam"
+        #Act
+        res=strreverse(self.a)
+        #Assert
+        self.assertEqual(res,self.a[::-1])    
+        
+
+if __name__=='__main__':
+    unittest.main()
+
+output:
+------
+C:\Users\DELL\Desktop>python demo.py
+.
+-------------------------------------
+Ran 1 test in 0.001s
+
+OK

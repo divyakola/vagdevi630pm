@@ -1,0 +1,131 @@
+what is Programming Language?
+-----------------------------
+	a Language is a Set of Instructions to intend the computer or machine for performeing a one task,that langauge is a called Programming Langauge.
+
+level's of Programming langauges:
+----------------------------------
+	the Programming Langauges can be categorized into two level's they are
+
+	1).High-Level Programming Languages
+
+	2).Low-Level Programming Langauges
+
+Low-Level Programming Langauges:
+--------------------------------
+	any programming language which is understanding by computer-processor directly,that type of programming languages are called Low-Level Programming Languages.
+
+	ex: Micro-Processor(8086,8085)
+	    Micro-Controller(8051)
+	    RaspberryPI
+	    ArduinoPI
+
+High-Level Programming Languages:
+---------------------------------
+	any programming language which is understanding by      Human-Being,that type of programming langauges are called High-Level Programming Langauges.
+
+	ex: C,C++,Python,Java,.Net languages(C#,Asp.Net,....),
+	    Php,Ruby,shell-scripting,java-script,perl,
+	    powershell-scripting,Go-lang,Scala,julia,Rust,
+	    modula,modula2,modula3,....
+
+Types of High-Level Programming Langauges:
+------------------------------------------
+	the High-Level Programming Languages can be categorized into 4-types,they are
+
+	1).Procedure-Oriented Programming Languages
+	
+	2).Object-Oriented Programming Langauges
+
+	3).Scripting Programming Languages
+
+	4).Modular Programming Languages
+
+Procedure-Oriented Programming Languages:
+------------------------------------------
+	any high-level programming language which support Functions concept,that type of High-Level programming languages are called Procedure-Oriented Programming Languages(POPL)
+
+	ex: C-language,Python
+
+Object-Oriented Programming Langauges:
+---------------------------------------
+	any high-level programming langauge which support OOP's concepts,that type of High-Level Programming Langauges are called Object-Oriented Programming Langauges(OOPL)
+
+	OOP's means Object Oriented Programming Principles/concepts.
+
+	the OOP's concepts are
+		Class
+		Object
+		Encapsulation
+		Inheritance
+		Polymorphism
+		Data-Abstraction
+
+	we can developing any one application according these OOP's concepts we will get some benefits in that application.
+
+	the Benefits of OOP's concepts are
+		Security
+		Reusability
+		Flexibility
+
+	ex: C++,Python,Java,.Net languages,...
+
+Scripting Programming Languages:
+--------------------------------
+	any High-Level Programming Langauge which support Dynamic Datatypes and Interpreter concepts,that type of High-Level Programming languages are called Scripting Programming Languages(SPL).
+
+	ex: shell-scripting,python,javascript,....
+
+Modular Programming Languages:
+------------------------------
+	any high-level programming language which support modules concept,that type of high-level programming languages are called Modular Programming Languages(MPL).
+
+	ex: modula,modula2,modula3,python
+
+what is Compiler?
+----------------
+	a compiler is a predefined program,which is used to convert source code(Human Understandable Format) into machine code(Machine Understandable Format).
+
+	any high-level programming language which support compiler,that type of programming languages are called compiled programming languages.
+
+	ex: C,C++,Java,.Net,....
+
+
+what is Interpreter?
+--------------------
+	a interpreter is a predefined program,which is used to convert source code into machine code.
+
+	any programming language which support Interpreter concept that type of programming languages are called Interpreted programming languages.
+
+	ex: python,javascript,shell-scripting,....
+
+
+what is Garbage Collector?
+--------------------------
+	Garbage Collector is a Predefined program,which is used to deallocate the memory sapce for unused or unreferenced objects automatically.
+
+	once Garbage collector is executed more memory space is available so that the rest of the program execution become Fast.
+
+	the garbage collector supported langauges are java,python,
+	.Net,Php,Ruby,....
+
+	any programming langauge which support Garbage Collector,that type of programming lanagauges are called Garbage collected languages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

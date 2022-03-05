@@ -1,0 +1,261 @@
+working with string class normal methods:
+-----------------------------------------
+	these methods dont contains prefix and suffix with '__' symbols.
+
+these methods are not executed automatically,whenever we are calling a method then only method logic will be executed.
+
+capitalize()
+------------
+to return the first-word-first-charecter in capital case/upper case.
+
+	strobj.capitalize()
+
+>>> x="hai"
+>>> y="good evening rama"
+>>> z="123rama"
+>>> x.capitalize()
+'Hai'
+>>> y.capitalize()
+'Good evening rama'
+>>> z.capitalize()
+'123rama'
+
+title()
+------
+to return the each and every word first alphabet in capital/title/upper case.
+
+	strobj.title()
+
+>>> x="hai"
+>>> y="good evening rama"
+>>> z="123rama"
+>>> x.title()
+'Hai'
+>>> y.title()
+'Good Evening Rama'
+>>> z.title()
+'123Rama'
+
+count()
+-----
+to return the no.of occurencess of given charecter/substr in a string object.
+
+	strobj.count(char/substr)
+
+if char/substr is not found in that case the count() to return the zero.
+
+>>> x="hai siva krishna hai"
+>>> x.count('i')
+4
+>>> x.count('h')
+3
+>>> x.count('s')
+2
+>>> x.count('k')
+1
+>>> x.count('b')
+0
+>>> x.count('hai')
+2
+
+center()
+-------
+to print the string at center 
+	
+	strobj.center(width,fillchar)
+
+		here width is a output string length
+		     by default fillchar is a space charecter
+		     the fillchar must be one charecter long only
+
+
+>>> x="siva"
+>>> x.center(2)
+'siva'
+>>> x.center(9)
+'   siva  '
+>>> x.center(13,'@')
+'@@@@@siva@@@@'
+>>> x.center(15,'er')
+TypeError: The fill character must be exactly one character long
+
+ljust()
+-------
+ljust means left-justification
+
+to print the string at leftside
+
+	strobj.ljust(width,fillchar)
+
+		here width is a output string length
+		     by default fillchar is a space charecter
+		     the fillchar must be one charecter long only
+
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.ljust(0)
+'siva'
+>>> x.ljust(9)
+'siva     '
+>>> x.ljust(13,'a')
+'sivaaaaaaaaaa'
+>>> x.ljust(15,'ab')
+TypeError: The fill character must be exactly one character long
+
+rjust()
+-------
+rjust means right-justification
+
+to print the string at righttside
+
+	strobj.rjust(width,fillchar)
+
+		here width is a output string length
+		     by default fillchar is a space charecter
+		     the fillchar must be one charecter long only
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.rjust(4)
+'siva'
+>>> x.rjust(9)
+'     siva'
+>>> x.rjust(13,'7')
+'777777777siva'
+>>> x.rjust(15,'@f')
+TypeError: The fill character must be exactly one character long
+
+find()
+------
+to return the positive index of first occurencess of given charecter in a string object from left to right.
+
+	strobj.find(char/substr)
+
+>>> x="siva krishna"
+>>> x.find('i')
+1
+>>> x.find('a')
+3
+
+rfind()
+--------
+to return the positive index of first occurencess of given charecter in a string object from right to left.
+
+	strobj.rfind(char/substr)
+
+>>> x="siva krishna"
+>>> x.rfind('i')
+7
+>>> x.rfind('a')
+11
+
+index()
+-------
+to return the positive index of first occurencess of given charecter in a string object from left to right.
+
+	strobj.index(char/substr)
+
+>>> x="siva krishna"
+>>> x.index('i')
+1
+>>> x.index('a')
+3
+
+rindex()
+--------
+to return the positive index of first occurencess of given charecter in a string object from right to left.
+
+	strobj.rindex(char/substr)
+
+>>> x="siva krishna"
+>>> x.rindex('i')
+7
+>>> x.rindex('a')
+11
+
+note:
+----
+if charecter/substr is find,in that case there's no difference between find() and index()
+
+>>> y="siva"
+>>> y.find('i')
+1
+>>> y.index('i')
+1
+
+if charecter/substr is not find,in that case we are identify the differencess between find() and index()
+
+>>> y="siva"
+>>> y.find('b')
+-1
+>>> y[-1]
+'a'
+>>> y.index('b')
+ValueError: substring not found
+
+ex:
+--
+>>> x="hai siva krishna hai"
+>>> x.index('i')
+2
+>>> x.index('i',3)
+5
+>>> x.index('i',6)
+11
+>>> x.index('i',6,11)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+>>> x.index('i',6,12)
+11
+
+ex:
+--
+wap to return all the possible indexes of given charecter in a string objects.
+
+x=input("enter your string: ")
+ch=input("enter your charecter: ")
+for i in range(len(x)):
+    if x[i]==ch:
+        print(i)
+
+output:
+------
+enter your string: hai siva krishna hai
+enter your charecter: a
+1
+7
+15
+18
+
+ex:
+---
+>>> x="hai siva krishna hai"
+>>> x.index('hai')
+0
+>>> x.rindex('hai')
+17
+
+zfill()
+------
+to fill with zero's at left side
+
+	strobj.zfill(width)
+
+>>> x="siva"
+>>> x.zfill(2)
+'siva'
+>>> x.zfill(9)
+'00000siva'
+
+
+
+
+
+
+
+
+

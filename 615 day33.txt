@@ -1,0 +1,362 @@
+tuple data structure/datatype:
+-------------------------------
+in python,the tuple datatype haveing tuple class
+
+we can create a tuple object by using ( ) or by calling tuple() or tuple(iterableobj)
+
+>>> x=()
+>>> x
+()
+>>> type(x)
+<class 'tuple'>
+
+>>> y=tuple()
+>>> y
+()
+>>> type(y)
+<class 'tuple'>
+
+>>> z=(4,7,2,8)
+>>> z
+(4, 7, 2, 8)
+>>> type(z)
+<class 'tuple'>
+
+>>> a=tuple("siva")
+>>> a
+('s', 'i', 'v', 'a')
+>>> type(a)
+<class 'tuple'>
+
+>>> b=tuple([5,7,3,8])
+>>> b
+(5, 7, 3, 8)
+>>> type(b)
+<class 'tuple'>
+
+tuple object is a immutable object but it allows both mutable and immutable objects.
+
+>>> x=(2,3.2,"siva",4j,False,[6,7])
+>>> x
+(2, 3.2, 'siva', 4j, False, [6, 7])
+
+in tuple object insertion order is preserved(both input order and output order will be same),because of that reason tuple object is a sequence/ordered object.
+
+tuple object allows duplicate elements
+>>> y=(5,7,6,5,6,8,3,5,6,5,7)
+>>> y
+(5, 7, 6, 5, 6, 8, 3, 5, 6, 5, 7)
+
+
+tuple object allows both homogenious and hetrogenious elements
+
+	Homogenious(Similar type of elements)
+	----------
+>>> a=(5,8,9,7)
+>>> a
+(5, 8, 9, 7)
+>>> b=("siva","rama","krishna")
+>>> b
+('siva', 'rama', 'krishna')
+
+	hetrogenious(Different type of elements)
+	------------
+>>> x=(2,3.2,"siva",4j,False,[6,7])
+>>> x
+(2, 3.2, 'siva', 4j, False, [6, 7])
+
+tuple object supporting both indexing and slicing concepts
+
+we can retreive one element at a time in that case we are using indexing concept.
+
+>>> x=(2,3.2,"siva",4j,False,[6,7])
+>>> x
+(2, 3.2, 'siva', 4j, False, [6, 7])
+>>> x[1]
+3.2
+>>> x[3]
+4j
+>>> x[-1]
+[6, 7]
+>>> x[2][1]
+'i'
+>>> x[-1][0]
+6
+
+we can retreive more than one element from the given tuple object,in that case we are using slicing concept.
+
+>>> x=(2,3.2,"siva",4j,False,[6,7])
+>>> x[:3]
+(2, 3.2, 'siva')
+>>> x[-3:]
+(4j, False, [6, 7])
+>>> x[2:4]
+('siva', 4j)
+>>> x[2][:3]
+'siv'
+>>> x[2][-3:][::-1]
+'avi'
+
+we can't update the tuple object elements
+>>> x=(2,3.2,"siva",4j,False,[6,7])
+
+>>> x[0]=20
+TypeError: 'tuple' object does not support item assignment
+
+>>> x[2]="krishna"
+TypeError: 'tuple' object does not support item assignment
+
+>>> x[-1]=[60,70]
+TypeError: 'tuple' object does not support item assignment
+
+>>> x[2][1]='u'
+TypeError: 'str' object does not support item assignment
+
+>>> x[-1][-2]=600
+>>> x
+(2, 3.2, 'siva', 4j, False, [600, 7])
+
+tuple object supporting nested tuple mechanism
+
+>>> a=((),())
+>>> a
+((), ())
+
+>>> b=(5,6,(9,7,(3,2),0),1)
+>>> b
+(5, 6, (9, 7, (3, 2), 0), 1)
+
+working with functions:
+-----------------------
+>>> x=(5,3,7,9)
+>>> len(x)
+4
+>>> min(x)
+3
+>>> max(x)
+9
+>>> sum(x)
+24
+>>> sorted(x)
+[3, 5, 7, 9]
+>>> sorted(x,reverse=True)
+[9, 7, 5, 3]
+>>> reversed(x)
+<reversed object at 0x0000020FAB8FDD20>
+>>> tuple(reversed(x))
+(9, 7, 3, 5)
+
+working with tuple class methods:
+---------------------------------
+	help(tuple)
+
+	dir(tuple)
+
+count()
+-----
+to return the no.of occurencess of given element in a tuple object.
+
+	tupleobj.count(element)
+
+>>> x=(10,20,30,20,40,10,30,20,10)
+>>> x
+(10, 20, 30, 20, 40, 10, 30, 20, 10)
+>>> x.count(10)
+3
+>>> x.count(20)
+3
+>>> x.count(30)
+2
+>>> x.count(40)
+1
+>>> x.count(50)
+0
+
+index()
+------
+to return the positive index of first occurencess of given element in a tuple object from left to right.
+
+	tupleobj.index(element)
+
+ex1:
+---
+>>> y=(10,20,30,40,50)
+>>> y
+(10, 20, 30, 40, 50)
+>>> y.index(10)
+0
+>>> y.index(30)
+2
+>>> y.index(50)
+4
+>>> y.index(60)
+ValueError: tuple.index(x): x not in tuple
+
+ex2:
+----
+>>> x=(10,20,30,10,40,20,10,30,20,10)
+>>> x
+(10, 20, 30, 10, 40, 20, 10, 30, 20, 10)
+>>> x.index(10)
+0
+>>> x.index(30)
+2
+>>> x.index(40)
+4
+>>> x.index(10,1)
+3
+>>> x.index(10,4)
+6
+>>> x.index(10,4,6)
+ValueError: tuple.index(x): x not in tuple
+>>> x.index(10,4,7)
+6
+
+set data structure/datatype
+---------------------------
+in python,the set datatype haveing 'set' class
+
+we can create a set object by using { } or by calling set() or set(iterableobj)
+
+>>> x={}
+>>> x
+{}
+>>> type(x)
+<class 'dict'>
+
+>>> y=set()
+>>> y
+set()
+>>> type(y)
+<class 'set'>
+
+>>> z={7,4,8,9,5}
+>>> z
+{4, 5, 7, 8, 9}
+>>> type(z)
+<class 'set'>
+
+>>> a=set("siva")
+>>> a
+{'a', 'v', 's', 'i'}
+>>> type(a)
+<class 'set'>
+
+>>> b=set([6,4,7,3])
+>>> b
+{3, 4, 6, 7}
+>>> type(b)
+<class 'set'>
+
+>>> c=set((6,8,9,5))
+>>> c
+{8, 9, 5, 6}
+>>> type(c)
+<class 'set'>
+
+set object is a mutable object but it allows only immutable objects.
+
+>>> x={2,3.2,"siva",False,4j,(5,6)}
+>>> x
+{False, 'siva', 2, 3.2, (5, 6), 4j}
+>>> y={2,3.2,"siva",False,4j,[5,6]}
+TypeError: unhashable type: 'list'
+
+set object dont allow the duplicate elements,whenever we are inserting duplicate elements in that case it allows only first inserted elements.
+
+>>> x={6,9,8,9,7,8,9}
+>>> x
+{8, 9, 6, 7}
+>>> y={True,0,False,1}
+>>> y
+{0, True}
+>>> z={1,False,True,0}
+>>> z
+{False, 1}
+
+set object allows both homogenious and hetrogenious elements
+
+	homogenious
+	----------
+>>> a={7,8,3,9}
+>>> a
+{8, 9, 3, 7}
+
+	hetrogenious
+	-----------
+>>> x={2,3.2,"siva",False,4j,(5,6)}
+>>> x
+{False, 'siva', 2, 3.2, (5, 6), 4j}
+
+set object dont supporting both indexing and slicing concepts
+
+>>> x={2,3.2,"siva",False,4j,(5,6)}
+>>> x
+{False, 'siva', 2, 3.2, (5, 6), 4j}
+
+>>> x[1]
+TypeError: 'set' object is not subscriptable
+
+>>> x[:3]
+TypeError: 'set' object is not subscriptable
+
+set object dont supporting nested set mechanism
+>>> x={6,7,{3,4},9}
+TypeError: unhashable type: 'set'
+
+assignment:
+---------
+what is union,intersection,difference,symmetric_difference,
+superset,subset,disjoint sets?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

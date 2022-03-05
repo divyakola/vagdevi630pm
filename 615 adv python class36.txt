@@ -1,0 +1,274 @@
+ex23:
+----
+wap to update the data?
+
+	update tablename set condition where condition;
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+print("Before Update")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("update emp set sal=3500 where dno=10 and\
+ ename like 's%' ")
+print("Updated Successfully")
+print("after Update")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("rollback")
+print("Rollback Completed successfully")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+Before Update
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+Updated Successfully
+after Update
+(101, 'siva', 3500.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 3500.0, 10)
+Rollback Completed successfully
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+Connection Closeing
+
+ex24:
+-----
+delete the records?
+
+	delete from tablename where condition;
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+print("Before Delete")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("delete from emp where dno=10 and\
+ ename like 's%' ")
+print("Deleted Successfully")
+print("after Delete")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+try:
+    cur_obj.execute("commit")
+    print("Commit completed")
+    cur_obj.execute("rollback")
+except:
+    print("Once we can commit the transaction,we can't\
+ rollback the data")
+else:
+    print("Rollback Completed successfully")
+    cur_obj.execute("select * from emp where dno=10")
+    for rec in cur_obj:
+        print(rec)
+finally:
+    cur_obj.close()
+    conn_obj.close()
+    print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+Before Delete
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+Deleted Successfully
+after Delete
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+Commit completed
+Once we can commit the transaction,we can't rollback the data
+Connection Closeing
+
+		Regular Expressions
+		-------------------
+the Regular Expression is a sequence of special charecters,which is used to find/match a pattern into the string or group of strings.
+
+use-cases:
+--------
+to get the required data from the given data
+
+to perform the server side validations(Data validations)
+
+to generate the url patterns in a web application
+
+special charecters:
+-------------------
+1) *		--> it match a pattern 0 or more occurencess of 		    preceeding charecter.
+
+	ex: ab*c
+
+	ac,abc,abbc,abbbc,.....		--> valid
+
+2) +		--> it matches 1 or more occurencess of preceeding 		    charecter.
+
+	ex: ab+c
+
+	ac				--> invalid
+
+	abc,abbc,abbbc,...		--> valid 
+
+3) ?		--> it matches 0 or 1 occurencess of preceeding 		    charecter.
+
+	ex: ab?c
+
+	ac,abc				--> valid
+
+	abbc,abbbc,....			--> invalid
+
+4) .		--> it matches any one charecter
+
+	ex: a.c
+
+	abc,aAc,azc,a5c,a@c,...		--> valid
+
+	abbc,abdc,aAbc,a@bc,...		--> invalid
+
+5) [ ]		--> it matches any one charecter from the given list 		    of charecters.
+
+	ex: x[aeiou]y
+
+	    xay,xey,xoy,xiy,xuy		--> valid
+
+	    xby,xAy,xzy,x3y,x@y,...	--> invalid
+
+6) [^]		--> it matches any one charecter from otherthan given 		    list of charecters.
+
+	ex: x[^aeiou]y
+
+	    xay,xey,xoy,xiy,xuy		--> invalid
+
+	    xby,xAy,xzy,x3y,x@y,...	--> valid
+
+7) [-]		--> it matches any one charecter from the given range 		    of charecters.
+
+	ex: x[a-d]y
+
+	    xay,xby,xcy,xdy		--> valid
+
+	    xAy,xey,xzy,x@y,x3y,...	--> invalid
+
+	[0-9]	--> it matches any one digit
+
+	[^0-9]	--> it matches any one non digit
+
+	[a-z]		--> it matches any one lowercase alphabet
+
+	[^a-z]		--> it matches any one non lowercase alphabet
+
+	[A-Z]		--> it matches any one uppercase alphabet
+
+	[^A-Z]		--> it matches any one non uppercase alphabet
+
+	[a-zA-Z]	--> it matches any one alphabet
+
+	[^a-zA-Z]	--> it matches any one non alphabet
+
+	[a-zA-Z0-9]	--> it matches any one alphanumeric
+
+	[^a-zA-Z0-9]	--> it matches any one non alphanumeric
+
+8) |		--> it matches any one string from the given list of 		    strings.
+
+	ex: x(python|django|flask)y
+
+	    xpythony,xdjangoy,xflasky,...	-->valid
+
+	    xjavay,xcy,xrubyy,....		-->invalid
+
+9) {m}		--> it matches exactly 'm' occurencess of preceeding 		    charecter.
+
+	ex: ab{3}c
+
+	    abbbc			--> valid
+
+	    ac,abc,abbc,abbbbc,....	--> invalid
+
+10) {m,n}	--> it matches minimum m-occurencess and maximum n-		    occurencess of preceeding charecter.
+
+	ex: ab{3,5}c
+
+	   abbbc,abbbbc,abbbbbc		--> valid
+
+	   ac,abc,abbc,abbbbbbc,abbbbbbbc,..	--> invalid
+
+11) {m,}	--> it matches minimum m-occurencess and maximum no-		    limit of preceeding charecter.
+
+	ex: ab{3,}c
+
+	    ac,abc,abbc			--> invalid
+
+	    abbbc,abbbbc,abbbbbc,abbbbbbc,...	--> valid
+
+12) ^		--> it match a pattern at the begening of the string
+
+13) $		--> it match a pattern at the ending of the string
+
+14) \d		--> it matches any one digit
+    (or)
+   [0-9]
+
+15) \D		--> it matches any one non digit
+    (or)
+   [^0-9]
+
+16) \w		--> it matches any one alpha-numeric
+    (or)
+   [a-zA-Z0-9]
+
+17) \W		--> it matches any one non alphanumeric
+    (or)
+   [^a-zA-Z0-9]
+
+18) \s		--> it matches white space charecters like
+		    ' ','\t','\n'
+
+note:
+----
+if any confusion with regular expressin patterns and strings,to avoid that confusion we would use raw strings.
+
+	r'expression'
+	     (or)
+	r"expression"
+
+if we want to working with regular expression's to required 're' module.
+
+the re module provides some functions to perform the operations,they are
+
+	match()
+	search()
+	findall()
+	finditer()
+	sub()
+	split()
+
+
+
+
+
+	    

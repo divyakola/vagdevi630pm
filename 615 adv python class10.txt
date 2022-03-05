@@ -1,0 +1,253 @@
+what is name mangling?
+----------------------
+whenever we are hide the property of a class,that hidden property will be stored into the memory location mingle with class name,is known as a name mangling.
+
+if we want to access the hidden property of a class from outside of that class by using name mangling syntax
+
+	_classname__propertyname
+
+ex:
+---
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+t1=test()
+t1.m1()
+print(t1.x)
+print(t1._y)
+print(t1._test__z)
+
+output:
+-------
+10
+20
+30
+10
+20
+30
+
+ex2:
+---
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        self.a=1
+        self._b=2
+        self.__c=3
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+        print(self.a)
+        print(self._b)
+        print(self.__c)
+class demo(test):
+    def m2(self):
+        print(demo.x)
+        print(demo._y)
+        print(demo._test__z)
+        print(self.a)
+        print(self._b)
+        print(self._test__c)
+        
+d1=demo()
+d1.m1()
+d1.m2()
+print(d1.x)
+print(d1._y)
+print(d1._test__z)
+print(d1.a)
+print(d1._b)
+print(d1._test__c)
+
+output:
+------
+10
+20
+30
+1
+2
+3
+10
+20
+30
+1
+2
+3
+10
+20
+30
+1
+2
+3
+
+ex3:
+---
+class test:
+    def m1(self):
+       print("hai")
+    def _m2(self):
+        print("hello")
+    def __m3(self):
+        print("good evening")
+t1=test()
+t1.m1()
+t1._m2()
+t1._test__m3()
+
+output:
+-----
+hai
+hello
+good evening
+
+ex4:
+---
+class test:
+    def m1(self):
+       print("hai")
+       self._m2()
+    def _m2(self):
+        print("hello")
+        self.__m3()
+    def __m3(self):
+        print("good evening")
+t1=test()
+t1.m1()
+t1._m2()
+t1._test__m3()
+
+output:
+------
+hai
+hello
+good evening
+hello
+good evening
+good evening
+
+working with setattr() and getattr()
+-------------------------------------
+the setattr() function is used to set the attributes to the object from outside of that class.
+
+	setattr(object,attributename,attributevalue)
+
+the getattr() function is used to get the attributes from the object from outside of that class.
+
+	getattr(object,attributename)
+
+ex:
+---
+class student:
+    sid=101
+    sname="siva"
+    def std_info(self):
+        print(student.sid)
+        print(student.sname)
+s1=student()
+s1.std_info()
+setattr(s1,'sid',102)
+setattr(s1,'sname',"rama")
+setattr(s1,'sadd','hyd')
+print(getattr(s1,'sid'))
+print(getattr(s1,'sname'))
+print(getattr(s1,'sadd'))
+s1.std_info()
+
+output:
+------
+101
+siva
+102
+rama
+hyd
+101
+siva
+
+setters(mutators) and getters(accessors):
+----------------      ------------------
+ex:
+---
+class student:
+    def setSid(self,sid):
+        self.sid=sid
+    def setSname(self,name):
+        self.sname=name
+    def getSid(self):
+        print("Student Id:",self.sid)
+    def getSname(self):
+        print("Student Name:",self.sname)    
+s1=student()
+s1.setSid(101)
+s1.setSname("siva")
+s1.getSid()
+s1.getSname()
+
+output:
+-----
+Student Id: 101
+Student Name: siva
+
+working with __str__() and __repr__()?
+---------------------------------------
+
+__str__ 
+	to return the string object,user-understandable format
+
+__repr__
+	to return the original representation of an object,
+	developer understandable format
+
+ex1:
+---
+class student:
+    sid=10
+    sname="siva"
+    def __str__(self):
+        return f"student id is {student.sid} and\
+ student name is {student.sname}"
+    def __repr__(self):
+        return f"student id is {student.sid} and\
+ student name is {student.sname}"
+s1=student()
+print(s1)
+print(s1.__str__())
+print(s1.__repr__())
+        
+output:
+---------
+student id is 10 and student name is siva
+student id is 10 and student name is siva
+student id is 10 and student name is siva
+
+str()
+	it is invoked __str__
+
+repr()
+	it is invoked __repr__
+
+
+ex:
+---
+from datetime import datetime
+now=datetime.now()
+print(now)
+print(str(now))
+print(repr(now))
+
+output:
+------
+2021-12-14 19:44:49.967159
+2021-12-14 19:44:49.967159
+datetime.datetime(2021, 12, 14, 19, 44, 49, 967159)
+
+
+
+
+

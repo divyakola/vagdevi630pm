@@ -1,0 +1,198 @@
+ex18:
+----
+wap to get the login name?
+
+>>> import os
+>>> os.getlogin()
+
+'DELL'
+
+ex19:
+---
+wap to get the processID and Parent ProcessId?
+
+import os
+print(os.getpid())
+print(os.getppid())
+
+output:
+------
+11512
+1288
+
+ex20:
+----
+wap to kill the process?
+
+	os.kill(processId,signal)
+
+
+import os
+os.kill(os.getpid(),1)
+
+
+import os
+os.kill(os.getppid(),1)
+
+
+working with 'sys' module:
+-------------------------
+	if we want to display all the properties of sys module,by using following command
+
+	import sys
+	dir(sys)
+
+ex:
+---
+>>> import sys
+
+>>> sys.version
+'3.10.1 (tags/v3.10.1:2cd268a, Dec  6 2021, 19:10:37) [MSC v.1929 64 bit (AMD64)]'
+
+>>> sys.version_info
+sys.version_info(major=3, minor=10, micro=1, releaselevel='final', serial=0)
+
+>>> sys.getwindowsversion()
+sys.getwindowsversion(major=10, minor=0, build=19042, platform=2, service_pack='')
+
+>>> print(sys.copyright)
+Copyright (c) 2001-2021 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved.
+
+>>> sys.platform
+'win32'
+
+>>> sys.path
+
+>>> sys.modules
+
+>>> x=2
+>>> y=3.2
+>>> z=4j
+>>> a="siva"
+>>> sys.getsizeof(x)
+28
+>>> sys.getsizeof(y)
+24
+>>> sys.getsizeof(z)
+32
+>>> sys.getsizeof(a)
+53
+
+ex:
+--
+import sys
+class test:
+    def m1(self):
+        pass
+t1=test()
+print(sys.getrefcount(t1))
+t2=t1
+print(sys.getrefcount(t1))
+t3=t2
+print(sys.getrefcount(t1))
+del t3
+print(sys.getrefcount(t1))
+
+output:
+-----
+2
+3
+4
+3
+
+
+ex:
+---
+import sys
+print("hai")
+i=0
+while True:
+    print("siva")
+    if i==3:
+        sys.exit()    
+    i+=1
+print("bye")
+
+output:
+------
+hai
+siva
+siva
+siva
+siva
+
+command line arguments:
+----------------------
+	whenever we are passing the arguments to the python file at runtime through the command prompt,that type of arguments are called command line arguments.
+
+	in python,our filename also act as a one command line argument.
+
+	to print the command line arguments by using argv variable of sys module.
+
+	the argv variable to return the output as list object.
+
+	by default every command line argument treated as a string object.
+
+ex1:
+---
+wap to print the list of command line arguments?
+
+import sys
+print(sys.argv)
+
+output:
+------
+C:\Users\DELL\Desktop>python demo.py hai 5 3.2 4j
+['demo.py', 'hai', '5', '3.2', '4j']
+
+ex2:
+---
+wap to perform the addition of two numbers?
+
+import sys
+x=int(sys.argv[1])
+y=int(sys.argv[2])
+print("the sum of %d and %d is: %d"%(x,y,x+y))
+
+output:
+------
+C:\Users\DELL\Desktop>python demo.py 4 5
+the sum of 4 and 5 is: 9
+
+ex3:
+---
+wap to check wheather given number is even or odd?
+
+import sys
+x=int(sys.argv[1])
+if x%2==0:
+	print("Even")
+else:
+	print("Odd")
+
+
+output1:
+---------
+C:\Users\DELL\Desktop>python demo.py 4
+Even
+
+output2:
+---------
+C:\Users\DELL\Desktop>python demo.py 5
+Odd
+
+
+
+
+
+

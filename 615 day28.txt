@@ -1,0 +1,209 @@
+	Collections/python Datastructures/Datatypes
+	-------------------------------------------
+List
+----
+in python,the list datatype haveing 'list' class
+
+we can create a list object by using [ ] or by calling list() or      list(iterableobj)
+
+>>> x=[]
+>>> x
+[]
+>>> type(x)
+<class 'list'>
+
+>>> y=list()
+>>> y
+[]
+>>> type(y)
+<class 'list'>
+
+>>> z=[4,6,2,7]
+>>> z
+[4, 6, 2, 7]
+>>> type(z)
+<class 'list'>
+
+>>> a=list("siva")
+>>> a
+['s', 'i', 'v', 'a']
+>>> type(a)
+<class 'list'>
+
+>>> b=list([6,4,8,2])
+>>> b
+[6, 4, 8, 2]
+>>> type(b)
+<class 'list'>
+
+>>> c=list((5,8,2,9))
+>>> c
+[5, 8, 2, 9]
+>>> type(c)
+<class 'list'>
+
+list object is a mutable object but it allows both mutable and immutable objects.
+
+>>> x=[2,3.1,4j,False,"siva",True,[6,7]]
+>>> x
+[2, 3.1, 4j, False, 'siva', True, [6, 7]]
+
+in list object insertion order is preserved because of that reason list object is a sequence/ordered object.
+
+list object allows duplicate elements
+
+>>> y=[4,5,4,6,7,5,6,7]
+>>> y
+[4, 5, 4, 6, 7, 5, 6, 7]
+
+list object allows both homogenious and hetrogenious elements.
+
+	homogenious(similar type of elements)
+	-----------
+>>> a=[5,7,3,8]
+>>> a
+[5, 7, 3, 8]
+
+>>> b=["siva","rama","krishna"]
+>>> b
+['siva', 'rama', 'krishna']
+
+	hetrogenious(dissimilar/different type of elements)
+	------------
+>>> x=[2,3.1,4j,False,"siva",True,[6,7]]
+>>> x
+[2, 3.1, 4j, False, 'siva', True, [6, 7]]
+
+
+list object supporting indexing concept,in python indexing can be categorized into two types,they are
+
+	1).Positive/Forward indexing
+
+	2).Negative/Backward indexing
+
+
+			indexing
+			    |
+		-------------------------
+		|			|
+	Forward/positive	backward/negative
+		|			|
+takes from Left to Right	takes from Right to left
+	(or)				(or)
+takes from top to bottom	takes from bottom to top
+	|				|
+starts with '0'			starts with '-1'
+
+
+in list object each and every element haveing unique indexing.
+
+we can retreive one element at a time,in that case we are using indexing concept.
+
+>>> x=[2,3.1,4j,False,"siva",True,[6,7]]
+>>> x
+[2, 3.1, 4j, False, 'siva', True, [6, 7]]
+>>> x[1]
+3.1
+>>> x[-2]
+True
+>>> x[3]
+False
+>>> x[4]
+'siva'
+>>> x[-1][0]
+6
+>>> x[4][1]
+'i'
+>>> x[-3][-3]
+'i'
+
+list object supporting slicing concept.
+
+if we want to retreive morethan one element from the list object in that case we are using slicing concept.
+
+>>> x=[2,3.1,4j,False,"siva",True,[6,7]]
+>>> x[:3]
+[2, 3.1, 4j]
+>>> x[-3:]
+['siva', True, [6, 7]]
+>>> x[2:5]
+[4j, False, 'siva']
+>>> x[4][:3]
+'siv'
+>>> x[4][-3:][::-1]
+'avi'
+
+we can update the list object elements because list object is a mutable object.
+
+>>> x=[2,3.1,4j,False,"siva",True,[6,7]]
+>>> x[0]=20
+>>> x
+[20, 3.1, 4j, False, 'siva', True, [6, 7]]
+>>> x[4]="krishna"
+>>> x
+[20, 3.1, 4j, False, 'krishna', True, [6, 7]]
+>>> x[-1]=[60,70]
+>>> x
+[20, 3.1, 4j, False, 'krishna', True, [60, 70]]
+>>> x[-1][0]=600
+>>> x
+[20, 3.1, 4j, False, 'krishna', True, [600, 70]]
+>>> x[4][2]='u'
+TypeError: 'str' object does not support item assignment
+
+list object supporting nested list mechanism
+	nested list means a list object inside another list object.
+
+>>> a=[[],[]]
+>>> a
+[[], []]
+
+>>> b=[5,6,[7,8,[9,0],3],2]
+>>> b
+[5, 6, [7, 8, [9, 0], 3], 2]
+>>> b[2][2][0]
+9
+>>> b[-2][-3]
+8
+>>> b[2][1]
+8
+
+working with functions:
+-----------------------
+>>> x=[6,4,7,2,8]
+>>> len(x)
+5
+>>> min(x)
+2
+>>> max(x)
+8
+>>> sum(x)
+27
+>>> sorted(x)
+[2, 4, 6, 7, 8]
+>>> sorted(x,reverse=True)
+[8, 7, 6, 4, 2]
+>>> reversed(x)
+<list_reverseiterator object at 0x0000029454C1F4F0>
+>>> list(reversed(x))
+[8, 2, 7, 4, 6]
+>>> x[::-1]
+[8, 2, 7, 4, 6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

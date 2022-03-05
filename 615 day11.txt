@@ -1,0 +1,228 @@
+working with functions:
+-----------------------
+len()
+-----
+	to return the no.of charecters/elements/items in a given iterable object.
+
+	len(iterableobj)
+
+>>> x="siva"
+>>> y=[6,4,8,3,9]
+>>> z=895
+>>> len(x)
+4
+>>> len(y)
+5
+>>> len(z)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object of type 'int' has no len()
+
+ord()
+-----
+	to return the ASCII(American Standard Code for Information and Interchange) value of the given charecter.
+
+	ord(char)
+
+>>> ord('a')
+97
+>>> ord('A')
+65
+>>> ord('9')
+57
+>>> ord('@')
+64
+>>> ord('er')
+TypeError: ord() expected a character, but string of length 2 found
+
+chr()
+-----
+	to return the charecter of the given ASCII value
+
+	strobj.chr(ASCIIvalue)
+
+>>> chr(65)
+'A'
+>>> chr(97)
+'a'
+>>> chr(48)
+'0'
+>>> chr(63)
+'?'
+
+min()
+-----
+	to return the minimum charecter/element from the given iterable object.
+
+	min(iterableobj)
+
+if we are passing string object as a iterable,in that case the min() to return the minimum charecetr based on ASCII value.
+
+>>> x="RaVi"
+>>> y=[7,3,8,5]
+>>> z=674
+>>> min(x)
+'R'
+>>> min(y)
+3
+>>> min(z)
+TypeError: 'int' object is not iterable
+
+max()
+-----
+	to return the maximum charecter/element from the given iterable object.
+
+	max(iterableobj)
+
+>>> x="RaVi"
+>>> y=[7,3,8,5]
+>>> z=674
+>>> max(x)
+'i'
+>>> max(y)
+8
+>>> max(z)
+TypeError: 'int' object is not iterable
+	
+
+sorted()
+-------
+	to return the charecters/elements in sorting order from the given iterable object.
+
+	sorted(iterableobj,reverse=False)
+
+	the sorted() to return the output as list format
+
+	by default the sorted() to return the output as ascending order
+
+>>> x="RaVi"
+>>> y=[7,3,8,5]
+>>> z=674
+>>> sorted(x)
+['R', 'V', 'a', 'i']
+>>> sorted(y)
+[3, 5, 7, 8]
+>>> sorted(z)
+TypeError: 'int' object is not iterable
+
+	if we want to print elements/charecters in descending order in that case we are change the reverse attribute value False to True.
+
+	sorted(iterableobj,reverse=True)
+
+>>> x="RaVi"
+>>> y=[7,3,8,5]
+>>> sorted(x,reverse=True)
+['i', 'a', 'V', 'R']
+>>> sorted(y,reverse=True)
+[8, 7, 5, 3]
+
+differencess between function's and methods
+--------------------------------------------
+		Function's
+		----------
+1).a function is a syntaxer structure,which is used to represent the business logics to perform a particular operation from outside the class.
+
+2).function is not executed automatically,whenever we are calling a function then only function logic will be executed.
+
+we can call the function directly by using function name
+
+3).we can use functions on any objects
+
+
+		method's
+		---------
+1).a method is a syntaxer structure,which is used to represent the business logics to perform a particular operation within the class.
+
+2).method is not executed automatically,whenever we are calling a method then only method logic will be executed.
+
+we can call the with the help of object
+
+3).we can use methods on that particular class only.
+
+
+note:
+----
+if we want to display all the availabel methods with syntax and description of any calss by using help()
+
+	help(classname)
+		help(str)
+
+	help(classname.methodname)
+		help(str.upper)
+
+	help(functionname)
+		help(len)
+
+if we want to display list of all the attributes or properties of any class in that case we are using  dir()
+
+	dir(classname)
+		dir(str)
+
+	
+	import modulename
+	dir(modulename)
+
+
+working with string class methods:
+----------------------------------
+	in python,every builtin class haveing two typed of methods they are
+
+	1).magic/dunder(double underscores)/special methods
+
+	2).Normal methods
+
+magic/dunder(double underscores)/special methods:
+------------------------------------------------
+	any method name which contains prefix with double underscores(__),that type of methods are called magic/dunder/special methods.
+
+	these methods are executed automatically,whenever we are performeing that particular operations.
+
+ex:
+---
+>>> x="siva"
+>>> y="krishna"
+>>> x+y
+'sivakrishna'
+>>> x.__add__(y)
+'sivakrishna'
+
+ex2:
+----
+>>> x="siva"
+>>> y="krishna"
+>>> z="siva"
+>>> x==y
+False
+>>> x.__eq__(y)
+False
+>>> x==z
+True
+>>> x.__eq__(z)
+True
+
+ex3:
+----
+>>> x="siva"
+>>> y="krishna"
+>>> z="siva"
+>>> x!=y
+True
+>>> x.__ne__(y)
+True
+>>> x!=z
+False
+>>> x.__ne__(z)
+False
+
+ex4:
+---
+>>> x="siva"
+>>> len(x)
+4
+>>> x.__len__()
+4
+
+	
+
+		
+

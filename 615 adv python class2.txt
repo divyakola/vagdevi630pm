@@ -1,0 +1,251 @@
+we can create N-no.of objects to the single class but each and every object haveing unique address.
+
+ex1:
+---
+class test:
+    def m1(self):
+        pass
+t1=test()
+print(t1)
+t2=test()
+print(t2)
+t3=test()
+print(t3)
+
+output:
+------
+<__main__.test object at 0x0000023A574AEA70>
+<__main__.test object at 0x0000023A574AEB30>
+<__main__.test object at 0x0000023A574AEAA0>
+
+
+with respect to one object we can call one method N-no.of times.
+
+ex2:
+--
+class test:
+    def m1(self):
+        print("hai")
+t1=test()
+t1.m1()
+t1.m1()
+t1.m1()
+t1.m1()
+t2=test()
+t2.m1()
+t3=test()
+t3.m1()
+t3.m1()
+
+output:
+------
+hai
+hai
+hai
+hai
+hai
+hai
+hai
+
+what is self?
+-------------
+	a self is a reference variable which is pointing to current class object.
+
+	whenever we are instantiating an object internally that object address itself is passing to default parameter(self) of the methods.
+
+
+ex:
+---
+class test:
+    def m1(self):
+        print(self)
+t1=test()
+print(t1)
+t1.m1()
+print('*'*20)
+t2=test()
+print(t2)
+t2.m1()
+
+output:
+-----
+<__main__.test object at 0x000002A2EDD2EA70>
+<__main__.test object at 0x000002A2EDD2EA70>
+********************
+<__main__.test object at 0x000002A2EDD2EB30>
+<__main__.test object at 0x000002A2EDD2EB30>
+
+
+Variables:
+---------
+the variables are used to store the data for future use or future purpose.
+
+in object oriented mechanism,the variables can be categorized into 3-types,they are
+
+	1).Static/Class variables
+
+	2).Non-Static/Instance variables
+
+	3).Local/Method variables
+
+Static/Class variables:
+----------------------
+we can define a variables within the class and above the methods and constructor definitions,that type of variables are called Static/Class variables.
+
+the static variables to allocate the memory space at only once
+
+which data is common for all the objects of a class,that type of data we can represented as Static/Class variables.
+
+we can access the static variables data with in the methods by using class name only.
+
+we can access the static variables from outside of that class by using class name or reference_variable.
+
+ex:
+---
+class student:
+    col_name="Vagdevi"
+    col_add="Ameerpet"
+    def col_info(self):
+        print(student.col_name)
+        print(student.col_add)
+s1=student()
+s1.col_info()
+print(student.col_name)
+print(student.col_add)
+print(s1.col_name)
+print(s1.col_add)
+
+output:
+------
+Vagdevi
+Ameerpet
+Vagdevi
+Ameerpet
+Vagdevi
+Ameerpet
+
+Non-Static/Instance variables:
+------------------------------
+we can define a variables within the method/constructor definitions with the help of default parameter(self),that type of variables are called Non-Static variables.
+
+the non-static variables memory allocation is depends on the no.of objects we are created.
+
+	1 object	--> 1 time memory allocation
+	2 objects	--> 2 time's memory allocated
+	    ....		....
+
+	N objects	--> N time's memory allocated
+
+which data is changeing from one object to another object that type of data we are represented as Non-static variables.
+
+we can access the non-static variables data with in the methods by using default parameter(self).
+
+we can access the non-static variables data from outside of that class by using reference_variable.
+
+ex:
+---
+class student:
+    def std_info(self):
+        self.sid=101
+        self.sname="siva"
+        print(self.sid)
+        print(self.sname)
+s1=student()
+s1.std_info()
+print(s1.sid)
+print(s1.sname)
+
+output:
+------
+101
+siva
+101
+siva
+
+Local/method variables:
+-----------------------
+we can define a variables within the methods directly,that type of variables are called local variables.
+
+we can access the local variables data with in that particular method only.
+
+ex:
+---
+class test:
+    x=10 #static
+    def m1(self):
+        self.y=20 #non-static
+        z=30 #local
+        print(test.x)
+        print(self.y)
+        print(z)
+    def m2(self):
+        print(test.x)
+        print(self.y)
+        print(z)
+t1=test()
+t1.m1()
+t1.m2()
+
+output:
+-------
+10
+20
+30
+10
+20
+NameError: name 'z' is not defined
+
+ex:
+---
+class student:
+    col_name="Vagdevi"
+    col_add="Ameerpet"
+    def std_info(self):
+        self.sid=101
+        self.sname="siva"
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+s1=student()
+s1.std_info()
+
+output:
+------
+101
+siva
+Vagdevi
+Ameerpet
+
+note:
+-----
+whenever we are defineing a non-static variables with in the method in that case the non-static variables memory allocation is depends on no.of times we are calling a method.
+
+this is a memory wasted process,to over come that problem by using constructors.
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

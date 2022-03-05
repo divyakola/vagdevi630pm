@@ -1,0 +1,349 @@
+working with functions:
+------------------------
+>>> x={5,3,7,8}
+>>> x
+{8, 3, 5, 7}
+>>> len(x)
+4
+>>> min(x)
+3
+>>> max(x)
+8
+>>> sum(x)
+23
+>>> sorted(x)
+[3, 5, 7, 8]
+>>> sorted(x,reverse=True)
+[8, 7, 5, 3]
+>>> reversed(x)
+TypeError: 'set' object is not reversible
+
+note:
+----
+the reversed() is applicable only on sequence objects.
+
+working with set class methods:
+-------------------------------
+	help(set)
+
+	dir(set)
+
+copy()
+-----
+to create a shallow copy of a set object
+
+	setobj.copy()
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> y=x.copy()
+>>> y
+{False, 2.3, 4j, 5}
+
+add()
+----
+to add the element into the set object.
+
+	setobj.add(element)
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> x.add(9)
+>>> x
+{False, 2.3, 5, 9, 4j}
+>>> x.add("siva")
+>>> x
+{False, 2.3, 5, 9, 4j, 'siva'}
+>>> x.add(2+3j)
+>>> x
+{False, 2.3, 5, 9, (2+3j), 4j, 'siva'}
+>>> x.add((5,4))
+>>> x
+{False, 2.3, 5, 9, (5, 4), (2+3j), 4j, 'siva'}
+>>> x.add([5,6])
+TypeError: unhashable type: 'list'
+
+clear()
+-----
+to clear the set object
+
+	(or)
+
+to remove all the elements from the set object at a time
+
+	setobj.clear()
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> len(x)
+4
+>>> x.clear()
+>>> x
+set()
+>>> len(x)
+0
+
+discard()
+-------
+to remove an particular element from the set object
+
+	setobj.discard(element)
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> x.discard(2.3)
+>>> x
+{False, 4j, 5}
+>>> x.discard(100)
+>>>
+>>> x
+{False, 4j, 5}
+
+remove()
+-------
+to remove an particular element from the set object.
+
+	setobj.remove(element)
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> x.remove(4j)
+>>> x
+{False, 2.3, 5}
+>>> x.remove(100)
+KeyError: 100
+
+pop()
+----
+to remove an element from the set object from left to right.
+
+	setobj.pop()
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> x.pop()
+False
+>>> x
+{2.3, 4j, 5}
+>>> x.pop()
+2.3
+>>> x
+{4j, 5}
+>>> x.pop()
+4j
+>>> x
+{5}
+
+update()
+-------
+to add the multiple elements into the set object at a time.
+
+	setobj.update(iterableobj)
+
+>>> x={5,2.3,4j,False}
+>>> x
+{False, 2.3, 4j, 5}
+>>> x.update("rama")
+>>> x
+{False, 2.3, 'a', 5, 'r', 4j, 'm'}
+
+>>> y={5,2.3,4j,False}
+>>> y
+{False, 2.3, 4j, 5}
+>>> y.update([6,2.3,4j,"siva",9,5])
+>>> y
+{False, 2.3, 5, 6, 9, 4j, 'siva'}
+
+math-matical set operations:
+----------------------------
+>>> x={1,2,3,4}
+>>> y={3,4,5,6}
+>>> x
+{1, 2, 3, 4}
+>>> y
+{3, 4, 5, 6}
+
+>>> x.union(y)
+{1, 2, 3, 4, 5, 6}
+>>> x|y
+{1, 2, 3, 4, 5, 6}
+
+>>> x.intersection(y)
+{3, 4}
+>>> x&y
+{3, 4}
+
+>>> x.difference(y)
+{1, 2}
+>>> x-y
+{1, 2}
+>>> y.difference(x)
+{5, 6}
+>>> y-x
+{5, 6}
+
+>>> x.symmetric_difference(y)
+{1, 2, 5, 6}
+>>> x^y
+{1, 2, 5, 6}
+>>> x-y|y-x
+{1, 2, 5, 6}
+>>>
+
+
+>>> x={1,2,3,4,5}
+>>> y={1,3,5}
+>>> z={2,4,6}
+>>> x
+{1, 2, 3, 4, 5}
+>>> y
+{1, 3, 5}
+>>> z
+{2, 4, 6}
+>>> x.issuperset(y)
+True
+>>> y.issubset(x)
+True
+>>> x.issuperset(z)
+False
+>>> z.issubset(x)
+False
+
+
+>>> a={1,2,3,4}
+>>> b={7,8,9}
+>>> c={4,5,6}
+>>> a.isdisjoint(b)
+True
+>>> a.isdisjoint(c)
+False
+>>> b.isdisjoint(c)
+True
+
+set comprihension:
+------------------
+	to generate the elements into the set object by writeing some logic in that set object is known as a set comprihension.
+
+	we can implement the set comprihension to required minimum one for loop and one set object.
+
+ex:
+---
+wap to add 1-N natural numbers into set object?
+
+num=int(input("enter your number: "))
+x=set()
+for ele in range(1,num+1):
+    x.add(ele)
+print(x)
+
+	(or)
+
+num=int(input("enter your number: "))
+print({i for i in range(1,num+1)})
+
+
+output:
+------
+enter your number: 10
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+ex2:
+---
+wap to generate the even numbers from 1-N natural numbers?
+
+num=int(input("enter your number: "))
+x=set()
+for ele in range(1,num+1):
+    if ele%2==0:
+        x.add(ele)
+print(x)
+
+	(or)
+
+num=int(input("enter your number: "))
+print({i for i in range(1,num+1) if i%2==0})
+
+output:
+-----
+enter your number: 10
+{2, 4, 6, 8, 10}
+
+
+ex3:
+---
+wap to remove all the duplicate elements from the list?
+
+x=eval(input("enter your list object: "))
+print(list(set(x)))
+
+output:
+-----
+enter your list object: [10,20,30,10,40,20,30,10,20,30,10]
+[40, 10, 20, 30]
+
+ex4:
+---
+wap to find the maximum occurencess of element in a list object?
+
+x=eval(input("enter your list object: "))
+print(max(set(x),key=x.count))
+
+	(or)
+
+x=eval(input("enter your list object: "))
+print(max(x,key=x.count))
+
+output:
+----
+10
+
+ex5:
+---
+wap to return the maximum word based on their length?
+
+x=input("enter your string: ")
+words=x.split()
+print(max(words,key=len))
+
+output:
+------
+enter your string: hai siva i dont know malayalam
+
+malayalam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

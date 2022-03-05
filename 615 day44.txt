@@ -1,0 +1,228 @@
+function recurssion:
+--------------------
+	a function can call itself,is known as a function recurssion.
+
+ex:
+---
+to find the factorial of the given number?
+
+5!
+
+5*(5-1)!
+5*4*(4-1)!
+5*4*3*(3-1)!
+5*4*3*2*(2-1)!
+5*4*3*2*1*(1-1)!
+5*4*3*2*1*0!
+5*4*3*2*1*1
+20*3*2*1*1
+60*2*1*1
+120*1*1
+120*1
+120
+
+num=int(input("enter your number: "))
+def my_fact(x):
+    if x==0:
+        return 1
+    else:
+        return x*my_fact(x-1)
+res=my_fact(num)
+print("the factorial of %d is %d"%(num,res))
+
+output:
+-----
+enter your number: 5
+the factorial of 5 is 120
+
+ex2:
+---
+num=int(input("enter your number: "))
+def my_fact(x):
+    if x==0:
+        return 1
+    else:
+        return x*my_fact(x-1)
+for i in range(num+1):
+    res=my_fact(i)
+    print("the factorial of %d is %d"%(i,res))
+
+output:
+------
+enter your number: 5
+the factorial of 0 is 1
+the factorial of 1 is 1
+the factorial of 2 is 2
+the factorial of 3 is 6
+the factorial of 4 is 24
+the factorial of 5 is 120
+
+ex3:
+---
+from math import factorial
+num=int(input("enter your number: "))
+print("the factorial of %d is %d"%(num,factorial(num)))
+
+output:
+------
+enter your number: 5
+the factorial of 5 is 120
+
+assignment-1:
+------------
+wap to implement Towers of Honnai puzzle?
+
+anonymus functions:
+-------------------
+	we can define function without a function name,that type of functions are called anonymus functions.
+
+	we can define a normal functions by using 'def' keyword
+
+	def functionname():
+		-------
+		-------
+		-------
+
+	we can define a anonymus functions by using 'lambda' keyword,because of that reason the anonymus functions are also called lambda functions.
+
+	lambda arguments:expression
+
+	the anonymus functions are also called single line functions.
+
+	the anonymus functions are also called nameless functions.
+
+ex1:
+---
+create a normal function to perform the addition of two numbers?
+
+def add(x,y):
+    return x+y
+print(add(4,5))
+print(type(add))
+
+output:
+------
+9
+<class 'function'>
+
+create a anonymus(lambda) function to perform the addition of two numbers?
+
+add=lambda x,y:x+y
+print(add(4,5))
+print(type(add))
+
+output:
+------
+9
+<class 'function'>
+
+ex2:
+---
+create a normal function,to perform arithmetic calculations?
+
+def cal(x,y):
+    return x+y,x-y,x*y,x/y
+print(cal(4,5))
+
+output:
+------
+(9, -1, 20, 0.8)
+
+create a anonymus function,to perform arithmetic calculations?
+
+cal=lambda x,y:(x+y,x-y,x*y,x/y)
+print(cal(4,5))
+
+output:
+------
+(9, -1, 20, 0.8)
+
+ex3:
+---
+create a normal function to check wheather given number is even or odd?
+
+num=int(input("enter your number: "))
+def even_odd(x):
+    if x%2==0:
+        return "Even"
+    else:
+        return "Odd"
+print(even_odd(num))
+
+output:
+------
+enter your number: 4
+Even
+
+enter your number: 9
+Odd
+
+create a anonymus function to check wheather given number is even or odd?
+
+num=int(input("enter your number: "))
+even_odd=lambda x: "Even" if x%2==0 else "Odd"
+print(even_odd(num))
+
+output:
+------
+enter your number: 3
+Odd
+
+enter your number: 4
+Even
+
+ex4:
+---
+create a normal function to check the given number is positive or negative or zero?
+
+num=int(input("enter your number: "))
+def pnz(x):
+    if x>0:
+        return "Positive"
+    else:
+        if x<0:
+            return "Negative"
+        else:
+            return "Zero"
+print(pnz(num))
+
+create a anonymus function to check the given number is positive or negative or zero?
+
+num=int(input("enter your number: "))
+pnz=lambda x: "Positive" if x>0 else "Negative" if x<0 else zero
+print(pnz(num))
+
+outputs:
+------
+enter your number: 6
+Positive
+
+enter your number: -2
+Negative
+
+enter your number: 0
+Zero
+
+
+assignment-1:
+------------
+create a function to return no.of charecters/elements from the given iterable object?
+
+	[4,3,6,2,7]	"krishna"
+
+output:
+            5               7
+
+
+assignment-2:
+-------------
+create a function to return the sum of given iterable object elements.
+
+	[4,3,6,2,7]
+
+output:
+            22
+
+
+	
+

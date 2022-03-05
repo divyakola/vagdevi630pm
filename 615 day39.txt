@@ -1,0 +1,317 @@
+		Function's
+		---------
+	a function is a block of organized,related code to perform a single action/operation according to our business requirements.
+
+		(or)
+
+	a function is a syntaxer structure,which is used to represent the business logics to perform a single action/operation.
+
+advantages of functions:
+------------------------
+function's provides reusability of code
+function's provides better modularity of our application
+
+types of function's:
+-------------------
+	in generally,the function's can be categorized into two types,they are
+
+	1).Builtin/predefined functions
+
+	2).User-defined functions
+
+Builtin/predefined functions:
+-----------------------------
+	these functions are already predefined for some special purpose,we can use that functions only for that particular purpose.
+
+ex:
+---
+wap to display the list of all the available builtin functions?
+
+import builtins
+print([ele for ele in dir(builtins) if ele[0].islower()])
+
+	(or)
+
+import builtins
+x=dir(builtins)
+y=[]
+for ele in x:
+    if ele[0].islower():
+        y.append(ele)
+print(y)
+
+output:
+-----
+['abs', 'aiter', 'all', 'anext', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+
+examples:
+-------
+abs()
+-----
+to return the absolute value of the given number,we are passing complex number,in that case the abs() to return the magnitude of that number.
+
+abs(2)
+2
+abs(-3)
+3
+abs(3.2)
+3.2
+abs(-4.2)
+4.2
+abs(2+3j)
+3.605551275463989
+
+all()
+----
+if all the elements are True in our iterable object in that case the all() to return True otherwise the all() to return False.
+
+	all(iterableobj)
+
+0 means False
+
+except 0 means True
+
+x="siva"
+y=[5,9.3,4j]
+z=[8,3,0]
+a=[False,0,True]
+b=[False,0]
+c=34
+
+all(x)
+True
+
+all(y)
+True
+
+all(z)
+False
+
+all(a)
+False
+
+all(b)
+False
+
+all(c)
+TypeError: 'int' object is not iterable 
+
+any()
+-----
+if any one element is True the any() to return True otherwise the any() to return False.
+
+	any(iterableobj)
+
+x="siva"
+y=[5,9.3,4j]
+z=[8,3,0]
+a=[False,0,True]
+b=[False,0]
+c=34
+
+any(x)
+True
+
+any(y)
+True
+
+any(z)
+True
+
+any(a)
+True
+
+any(b)
+False
+
+any(c)
+TypeError: 'int' object is not iterable
+
+bytes()
+------
+the bytes() to return the bytes object,the bytes object is a immutable object.
+
+x=[5,8,9,13]
+x
+[5, 8, 9, 13]
+
+y=bytes(x)
+y
+b'\x05\x08\t\r'
+type(y)
+<class 'bytes'>
+
+y[0]
+5
+y[0]=50
+TypeError: 'bytes' object does not support item assignment
+
+bytearray()
+-----------
+the bytearray() to return the bytearray object,the bytearray object is a mutable object.
+
+x=[5,8,9,13]
+x
+[5, 8, 9, 13]
+
+y=bytearray(x)
+y
+bytearray(b'\x05\x08\t\r')
+
+type(y)
+<class 'bytearray'>
+
+y[0]
+5
+
+y[0]=50
+y
+bytearray(b'2\x08\t\r')	
+
+ord()
+----
+to return the ASCII value of the given charecter
+
+	ord(char)
+
+ord('\t')
+9
+ord('\n')
+10
+ord('@')
+64
+ord('a')
+97
+
+chr()
+----
+to return the charecter of the given ASCII value
+
+	chr(ASCIIvalue)
+
+chr(32)
+' '
+chr(11)
+'\x0b'
+chr(9)
+'\t'
+chr(63)
+'?'
+chr(97)
+'a'
+
+eval()
+-----
+to read the one or more values from the user input with homogenious and hetrogenious.
+
+the eval() to perform implicit type conversion
+
+in eval() the values are seperated by ',' only
+
+ex:
+---
+a,b,c=eval(input("enter a,b,c values: "))
+print(a+b+c)
+
+output:
+------
+enter a,b,c values: 2,3.2,4+3j
+(9.2+3j)
+
+enter a,b,c values: 3,4,5
+12
+
+enumerate()
+----------
+to enumerate the elements from the given iterable object with index.
+
+the enumerate() to return the enumerate object.
+
+the enumerate object contains group of tuples each tuple contains index,element format.
+	enumerate((index,ele),(index,ele),....,(index,ele))
+	
+	enumerate(iterableobj,start=0)
+
+ex1:
+----
+x=[4,2.3,5j,False]
+i=0
+while i<len(x):
+    print(i,x[i])
+    i+=1
+
+	(or)
+
+x=[4,2.3,5j,False]
+for i in range(len(x)):
+    print(i,x[i])
+
+	(or)
+
+x=[4,2.3,5j,False]
+for i,j in enumerate(x):
+    print(i,j)
+
+output:
+------
+0 4
+1 2.3
+2 5j
+3 False
+	
+ex2:
+----
+x=[4,2.3,5j,False]
+y=enumerate(x)
+print(y)
+print(type(y))
+for ele in y:
+    print(ele)
+
+output:
+------
+<enumerate object at 0x0000022D170146C0>
+<class 'enumerate'>
+(0, 4)
+(1, 2.3)
+(2, 5j)
+(3, False)
+
+ex3:
+---
+print(list(enumerate([4,2.3,5j,False])))
+
+output:
+------
+[(0, 4), (1, 2.3), (2, 5j), (3, False)]
+
+ex4:
+---
+print(list(enumerate([4,2.3,5j,False],start=100)))
+
+output:
+------
+[(100, 4), (101, 2.3), (102, 5j), (103, False)]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

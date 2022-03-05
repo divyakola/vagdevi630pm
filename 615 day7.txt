@@ -1,0 +1,241 @@
+how to read the data from the user input or console or keyboard?
+----------------------------------------------------------------
+	we can read the data from user iput or console or keyboard    in c-language by using scanf()
+
+in c++ by using cin>>
+
+in python2.x by using input(),raw_input()
+
+in python3.x by using only input()
+
+ex:
+---
+wap to read the data from the user-input to perform the addition operation by using input() in python2.x?
+
+x=input("Enter x value: ")
+y=input("Enter y value: ")
+z=x+y
+print(z)
+
+output:
+-----
+Enter x value: 4
+Enter y value: 5
+9
+
+ex2:
+---
+wap to read the data from the user-input to perform the addition operation by using raw_input() in python2.x?
+
+x=raw_input("Enter x value: ")
+y=raw_input("Enter y value: ")
+z=x+y
+print(z)
+
+output:
+-----
+Enter x value: 4
+Enter y value: 5
+45
+
+ex3:
+---
+x=int(raw_input("Enter x value: "))
+y=float(raw_input("Enter y value: "))
+z=x+y
+print(z)
+
+output:
+-----
+Enter x value: 4
+Enter y value: 5
+9.0
+
+ex4:
+---
+wap to read the data from the user-input to perform the addition operation by using input() in python3.x?
+
+x=input("Enter x value: ")
+y=input("Enter y value: ")
+z=x+y
+print(z)
+
+output:
+------
+Enter x value: 4
+Enter y value: 5
+45
+
+ex5:
+---
+x=int(input("Enter x value: "))
+y=complex(input("Enter y value: "))
+z=x+y
+print(z)
+
+output:
+------
+Enter x value: 4
+Enter y value: 5
+(9+0j)
+
+
+type-conversion/type-casting ?
+--------------- -----------
+	to convert one type of data into another type of data is known as a type-conversion.
+
+		(or)
+
+	to convert one datatype into another datatype is known as a type-conversion.
+
+the type-conversion can be categorized into two-types,they are
+
+	1).Implicit Type Conversion
+
+	2).Explicit Type Conversion
+
+Implicit Type Conversion:
+------------------------
+	the Type Conversion will be done automatically without programmer or developer interaction by explicitly,is known as a Implicit Type Conversion.
+
+	ex: in python2.x by using input()
+
+Explicit Type Conversion:
+-------------------------
+	the Type Conversion will be done  with programmer or developer interaction by explicitly,is known as a Explicit Type Conversion.
+
+	ex: in python2.x by using raw_input()
+	    in python3.x by using input()
+
+
+Number Systems:
+---------------
+	the Number Systems are used to represent the numbers in a computer memory.
+
+	the Number Systems can be categorized into 4-types,they are
+
+	1).Binary Number Systems
+
+	2).Octal Number Systems
+
+	3).Decimal Number Systems
+
+	4).Hexadecimal Number Systems
+
+
+Binary Number Systems:
+----------------------
+the Binary Number System base value is 2
+
+it contains 0-1
+
+we can represent the Binary Number Systems in python,that number system contains prefix with '0b'
+
+	ex: 0b1010
+
+
+Octal Number Systems:
+---------------------
+the Octal Number System base value is 8
+
+it contains 0-7
+
+we can reprfesent the Octal Number Systems in python,that number system contains prefix with '0o'
+
+	ex: 0o37
+
+Decimal Number Systems:
+----------------------
+the Decimal Number System base value is 10
+
+it contains 0-9 
+
+in python,there's no special charecter to represent the Decimal Number Systems.
+
+in python,the Decimal Number Systems contains '0' but dont starts with '0'.
+
+	ex: 39
+	    309
+	    039 #invalid
+
+Hexadecimal Number Systems:
+---------------------------
+the Hexadecimal Number System base-value is 16
+
+it contains 0-15
+	     |
+	----------
+	|        |
+      0-9     a-f/A-F
+              | |
+	     10 15
+
+we can represent the Hexadecimal Number Systems in python,that number system contains prefix with '0x'.
+
+	ex: 0x2c
+
+
+ex:
+---
+>>> x=0b1010 #binary
+>>> x
+10
+>>> y=0o37 #octal
+>>> y
+31
+>>> z=39 #decimal
+>>> z
+39
+>>> p=0x2c #hexadecimal
+>>> p
+44
+
+note:
+----
+we can pass any number system as a input to the python interpreter by default our python interpreter to return the output as decimal number system only.
+
+if we want our required number system as a output,in that case we are using number-system conversions.
+
+number-system conversions:
+-------------------------
+	the number-system conversions are used to convert one type of number system into another type of number system.
+
+	1).to convert Binary into Decimal
+
+>>> x=0b1101 #binary
+>>> x
+13
+
+	2).to convert Decimal into Binary
+
+in python,we can convert any number system into binary number system by using bin()
+
+>>> y=12 #decimal
+>>> bin(y)
+0b1100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

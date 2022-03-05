@@ -1,0 +1,303 @@
+			Python
+			------
+what is Python?
+---------------
+python is a General Purpose programming language
+python is a High-level programming language
+python is a multi-paradigm
+python supporting both interactive and Batch Mode
+
+	(or)
+
+python is a General purpose,high-level,interpreted,interactive,
+dynamically-typed,garbage collected,modular,procedure-oriented,
+object-oriented and scripting programming language.
+
+History of Python:
+------------------
+	the Python was developed by the Guido Van Rossum in the year of 1991(actually this project implementation started in the year of 1989).
+
+	the name python was derived from the Guido Van Rossum Favourite TV fun show "the complete monty python's flying circus".
+
+	he is a Dutch Programmer
+
+	currently he is working on developer divisin at microsoft.
+
+advantages of Python:
+---------------------
+1).Simple syntax
+	in python,theres no concept of ;,(),{}
+	python simply follows space indentation concept
+
+ex: if block representation
+
+	c/c++/java			python
+	----------			------
+	if(condition)			if condition:
+	  {					statement_1
+           statement_1;				statement_2
+             statement_2;			........
+	   ......				statement_n
+	 statement_n;
+          }
+
+2).Less Code
+
+	python programs haveing lesscode when compared to other programming langauges programs code like c,c++,java,....
+
+ex:
+---
+write a c-program,to print "hello world")
+
+#include<stdio.h>
+void main()
+{
+  printf("hello world");
+}
+
+
+write a java-program,to print "hello world"?
+
+import java.io.*;
+class Test
+{
+  public static void main(String args[])
+  {
+    System.out.println("hello world");
+   }
+}
+
+write a python-program,to print "hello world"?
+
+print("hello world")
+
+3).dynamically typed
+
+ex:
+--
+write a c-program(static typed) to perform the addition opertaion on two different type of values?
+
+#include<stdio.h>
+void main()
+{
+  int x=10;
+  float y=2.3;
+  float z=x+y;
+  printf(z);
+  
+}
+
+write a python-program(dynamic typed) to perform the addition opertaion on two different type of values?
+
+x=10
+y=2.3
+z=x+y
+print(z)
+
+Features of Python:
+-------------------
+1).Easy-to-Learn
+2).Easy-to-Read
+3).Easy-to-maintain
+4).Easy-to-Use
+5).portable/crossplatform(it support all operating systems)
+6).scalable(easily we can add new features)
+7).Secure
+8).Flexible
+9).platform independent(write once run anywhere)
+10).strongly typed
+11).free and Opensource
+12).it support all types of database connections.
+
+note:
+----
+python is a free and Opensource,it is maintained by PSF(Python Software Foundation) team.
+
+
+applications of Python/where we are using Python:
+------------------------------------------------
+1).Automation Applications
+	Robotics	--> Artificial Intelligence(AI)
+
+2).Data Science
+	Machine Learning(ML)
+	Deep Learning(DL)
+	Natural Langauge Processing(NLP)
+	Image Processing
+	Data Mining
+	Stastical Analysis
+	Sentimental Analysis
+
+3).Bigdata-Hadoop
+	store	--> HDFS
+
+	process	  --> mapreduce
+	
+		      spark
+			python/scala
+
+4).web application development
+	python + Django/Flask/Bottle/web2py/cherryPI/pyramid,...
+
+5).DevOps
+	cheff,puppet,docker,ansible,jenkins,ansible,kubernets,
+        maven,vagrant,git,github,splunk,...
+
+6).Cloud
+	AWS,AZURE,GCP
+
+7).IOT(Internet Of Things)
+
+8).Embedded applications
+
+9).networking applications
+	chatbot
+	to update the networking protocols
+
+10).Scientific applications
+
+11).Animation application
+
+12).Testing
+
+13).Games development
+
+14).GUI(Graphical User Interface) applications/Desktop/Standalone
+
+15).Mobile Apps
+
+16).Admin activities
+
+17).GIS(Geographical Information Systems)
+
+18).Ethical-Hacking(Cyber-Security)
+
+19).Blockchain
+
+20).ETL(Extract Transformation and Loading)
+
+21).BI(Business Intelligence)
+
+22).ERP(Enterprise Resource Planning)
+	odoo
+
+23).web scrapping
+
+24).Bio-Informatics/Life-science
+
+Implementation of Python:
+-------------------------
+	the Guido Van Rossum to implement the python programming language by takeing the different varities of Features from different types of programming languages.
+
+	1).python language supporting Function's concept,these concept takes from Procedure-Oriented Programming Languages.
+
+	ex: C-language
+
+	2).python language supporting OOP's concepts,these concepts takes from Object-Oriented Programming Langauges.
+
+	ex: C++
+
+	3).python language supporting DDT(Dynamic Datatypes) and Interpreter concepts,these two concepts takes Scripting programming Languages.
+
+	ex: Shell-Scripting
+
+	4).python language supporting module's concept,these concept takes from modular programming languages.
+
+	ex:modula3
+
+
+python distributions:
+----------------------
+	the python runtime environment is implemented by using 		c-language,is known as a "Cpython".
+
+	Cpython is a standard python distribution
+
+	the python runtime environment is implemented by using java language,is known as "Jython".
+
+	the python runtime environment is implemented by using .Net languages(C#,Asp.Net,...),is known as a "IronPython".
+
+	the python runtime environment is implemented by using python language,is known as a "PYPY".
+
+	the python runtime environment is implemented by using Rust language,is known as a "RustPython".
+
+	the python runtime environment is implemented based on Embedded systems,is known as a "EmbeddedPython".
+
+	the python runtime environment is implemented by Anaconda corporation,is known as a "AnacondaPython".
+
+	.........
+	.........,etc.,
+
+
+how to represent the comments in python?
+----------------------------------------
+	Generally the comments can be categorized into two types,they are
+
+	1).single-line comment
+
+	2).multi-line comment
+
+single-line comment
+-------------------
+	c-language			python
+	----------			-------
+	// comment_line			# comment_line
+
+multi-line comment
+------------------
+	c-language			python
+	----------			-------
+	/* comment_line_1		''' comment_line_1
+	   comment_line_2		    comment_line_2
+	   ..........			    ........
+	   comment_line_n */		    comment_line_n '''
+
+versions of python:
+-------------------
+initially python released into the market in the year of 1991
+
+python1.0 version is released into the market in the year of 1994
+
+the python1.x(1.0,1.1,....,1.x) these versions dont supporting Garbage Collector concept.
+
+python2.0 version is released into the market in the year of 2000
+
+from python2.0 versions onwards python language also supporting Garbage Collector concept.
+
+python3.0 version is released into the market in the year of 2008
+
+	python2.x	--> 2.0,2.1,....,2.7.18
+
+	python3.x	--> 3.0,3.1,....,3.9.7
+
+disadvantages:
+--------------
+slower execution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+

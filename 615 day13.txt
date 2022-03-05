@@ -1,0 +1,439 @@
+strip()
+-------
+to remove all the possible occurencess of given charecters in a string object at begening or ending or both places.
+
+	strobj.strip(char's)
+
+by default the strip() takes the white-space charecters
+
+ex:
+---
+>>> x="siva krishna"
+>>> x.strip('s')
+'iva krishna'
+>>> x
+'siva krishna'
+>>> x.strip('a')
+'siva krishn'
+>>> x
+'siva krishna'
+>>> x.strip('siva')
+' krishn'
+>>> x
+'siva krishna'
+
+
+>>> y="madam"
+>>> y
+'madam'
+>>> y.strip('m')
+'ada'
+>>> y
+'madam'
+>>> y.strip('am')
+'d'
+>>> y
+'madam'
+
+>>> z=" siva "
+>>> z
+' siva '
+>>> z.strip()
+'siva'
+>>> z
+' siva '
+
+>>> a="\n\t siva\t"
+>>> a
+'\n\t siva\t'
+>>> a.strip()
+'siva'
+>>> a
+'\n\t siva\t'
+
+lstrip()
+------
+to remove all the possible occurencess of given charecters in a string object at leftside/begining position only.
+
+	strobj.lstrip(char's)
+
+>>> y="madam"
+>>> y
+'madam'
+>>> y.lstrip('m')
+'adam'
+>>> y
+'madam'
+>>> y.lstrip('am')
+'dam'
+>>> y
+'madam'
+>>> y.lstrip('dma')
+''
+>>> y
+'madam'
+
+>>> z=" siva "
+>>> z
+' siva '
+>>> z.lstrip()
+'siva '
+>>> z
+' siva '
+
+>>> a="\n\t siva\t"
+>>> a
+'\n\t siva\t'
+>>> a.lstrip()
+'siva\t'
+>>> a
+'\n\t siva\t'
+
+rstrip()
+------
+to remove all the possible occurencess of given charecters in a string object at right-side.
+
+	strobj.rstrip(char's)
+
+>>> y="madam"
+>>> y
+'madam'
+>>> y.rstrip('m')
+'mada'
+>>> y
+'madam'
+>>> y.rstrip('ma')
+'mad'
+>>> y
+'madam'
+>>> y.rstrip('dma')
+''
+
+>>> z=" siva "
+>>> z
+' siva '
+>>> z.rstrip()
+' siva'
+>>> z
+' siva '
+
+>>> a="\t\n siva \t"
+>>> a
+'\t\n siva \t'
+>>> a.rstrip()
+'\t\n siva'
+>>> a
+'\t\n siva \t'
+
+
+split()
+-------
+to split the string into words based on given delimiter/seperator.
+
+by default space charecter is a delimiter/seperator.
+
+	strobj.split(delimiter/sep)
+
+by default the split() to return the output as list object.
+
+ex:
+---
+>>> x="hai siva krishna good evening"
+>>> x.split()
+['hai', 'siva', 'krishna', 'good', 'evening']
+
+>>> y="hai siva krishna good evening"
+>>> y.split(' ')
+['hai', 'siva', 'krishna', 'good', 'evening']
+
+>>> z="hai,siva krishna,good evening"
+>>> z.split(',')
+['hai', 'siva krishna', 'good evening']
+
+>>> a="hai siva krishna good evening"
+>>> a.split('i')
+['ha', ' s', 'va kr', 'shna good even', 'ng']
+
+
+ex:
+---
+wap to return the no.of words in a given string based on given delimiter/seperator?
+
+x=input("enter your string: ")
+sep=input("enter your seperator: ")
+print(len(x.split(sep)))
+
+outputs:
+-------
+C:\Users\DELL\Desktop>python noofwords.py
+enter your string: hai siva krishna good evening
+enter your seperator:
+5
+
+C:\Users\DELL\Desktop>python noofwords.py
+enter your string: hai,siva krishna,good evening
+enter your seperator: ,
+3
+
+ex2:
+---
+x=input("enter your string: ")
+sep=input("enter your seperator: ")
+print("the no.of words in a given string based on '%s' seperator are: '%d'-words"%(sep,len(x.split(sep))))
+
+outputs:
+-------
+C:\Users\DELL\Desktop>python noofwords.py
+enter your string: hai,siva krishna,good evening
+enter your seperator: ,
+the no.of words in a given string based on ',' seperator are: '3'-words
+
+C:\Users\DELL\Desktop>python noofwords.py
+enter your string: hai siva krishna good evening
+enter your seperator:
+the no.of words in a given string based on ' ' seperator are: '5'-words
+
+join()
+------
+to join the elements from the given iterable object with our string object.
+
+	strobj.join(iterableobj)
+
+>>> x="siva"
+>>> y=" "
+>>> y.join(x)
+'s i v a'
+
+>>> a="."
+>>> b=["D","Siva"]
+>>> a.join(b)
+'D.Siva'
+
+replace()
+---------
+to replace the existed char/substr with new char/substr
+
+	strobj.replace(old char/substr,new char/substr)
+
+>>> x="siva krishna"
+>>> x
+'siva krishna'
+>>> x.replace('i','u')
+'suva krushna'
+>>> x
+'siva krishna'
+>>> x.replace('siva','rama')
+'rama krishna'
+>>> x
+'siva krishna'
+>>> x.replace('krishna','ram')
+'siva ram'
+>>> x
+'siva krishna'
+
+lower()
+------
+to convert a string into lower-case?
+
+	strobj.lower()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.lower()
+'siva'
+>>> y.lower()
+'rama'
+>>> z.lower()
+'krishna'
+>>> a.lower()
+'siva@123'
+>>> b.lower()
+'rama@123'
+
+upper()
+------
+to convert a string into upper case
+
+	strobj.upper()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.upper()
+'SIVA'
+>>> y.upper()
+'RAMA'
+>>> z.upper()
+'KRISHNA'
+>>> a.upper()
+'SIVA@123'
+>>> b.upper()
+'RAMA@123'
+
+swapcase()
+---------
+to swap the case(to convert upper to lower  and lower to upper)
+
+	strobj.swapcase()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> x.swapcase()
+'SIVA'
+>>> y.swapcase()
+'rama'
+>>> z.swapcase()
+'kRIsHnA'
+
+startswith()
+------------
+	to check-wheather the string object startswith given charecter/substr or not.
+
+	strobj.startswith(char/substr)
+
+>>> x="siva krishna"
+>>> x.startswith('s')
+True
+>>> x.startswith('a')
+False
+>>> x.startswith('siv')
+True
+>>> x.startswith('sia')
+False
+
+endswith()
+---------
+	to check wheather the string object endswith given charecter/substr or not.
+
+	strobj.endswith(char/substr)
+
+
+>>> x="siva krishna"
+>>> x.endswith('a')
+True
+>>> x.endswith('s')
+False
+>>> x.endswith('hna')
+True
+>>> x.endswith('sna')
+False
+
+islower()
+----------
+to check wheather given string object contains only lowercase alphabets or not?
+
+	strobj.islower()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.islower()
+True
+>>> y.islower()
+False
+>>> z.islower()
+False
+>>> a.islower()
+True
+>>> b.islower()
+False
+
+isupper()
+--------
+to check wheather the given string object contains only uppercase alphabets or not?
+
+	strobj.isupper()
+
+>>> x="siva"
+>>> y="RAMA"
+>>> z="KriShNa"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.isupper()
+False
+>>> y.isupper()
+True
+>>> z.isupper()
+False
+>>> a.isupper()
+False
+>>> b.isupper()
+True
+
+istitle()
+---------
+to check wheather the given string object to folow the title-case or not?
+
+	strobj.istitle()
+
+>>> x="Hai"
+>>> y="Rama krishna"
+>>> z="Good Evening 123Krishna"
+>>> a="Hello RAMA"
+>>> x.istitle()
+True
+>>> y.istitle()
+False
+>>> z.istitle()
+True
+>>> a.istitle()
+False
+
+isspace()
+----------
+to check wheather given string object contains only spaces(white spaces) or not.
+
+	strobj.isspace()
+
+>>> x=" "
+>>> y=""
+>>> z=" siva "
+>>> a="\t"
+>>> b="     "
+>>> c="\n"
+>>> x.isspace()
+True
+>>> y.isspace()
+False
+>>> z.isspace()
+False
+>>> a.isspace()
+True
+>>> b.isspace()
+True
+>>> c.isspace()
+True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

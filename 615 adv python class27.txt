@@ -1,0 +1,277 @@
+if any exception occured in our inner try block that can be handled by using inner-try-except block wheather it is not handled that can be handled by using outer-try-except block also,both except block's can't be handled in that case our program execution will be terminates abnormally.
+
+ex1:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    try:
+        z=x/y
+        print(z)
+    except ZeroDivisionError:
+        print("sno can't be zero")
+except ValueError:
+    print("Enter Integers only")
+print("bye")
+
+output1: without any exception in inner-try
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2: with exception in inner-try,it is handled by inner-try--------  except 
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+ex2:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    try:
+        z=x/y
+        print(z)    
+    except ValueError:
+        print("Enter Integers only")
+except ZeroDivisionError:
+    print("sno can't be zero")
+print("bye")
+
+output1: without any exception in inner-try
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2: with exception in inner-try,it is handled by 
+--------  outer-try-except 
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+
+finally block
+-------------
+	we can define any block,which is preceeded by finally keyword,that block is called finally block.
+
+	finally:
+	     stmt_1
+	     stmt_2
+	     .....
+	     stmt_n
+
+	the statements must be executed wheather exception is raised or not raised eventhough exception is raised wheather it is handled or not handled,that type of statements we are represented in finally block.
+
+	in generally,the resource releasing statements we are represented in finally block like file closeing
+				  database connection closeing
+				  cloud connection closeing
+				      .....
+				      .....
+
+scenario-1:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+scenario-2:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+scenario-3:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except ExceptionClassname:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+scenario-4:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except ExceptionClassname:
+   stmt_1
+   ......
+   stmt_n
+except ExceptionClassname:
+   stmt_1
+   ......
+   stmt_n
+-----
+-----
+-----
+except:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+ex:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)   
+except ZeroDivisionError:
+    print("sno can't be zero")
+finally:
+    print("i am in finally")
+print("bye")
+
+output1: without any exception
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+i am in finally
+bye
+
+output2: with exception can be handled
+-------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+i am in finally
+bye
+
+output3: with exception can't be handled
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+i am in finally
+ValueError: invalid literal for int() with base 10: '2.3'
+
+try else
+--------
+	without any exception in our try block then only control will goto else block otherwise control will goto except block.
+
+	syntax
+	------
+	try:
+	   stmt_1
+	   ......
+	   stmt_n
+	except:
+	   stmt_1
+	   ......
+ 	   stmt_n
+	else:
+	   stmt_1
+	   ......
+	   stmt_n
+
+ex:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y    
+except ZeroDivisionError:
+    print("sno can't be zero")
+else:
+    print(z)     
+finally:
+    print("i am in finally")
+print("bye")
+
+output: without any exception
+------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+i am in finally
+bye
+
+output2: with exception
+------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+i am in finally
+bye
+
+ex:
+---
+try:
+    print("i am in outer-try block")
+    try:
+        print("i am in outer-try-inner-try block")
+    except:
+        print("i am in outer-try-inner-except block")
+    finally:
+        print("i am in outer-try-inner-finally block")
+except:
+    print("i am in outer-except block")
+    try:
+        print("i am in outer-except-inner-try block")
+    except:
+        print("i am in outer-except-inner-except block")
+    finally:
+        print("i am in outer-except-inner-finally block")
+finally:
+    print("i am in outer-finally block")
+    try:
+        print("i am in outer-finally-inner-try block")
+    except:
+        print("i am in outer-finally-inner-except block")
+    finally:
+        print("i am in outer-finally-inner-finally block")
+      
+output:
+------
+i am in outer-try block
+i am in outer-try-inner-try block
+i am in outer-try-inner-finally block
+i am in outer-finally block
+i am in outer-finally-inner-try block
+i am in outer-finally-inner-finally block
+

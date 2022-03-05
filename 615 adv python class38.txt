@@ -1,0 +1,279 @@
+split()
+------
+to split the string into words based on given delimiters/seperators.
+
+	split(pattern,string)
+
+the split() to return the output as list object.
+
+ex12:
+----
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+print(re.split(pattern,string))
+
+output:
+------
+enter your string: hai siva,krishn;good.evening bye
+enter your pattern: [\s,;.]+
+['hai', 'siva', 'krishn', 'good', 'evening', 'bye']
+
+ex13:
+----
+wap to return month names and dates from the given string?
+
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+matches=re.findall(pattern,string)
+for m in matches:
+    print(m)
+
+output:
+------
+enter your string: Jan 14 jun 10 sep DEC 5
+enter your pattern: [a-zA-Z]+ [0-9]+
+
+Jan 14
+jun 10
+DEC 5
+
+ex14:
+----
+import re
+matches=re.findall('([a-zA-Z]+) \d+',
+                   'Jan 14 jun 10 sep DEC 5')
+for m in matches:
+    print(m)
+
+output:
+-------
+Jan
+jun
+DEC
+
+ex15:
+----
+	emp.txt
+	-------
+101 siva 2000
+3000 102 RAMA
+KrIsHnA 4000 103
+
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('[a-zA-Z]+',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+-------
+siva
+RAMA
+KrIsHnA
+
+ex16:
+-----
+	emp.txt
+	-------
+101 siva 2000 d.siva123@gmail.com
+D_Rama4u@YAHOO.in 3000 102 RAMA
+KrIsHnA 4000 krish_1234u@Outlook.LIVE 103
+
+
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('[\w._]+@[a-zA-Z]+.[a-zA-Z]+',
+                       f1.read())
+    for m in matches:
+        print(m)
+
+output:
+-------
+d.siva123@gmail.com
+D_Rama4u@YAHOO.in
+krish_1234u@Outlook.LIVE
+
+ex17:
+---
+	emp.txt
+	-------
+8886501571
+78979786
+908979769
+6576869689
+8978574
+67974633
+7868585853
+908574
+675352353
+8019658644
+786857857
+9087868658
+
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('\d{10}',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+------
+8886501571
+6576869689
+7868585853
+8019658644
+9087868658
+
+ex18:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('8\d{9}',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+------
+8886501571
+8019658644
+
+ex19:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('[86]\d{9}',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+-------
+8886501571
+6576869689
+8019658644
+
+ex20:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('[6-8]\d{9}',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+------
+8886501571
+6576869689
+7868585853
+8019658644
+
+ex21:
+----
+	emp.txt
+	--------
+AP09YU7865
+TS03HJ8769
+KA08JK9087
+TN01JS7861
+ap05hf5643
+ts04jk7862
+mp09ty3234
+AP02UD6760
+ka02ty7860
+
+import re
+with open('emp.txt') as f1:
+    matches=re.findall('ap\w+|ts\w+',f1.read(),re.I)
+    for m in matches:
+        print(m)
+
+output:
+------
+AP09YU7865
+TS03HJ8769
+ap05hf5643
+ts04jk7862
+AP02UD6760
+
+ex22:
+----
+	emp.txt
+	-------
+hai siva
+hello guido
+Hai rossum how are you
+hello rama where are you
+hai krishna hai
+
+import re
+with open('emp.txt') as f1:
+    matches=re.findall(r'^hai',f1.read())
+    for m in matches:
+        print(m)
+
+output:
+------
+hai
+
+ex23:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall(r'^hai',f1.read(),re.M)
+    for m in matches:
+        print(m)
+
+output:
+------
+hai
+hai
+
+ex24:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall(r'^hai',f1.read(),re.M|re.I)
+    for m in matches:
+        print(m)
+
+output:
+------
+hai
+Hai
+hai
+
+ex25:
+-----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall(r'^hai.*',f1.read(),re.M|re.I)
+    for m in matches:
+        print(m)
+
+output:
+------
+hai siva
+Hai rossum how are you
+hai krishna hai
+
+ex26:
+----
+import re
+with open('emp.txt') as f1:
+    matches=re.findall(r'^hai.*hai$',f1.read(),re.M|re.I)
+    for m in matches:
+        print(m)
+
+output:
+------
+hai krishna hai
+
+
+
+
+
+
+
+
+

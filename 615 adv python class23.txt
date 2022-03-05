@@ -1,0 +1,227 @@
+ex3:
+----
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+class y(threading.Thread):
+    def run(self):
+        for j in range(5):
+            print("siva")
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+for k in range(5):
+    print("hello")
+
+output1:
+--------
+welcome
+haisivahello
+
+
+haisivahello
+
+
+sivahaihello
+
+
+sivahaihello
+
+
+sivahaihello
+
+
+thread life cycle:
+------------------
+every thread haveing 4-states,they are
+
+	1).born state
+
+	2).active state
+
+	3).suspended/blocked state
+		
+	4).dead state
+
+the threads execution is not under the programmer controller,the threads execution is under control of job-schedular.
+
+what is Job-Schedular?
+----------------------
+	the Job-Schedular is a predefined program,which is used to schedule the jobs based scheduling algorithms.
+
+the scheduling algorithms are
+	FCFS(First Come First Serve)
+	SJFS(Shortest Job First Serve)
+	Round Robbin
+	Priority Queue
+
+how to suspend one thread execution temporary some time?
+-------------------------------------------------------
+	we can suspend the one thread execution temporary some time by calling sleep() of time module.
+
+ex:
+---
+import threading
+import time
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+class y(threading.Thread):
+    def run(self):
+        time.sleep(10)
+        for j in range(5):
+            print("siva")
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+for k in range(5):
+    print("hello")
+
+output:
+-----
+welcome
+haihello
+
+haihello
+
+haihello
+
+haihello
+
+haihello
+
+siva
+siva
+siva
+siva
+siva
+
+
+whenever the multiple threads to access the same functionality at a time,in that case that threads are going to be a critical section.
+
+whenever the threads are going to be a critical section in that case Deadlock is occured.
+
+ex:
+---
+import threading
+def msg(a):
+    print("hello",a,"world")
+class x(threading.Thread):
+    def run(self):
+        msg("Python")
+class y(threading.Thread):
+    def run(self):
+        msg("Django")
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+
+output:
+-----
+hellohello  PythonDjango  worldworld
+
+note:
+----
+	in the above example deadlock is occured,to overcome that problem we are using Thread-Synchronization concept.
+
+what is Thread-Synchronization?
+-------------------------------
+	the concept of avoiding the multiple threads to access the same functionality at a time,is known as a Thread-Synchronization.
+
+the thread-synchronization techniques are
+
+	Lock's
+	Semaphore's
+	Event's
+	Condition's
+
+we can immplement the thread synchronization by using Locks,first we need to create a lock object.
+
+we can create a lock object by calling Lock() of threading module.
+
+	lock_obj=threading,Lock()
+
+we can acquire the lock on any logic by calling acquire() of lock object.
+
+	lock_obj.acquire()
+
+we can release the lock on any logic by calling release() of lock object.
+
+	lock_obj.release()
+
+if any one thread to acquire the lock on any logic,that the remaing threads are going to be waiting state until that thread release the lock on that logic.
+
+ex:
+---
+import threading
+lock_obj=threading.Lock()
+def msg(a):
+    print("hello",a,"world")
+class x(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("Python")
+        lock_obj.release()
+class y(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("Django")
+        lock_obj.release()
+x1=x()
+x1.start()
+y1=y()
+y1.start()
+
+output:
+------
+hello Python world
+hello Django world
+
+
+ex:
+---
+import threading
+print("welcome")
+lock_obj=threading.Lock()
+def msg(a):
+    print("hello",a,"world")
+class x(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("Python")
+        lock_obj.release()
+class y(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("Django")
+        lock_obj.release()
+x1=x()
+x1.start()
+x1.join()
+y1=y()
+y1.start()
+y1.join()
+print("bye")
+
+
+output:
+-------
+welcome
+hello Python world
+hello Django world
+bye
+
+
+
+
+		
+	
+	

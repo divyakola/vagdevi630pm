@@ -1,0 +1,244 @@
+match()
+------
+	the match() to match the pattern at the begening of the string only.
+
+	if matching pattern is find at the begening of the string,in that case the match() to return match object otherwise the match() to return None.
+
+	match(pattern,string,flags=0)
+
+ex1:
+---
+import re
+string="hai siva krishna good evening"
+pattern='hai'
+match_obj=re.match(pattern,string)
+print(match_obj)
+
+output:
+------
+<re.Match object; span=(0, 3), match='hai'>
+
+ex2:
+---
+import re
+match_obj=re.match(r'hai',"hai siva krishna good evening")
+print(match_obj)
+
+output:
+------
+<re.Match object; span=(0, 3), match='hai'>
+
+ex3:
+----
+import re
+match_obj=re.match(r'siva',"hai siva krishna good evening")
+print(match_obj)
+
+output:
+-------
+None
+
+ex4:
+---
+import re
+match_obj=re.match(r'rama',"hai siva krishna good evening")
+print(match_obj)
+
+output:
+------
+None
+
+ex5:
+----
+import re
+match_obj=re.match(r'Hai',"hai siva krishna good evening")
+print(match_obj)
+
+output:
+------
+None
+
+ex6:
+----
+import re
+match_obj=re.match(r'Hai',"hai siva krishna good evening",re.I)
+print(match_obj)
+
+output:
+-----
+<re.Match object; span=(0, 3), match='hai'>
+
+ex7:
+---
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+match_obj=re.match(pattern,string,re.I)
+if match_obj:
+    print("Input String:",match_obj.string)
+    print("RegularExpression pattern:",match_obj.re)
+    print("Mtching Pattern:",match_obj.group())
+    print("Starting at:",match_obj.start())
+    print("Ending at:",match_obj.end())
+    print("Span range:",match_obj.span())
+else:
+    print("No Match!")
+    
+    
+output1:
+------
+enter your string: hai siva krishna good evening
+enter your pattern: Hai
+
+Input String: hai siva krishna good evening
+RegularExpression pattern: re.compile('Hai', re.IGNORECASE)
+Mtching Pattern: hai
+Starting at: 0
+Ending at: 3
+Span range: (0, 3)
+
+
+output2:
+--------
+enter your string: hai siva krishna good evening
+enter your pattern: hey
+No Match!
+
+search()
+--------
+	the search() to match the pattern at anywhere in the string.
+
+if matching pattern is find at anywhere in the string in that case the search() to return that matching object otherwise the search() to return None.
+
+in our string to find the multiple matches,in that case the search() to return only first occurence matching pattern object.
+
+	search(pattern,string,flags=0)
+
+ex8:
+----
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+match_obj=re.search(pattern,string,re.I)
+print(match_obj)
+    
+
+outputs:
+-------
+enter your string: hai siva krishna good evening
+enter your pattern: hai
+<re.Match object; span=(0, 3), match='hai'>
+
+enter your string: hai siva krishna good evening
+enter your pattern: siva
+<re.Match object; span=(4, 8), match='siva'>
+
+enter your string: hai siva krishna good evening
+enter your pattern: good
+<re.Match object; span=(17, 21), match='good'>
+
+enter your string: hai siva krishna good evening
+enter your pattern: Good
+<re.Match object; span=(17, 21), match='good'>
+
+enter your string: hai siva krishna good evening
+enter your pattern: rama
+None
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hai
+<re.Match object; span=(0, 3), match='Hai'>
+
+findall()
+---------
+	the findall() to return the list of all the matching patterns.
+
+	if there's no match in that case the findall() to return empty list object.
+
+	findall(pattern,string,flags=0)
+
+ex9:
+---
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+matches=re.findall(pattern,string,re.I)
+print(matches)
+    
+output:
+------
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hai
+['Hai', 'hai', 'Hai']
+
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: siva
+['siva']
+
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hey
+[]    
+
+finditer()
+---------
+	to return the matching object for each match.
+
+	finditer(pattern,string,flags=0)
+
+ex10:
+-----
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+match_objects=re.finditer(pattern,string,re.I)
+for match_obj in match_objects:
+    print(match_obj)
+    
+outputs:
+--------
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hai
+<re.Match object; span=(0, 3), match='Hai'>
+<re.Match object; span=(9, 12), match='hai'>
+<re.Match object; span=(21, 24), match='Hai'>
+
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: siva
+<re.Match object; span=(4, 8), match='siva'>
+
+sub()
+-----
+to search pattern,whenever pattern is matching to replace with another pattern.
+
+	sub(pattern,replacedpattern,string)
+
+ex11:
+----
+import re
+string=input("enter your string: ")
+pattern=input("enter your pattern: ")
+repl_pattern=input("enter your replaced pattern: ")
+print(re.sub(pattern,repl_pattern,string))
+
+outputs:
+-------
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hai
+enter your replaced pattern: hello
+Hai siva hello krishna Hai rama
+
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: Hai
+enter your replaced pattern: hey
+hey siva hai krishna hey rama
+
+
+enter your string: Hai siva hai krishna Hai rama
+enter your pattern: hello
+enter your replaced pattern: hey
+Hai siva hai krishna Hai rama
+

@@ -1,0 +1,223 @@
+ex1:
+----
+	c:\python310\krishna\demo.py
+	----------------------------
+print("hai")
+
+	c:\python310\krishna\test.py
+	----------------------------
+import demo
+print("siva")
+print("good evening")
+
+	output
+	-----
+hai
+siva
+good evening
+
+ex2:
+----
+	c:\python310\demo.py
+	--------------------
+print("hai")
+
+	c:\python310\krishna\test.py
+	----------------------------
+import demo
+print("siva")
+print("good evening")
+
+	output
+	-----
+hai
+siva
+good evening
+
+ex3:
+----
+	g:\entri\demo.py
+	----------------
+print("hai")
+
+	c:\python310\krishna\test.py
+	----------------------------
+import demo
+print("siva")
+print("good evening")
+
+	output
+	------
+ModuleNotFoundError: No module named 'demo'
+
+Reloading a module:
+------------------
+by default,each and every module is loaded into the memory at only once.
+
+ex1:
+---
+	
+	c:\python310\krishna\demo.py
+	----------------------------
+print("hai")
+
+	c:\python310\krishna\test.py
+	----------------------------
+import demo
+print("siva")
+import demo
+print("krishna")
+import demo
+print("rama")
+
+	output
+	------
+hai
+siva
+krishna
+rama
+
+if we want to loading a module once again,in that case we are using reload() of importlib module.
+
+ex2:
+---
+	c:\python310\krishna\demo.py
+	----------------------------
+print("hai")
+
+	c:\python310\krishna\test.py
+	----------------------------
+import demo
+import importlib
+print("siva")
+importlib.reload(demo)
+print("krishna")
+importlib.reload(demo)
+print("rama")
+
+	output
+	------
+hai
+siva
+hai
+krishna
+hai
+rama
+
+note:
+----
+if we want to display all the available builtin and userdefined modules in the python path/python installation location by using   help().
+
+	help('modules')
+
+if we want to display all the properties of any module by using following commands,
+
+	import modulename
+	print(dir(modulename))
+
+working with 'builtins' module:
+-------------------------------
+	the 'builtins' module is a one builtin module in python,if we want to display all the properties of builtins module by using following commands,
+
+	import builtins
+	print(dir(builtins))
+
+without importing builtins module into our program,directly we can access builtins module properties.
+
+ex:
+---
+x=[5,3,7,2]
+print(x)
+print(id(x))
+print(type(x))
+print(len(x))
+print(min(x))
+print(max(x))
+print(sum(x))
+print(sorted(x))
+print(list(reversed(x)))
+y=10
+print(bin(y))
+print(oct(y))
+print(hex(y))
+print(pow(2,3))
+print(ord('a'))
+print(chr(97))
+
+output:
+------
+[5, 3, 7, 2]
+1487363593664
+<class 'list'>
+4
+2
+7
+17
+[2, 3, 5, 7]
+[2, 7, 3, 5]
+0b1010
+0o12
+0xa
+8
+97
+a
+
+note:
+----
+except builtins module,we can access the properties from any another module compulssory to import that module.
+
+without importing that module we can't access the properties.
+
+working with 'math' module
+---------------------------
+	the 'math' module is a one builtin module in python,if we want to display all the properties of math module by using following commands,
+
+	import math
+	print(dir(math))
+
+ex:
+---
+from math import *
+print(pi)
+print(sin(90))
+print(cos(0))
+print(tan(45))
+print(sqrt(36))
+print(factorial(5))
+print(ceil(2.1))
+print(floor(2.9))
+print(prod([3,2,4]))
+print(gcd(6,12))
+print(lcm(3,5))
+print(perm(5,2))
+print(comb(5,2))
+
+output:
+------
+3.141592653589793
+0.8939966636005579
+1.0
+1.6197751905438615
+6.0
+120
+3
+2
+24
+6
+15
+20
+10
+
+
+assignment-1:
+--------
+wap to find GCD of given two numbers dont use gcd() of math module?
+
+assignment-2:
+-----------
+wap to find the LCM of given two numbers dont use lcm() of math module?
+
+
+
+
+

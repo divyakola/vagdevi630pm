@@ -1,0 +1,351 @@
+assignment-1:
+-----------
+wap to print the divisibles of the given numbers?
+
+input:
+	8		7	9
+
+output:
+	1		1	1
+	2		7	3
+	4			9
+	8
+
+num=int(input("enter your number: "))
+for i in range(1,num+1):
+    if num%i==0:
+        print(i)
+
+assignment-2:
+----------
+wap to print the multiples of given number upto specified no.of multiples?
+
+input:
+	num=3
+	no_of_multiples=10
+
+output:
+	3,6,9,12,15,18,21,24,27,30
+
+num=int(input("enter your number: "))
+no_of_multiples=int(input("enter your number of multiples: "))
+for i in range(1,no_of_multiples+1):
+    print(num*i)
+
+
+assignment-3:
+-----------
+wap to print palindrom numbers between given range of numbers?
+
+snum=int(input("enter starting number: "))
+enum=int(input("enter ending number: "))
+for num in range(snum,enum+1):
+    temp=num
+    rev=0
+    while num>=1:
+        dig=num%10
+        rev=rev*10+dig
+        num//=10
+    if temp==rev:
+        print(temp)
+
+output:
+------
+enter starting number: 1
+enter ending number: 40
+1
+2
+3
+4
+5
+6
+7
+8
+9
+11
+22
+33
+
+assignment-4:
+------------
+wap to print perfect numbers between given range of numbers?
+
+snum=int(input("enter starting number: "))
+enum=int(input("enter ending number: "))
+for num in range(snum,enum+1):
+    i=1
+    s=0
+    while i<num:
+        if num%i==0:
+            s+=i
+        i+=1
+    if num==s:
+        print(num)
+
+output:
+------
+enter starting number: 1
+enter ending number: 1000
+6
+28
+496
+
+
+assignment-5:
+-------------
+wap to print strong numbers between given range numbers?
+
+snum=int(input("enter starting number: "))
+enum=int(input("enter ending number: "))
+for num in range(snum,enum+1):
+    temp=num
+    s=0
+    while num>=1:
+        dig=num%10
+        i=1
+        f=1
+        while i<=dig:
+            f*=i
+            i+=1
+        s+=f
+        num//=10
+    if temp==s:
+        print(temp)
+
+outputs:
+---------
+enter starting number: 1
+enter ending number: 100000
+1
+2
+145
+40585
+
+ex1:
+---
+wap to print N-no.of '*'s in a row?
+
+num=5
+
+* * * * *
+
+num=int(input("enter your number: "))
+for i in range(num):
+    print('*',end=" ")
+
+ex2:
+---
+wap to print '*'s in a square pattern?
+
+num=5
+
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        print('*',end=" ")
+    print()
+
+ex3:
+---
+wap to print '*'s in hollow square pattern?
+
+num=5
+
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        if r==0 or r==num-1 or c==0 or c==num-1:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+ex4:
+---
+wap to print '*'s in right angle triangle pattern?
+
+num=5
+
+*
+* *
+* * *
+* * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+
+ex5:
+---
+wap to print '*'s in inverted right-angle triangle?
+
+num=5
+
+* * * * *
+* * * *
+* * *
+* *
+*
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r):
+        print('*',end=" ")
+    print()
+
+ex6:
+----
+wap to print '*'s in bellow right-angle triangle pattern?
+
+num=5
+
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+        
+ex7:
+---
+wap to print '*'s in bellow right-angle triangle pattern?
+
+num=5
+
+
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(r):
+        print(' ',end=" ")
+    for c in range(num-r):
+        print('*',end=" ")
+    print()
+
+ex8:
+---
+wap to print '*'s in pyramid/triangle pattern?
+
+num=5
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+
+
+ex9:
+---
+wap to print '*'s in diamond pattern?
+
+num=5
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()        
+for r in range(num-1):
+    for c in range(r+1):
+        print(' ',end="")
+    for c in range(num-r-1):
+        print('*',end=" ")
+    print()
+
+assignment-1:
+------------
+wap to print '*'s in bellow pattern?
+
+num=5
+
+* 
+* *
+* * *
+* * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+assignment-2:
+------------
+num=5
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+
+
+assignment-3:
+------------
+num=5
+
+    *
+  * * *
+* * * * *
+  * * *
+    *
+
+
+
+
+
+
+
+
+
+

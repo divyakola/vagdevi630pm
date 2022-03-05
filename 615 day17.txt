@@ -1,0 +1,378 @@
+assignment-1:
+-------------
+wap to check wheather given number is Even or Odd?
+
+input:
+	5		8
+
+output:
+	Odd		Even
+
+
+num=int(input("enter your number: "))
+if num%2==0:
+    print("Given number is Even Number")
+else:
+    print("Given number is Odd Number")
+
+
+
+assigment-2:
+------------
+wap to check wheather given string is Palindrom string or not,with ignore the cases?
+
+input		reverse_order		result
+-----		-------------		------
+siva		avis			not a palindrom string
+
+madam		madam			palindrom string
+
+LevEl		lEveL			palindrom string
+
+
+x=input("enter your string: ").casefold()
+if x==x[::-1]:
+    print("Given string is Palindrom string")
+else:
+    print("Given string is not a Palindrom string")
+
+
+if elif else
+-------------
+	if condition:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+	elif condition:
+		stmt_1
+		stmt_2
+		.....
+		stmt_n
+	else:
+	    stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+
+
+ex:
+---
+wap to check wheather given integer is Positive or Negatiev or Zero?
+
+x=int(input("enter your Integer: "))
+if x>0:
+    print("Given Integer is Positive")
+elif x<0:
+    print("Given Integer is Negative")
+else:
+    print("Given Integer is Zero")
+
+
+	(or)
+
+x=int(input("enter your Integer: "))
+if x>0:
+    print("Given Integer is Positive")
+else:
+    if x<0:
+        print("Given Integer is Negative")
+    else:
+        print("Given Integer is Zero")
+
+
+outputs:
+-------
+enter your Integer: 3
+Given Integer is Positive
+
+
+enter your Integer: -4
+Given Integer is Negative
+
+
+enter your Integer: 0
+Given Integer is Zero
+
+assignment-1:
+-------------
+wap to check wheather given charecter is alphabet or digit or special charecter with ignore the cases.
+	
+	hint: dont use builtin methods
+
+
+input:
+	t		7	   Y		@
+
+output:
+      alphabet		digit	 alphabet    special charecter
+
+
+elif ladder:
+------------
+elif ladder means we can define single if with multiple elif blocks.
+
+in elif ladder else block is a optional
+
+	syntax
+	------
+	if condition:
+		stmt_1
+		......
+		stmt_n
+	elif condition:
+		stmt_1
+		......
+		stmt_n
+	elif condition:
+		stmt_1
+		......
+		stmt_n
+	elif condition:
+		stmt_1
+		......
+		stmt_n
+	-------
+        -------
+	-------
+	elif condition:
+		stmt_1
+		......
+		stmt_n
+	else:
+	    stmt_1
+	    ......
+	    stmt_n
+
+ex:
+---
+wday=int(input("enter a weekday: "))
+if wday==0:
+    print("Today is Monday")
+elif wday==1:
+    print("Today is Tuesday")
+elif wday==2:
+    print("Today is Wednsday")
+elif wday==3:
+    print("Today is Thursday")
+elif wday==4:
+    print("Today is Friday")
+elif wday==5:
+    print("Today is Saturday")
+elif wday==6:
+    print("Today is Sunday")
+
+output:
+------
+enter a weekday: 3
+Today is Thursday
+
+
+enter a weekday: 5
+Today is Saturday
+
+
+enter a weekday: 2
+Today is Wednsday
+
+ex:
+--
+wap to calculate student Grade based on their marks?
+
+
+s1=int(input("enter subject_1 marks: "))
+s2=int(input("enter subject_2 marks: "))
+s3=int(input("enter subject_3 marks: "))
+avg=(s1+s2+s3)/3
+if avg>=75:
+    print("Grade-A")
+elif avg<75 and avg>=65:
+    print("Grade-B")
+elif avg<65 and avg>=55:
+    print("Grade-C")
+elif avg<55 and avg>=45:
+    print("Grade-D")
+else:
+    print("Ordinary Pass")
+
+output:
+------
+enter subject_1 marks: 21
+enter subject_2 marks: 23
+enter subject_3 marks: 56
+Ordinary Pass
+
+
+enter subject_1 marks: 56
+enter subject_2 marks: 78
+enter subject_3 marks: 45
+Grade-C
+
+
+enter subject_1 marks: 67
+enter subject_2 marks: 89
+enter subject_3 marks: 90
+Grade-A
+
+ex:
+--
+wap to find the maximum number among from given 3-numbers?
+
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+z=int(input("enter z value: "))
+if x>y and x>z:
+    print("x is a maximum number")
+elif x==y==z:
+    print("all are equal numbers")
+elif x==y and z<x:
+    print("x and y are the maximum numbers")
+elif x==z and y<x:
+    print("x and z are the maximum numbers")
+elif y==z and x<y:
+    print("y and z are the maximum number")
+elif y>z:
+    print("y is a maximum number")
+else:
+    print("z is a maximum number")
+
+outputs:
+-------
+enter x value: 3
+enter y value: 2
+enter z value: 1
+x is a maximum number
+
+
+enter x value: 3
+enter y value: 3
+enter z value: 3
+all are equal numbers
+
+
+enter x value: 3
+enter y value: 3
+enter z value: 2
+x and y are the maximum numbers
+
+
+enter x value: 3
+enter y value: 2
+enter z value: 3
+x and z are the maximum numbers
+
+
+enter x value: 2
+enter y value: 3
+enter z value: 3
+y and z are the maximum number
+
+
+enter x value: 2
+enter y value: 3
+enter z value: 1
+y is a maximum number
+
+
+enter x value: 2
+enter y value: 1
+enter z value: 3
+z is a maximum number
+
+assignment-2:
+------------
+wap to check wheather given triangle is equilateral or isoceles or scalene based on their sides?
+
+assignment-3:
+-------------
+wap to check wheather given triangle is Right-angle triangle or acute triange or obtuse triangle based on their degrees?
+
+nested if
+---------
+we can define a if block inside another if block,is known as a nested if.
+
+	syntax
+	------
+	if condition:  #outer
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+		if condition: #inner
+			stmt_1
+			stmt_2
+			.....
+			stmt_n
+
+
+whenever outer if condition is True then only control will goto inner if condition otherwise control dont goto the inner if condition.
+
+ex:
+---
+wap to check wheather given string object contains only alphabets or not wheather it is contains only alphabets to check that string contains only lowercase alphabets or uppercase alphabets or both combination of lower and upper case alphabets or not?
+
+
+x=input("enter your string: ")
+if x.isalpha():
+    if x.islower():
+        print("Given string object contains only lowercase\
+ alphabets")
+    elif x.isupper():
+        print("Given string object contains only uppercase\
+ alphabets")
+    else:
+        print("Given string object contains both combination \
+ of lowercase and uppercase alphabets")
+else:
+    print("Given string object contains not only alphabets")
+
+outputs:
+------
+enter your string: siva
+Given string object contains only lowercase alphabets
+
+
+enter your string: RAMA
+Given string object contains only uppercase alphabets
+
+
+enter your string: KrIsHnA
+Given string object contains both combination  of lowercase and uppercase alphabets
+
+
+enter your string: siva123
+Given string object contains not only alphabets
+
+
+enter your string: siva@123
+Given string object contains not only alphabets
+
+assignment-4:
+------------
+wap to check wheather given charecter is alphabet or not,wheather it is alphabet to check that alphabet is either lowercase or uppercase alphabet or not?
+
+	hint: dont use any builtin methods
+
+
+assignment-5:
+-------------
+wap to check wheather given charecter is alphabet or not,wheather it is alphabet to check that alphabet is either Vowel or Consonent with ignore the cases?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

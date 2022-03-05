@@ -1,0 +1,139 @@
+ex9:
+---
+wap to create window with check button's?
+
+from tkinter import *
+window=Tk()
+window.geometry("1000x900")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+L1=Label(window,text="Select Your Courses:",fg="blue",
+         font=30)
+L1.place(x=50,y=50)
+C1=Checkbutton(window,text="Python",name="p",font=30)
+C1.place(x=250,y=50)
+C2=Checkbutton(window,text="Django",name="d",font=30)
+C2.place(x=350,y=50)
+C3=Checkbutton(window,text="Flask",name="f",font=30)
+C3.place(x=450,y=50)
+C4=Checkbutton(window,text="microservices",name="m",font=30)
+C4.place(x=550,y=50)
+window.mainloop()
+
+ex10:
+----
+wap to create a window with button no action?
+
+from tkinter import *
+window=Tk()
+window.geometry("1000x900")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+B=Button(window,text="ClickMe",bg="yellow",fg="red",font=30)
+B.place(x=50,y=100)
+window.mainloop()
+
+ex11:
+----
+wap to create a window with button and with action?
+
+from tkinter import *
+window=Tk()
+window.geometry("1000x900")
+def msg():
+    L1.config(text="hell siva,Good evening")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+B=Button(window,text="ClickMe",bg="yellow",fg="red",font=30,
+         command=msg)
+B.place(x=50,y=100)
+L1=Label(window,fg="blue",font=('elephant',50,'bold'))
+L1.place(x=50,y=150)
+window.mainloop()
+
+	(or)
+
+from tkinter import *
+window=Tk()
+window.geometry("1000x900")
+def msg():
+    L1.config(text="hell siva,Good evening")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+B=Button(window,text="ClickMe",bg="yellow",fg="red",font=30,
+         command=lambda:msg())
+B.place(x=50,y=100)
+L1=Label(window,fg="blue",font=('elephant',50,'bold'))
+L1.place(x=50,y=150)
+window.mainloop()
+
+
+ex12:
+-----
+wap to create a window with alert message?
+
+from tkinter import *
+from tkinter import messagebox
+window=Tk()
+window.geometry("1000x900")
+def msg():
+    messagebox.showinfo("Greetings","Hello Siva Good Evening")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+B=Button(window,text="ClickMe",bg="yellow",fg="red",font=30,
+         command=msg)
+B.place(x=50,y=100)
+window.mainloop()
+
+ex13:
+----
+wap to create a window with entry fields?
+
+from tkinter import *
+from tkinter import messagebox
+window=Tk()
+window.geometry("1000x900")
+def msg():
+    messagebox.showinfo("Result","Submitted successfully")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+L1=Label(window,text="Enter your First Name:",fg="blue",
+         font=('elephant',20,'italic'))
+L1.place(x=10,y=50)
+E1=Entry(window,bd=5,fg="red",font=('elephant',20,'bold'))
+E1.place(x=400,y=50)
+L2=Label(window,text="Enter your Last Name:",fg="blue",
+         font=('elephant',20,'italic'))
+L2.place(x=10,y=120)
+E2=Entry(window,bd=5,fg="red",font=('elephant',20,'bold'))
+E2.place(x=400,y=120)
+         
+B=Button(window,text="ClickMe",bg="yellow",fg="red",font=30,
+         command=msg)
+B.place(x=100,y=200)
+window.mainloop()
+
+ex14:
+----
+wap to create a window with image?
+
+from tkinter import *
+from tkinter import PhotoImage
+window=Tk()
+window.geometry("1000x900")
+L=Label(window,text="Welcome to Vagdevi Technologies",
+    fg="yellow",bg="red",
+        font=('elephant',20,'italic')).pack()
+path="C:/Users/DELL/Desktop/vagdevilogo.png"
+myimage=PhotoImage(file=path)
+L1=Label(window,image=myimage)
+L1.place(x=50,y=100)
+
+window.mainloop()
+

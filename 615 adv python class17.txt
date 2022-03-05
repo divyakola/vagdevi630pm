@@ -1,0 +1,154 @@
+working with 'time' module
+---------------------------
+	if we want to display all the properties of 'time' module by using following command
+
+	import time
+	dir(time)
+
+ex1:
+----
+>>> import time
+>>> time.ctime()
+
+'Thu Dec 23 18:53:07 2021'
+
+ex2:
+---
+>>> import time
+>>> time.localtime()
+
+time.struct_time(tm_year=2021, tm_mon=12, tm_mday=23, tm_hour=18, tm_min=54, tm_sec=19, tm_wday=3, tm_yday=357, tm_isdst=0)
+
+ex3:
+---
+>>> import time
+>>> time.gmtime()
+
+time.struct_time(tm_year=2021, tm_mon=12, tm_mday=23, tm_hour=13, tm_min=26, tm_sec=26, tm_wday=3, tm_yday=357, tm_isdst=0)
+
+ex4:
+---
+>>> import time
+>>> time.asctime()
+'Thu Dec 23 18:59:02 2021'
+>>> time.asctime(time.localtime())
+'Thu Dec 23 18:59:22 2021'
+>>> time.asctime(time.gmtime())
+'Thu Dec 23 13:29:36 2021'
+
+ex5:
+----
+>>> import time
+>>> time.tzname
+('India Standard Time', 'India Daylight Time')
+
+ex6:
+----
+import time
+for i in range(12):
+    print(time.ctime())
+    time.sleep(5)
+
+output:
+------
+Thu Dec 23 19:04:05 2021
+Thu Dec 23 19:04:10 2021
+Thu Dec 23 19:04:15 2021
+Thu Dec 23 19:04:20 2021
+Thu Dec 23 19:04:25 2021
+Thu Dec 23 19:04:30 2021
+Thu Dec 23 19:04:35 2021
+Thu Dec 23 19:04:40 2021
+Thu Dec 23 19:04:45 2021
+Thu Dec 23 19:04:50 2021
+Thu Dec 23 19:04:55 2021
+Thu Dec 23 19:05:00 2021
+
+ex7: wap to calculate program execution time
+---
+
+import time
+stime=time.perf_counter()
+for i in range(5):
+    print("hai")
+    time.sleep(2)
+for j in range(1,11):
+    print(5,'x',j,'=',5*j)
+    time.sleep(1)
+etime=time.perf_counter()
+print("Elapsed time: %.2fSeconds"%(etime-stime))
+
+output:
+------
+hai
+hai
+hai
+hai
+hai
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+Elapsed time: 20.74Seconds
+
+ex8:
+----
+strftime()
+---------
+	to format/convert the time in tuple format into string according our format codes.
+
+	strftime(formatcodes,timeintupleformat)
+
+
+>>> import time
+>>> time.strftime('%Y-%m-%d')
+'2021-12-23'
+
+>>> time.strftime('%Y-%m-%d',time.localtime())
+'2021-12-23'
+
+>>> time.strftime('%Y-%m-%d',time.gmtime())
+'2021-12-23'
+
+>>> time.strftime('%Y-%m-%d %H:%M:%S')
+'2021-12-23 19:20:16'
+
+>>> time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime())
+'2021-12-23 13:50:27'
+
+>>> time.strftime('%Y-%m-%d %I:%M:%S %p',time.gmtime())
+'2021-12-23 01:50:52 PM'
+
+>>> time.strftime('%Y-%m-%d %I:%M:%S %p')
+'2021-12-23 07:21:05 PM'
+
+>>> time.strftime('%a %Y-%b-%d %I:%M:%S %p')
+'Thu 2021-Dec-23 07:21:41 PM'
+
+>>> time.strftime('%A %y-%B-%d %I:%M:%S %p')
+'Thursday 21-December-23 07:22:07 PM'
+
+ex9:
+----
+strptime()
+	to parse a string into time in tuple format according our format codes.
+
+	strptime(timeinstring,formatcodes)
+
+>>> import time
+>>> time.strptime('1991-01-14','%Y-%m-%d')
+time.struct_time(tm_year=1991, tm_mon=1, tm_mday=14, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=14, tm_isdst=-1)
+
+>>> time.strptime('1991-01-14 08:32:21','%Y-%m-%d %H:%M:%S')
+time.struct_time(tm_year=1991, tm_mon=1, tm_mday=14, tm_hour=8, tm_min=32, tm_sec=21, tm_wday=0, tm_yday=14, tm_isdst=-1)
+
+>>> time.ctime()
+'Thu Dec 23 19:33:17 2021'
+>>> time.strptime(time.ctime(),'%a %b %d %H:%M:%S %Y')
+time.struct_time(tm_year=2021, tm_mon=12, tm_mday=23, tm_hour=19, tm_min=34, tm_sec=10, tm_wday=3, tm_yday=357, tm_isdst=-1)

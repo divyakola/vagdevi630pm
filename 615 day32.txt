@@ -1,0 +1,222 @@
+assignment-1:
+----------
+wap take the input as a list object and to divide that list into  two sublists,one sub list contains even numbers and another sublist contains odd numbers?
+
+x=eval(input("enter your list object: "))
+even_list=[]
+odd_list=[]
+for ele in x:
+    if ele%2==0:
+        even_list.append(ele)
+    else:
+        odd_list.append(ele)
+print(even_list)
+print(odd_list)
+
+output:
+------
+enter your list object: [3,7,6,5,8,0,9,1,4]
+[6, 8, 0, 4]
+[3, 7, 5, 9, 1]
+
+
+assignment-2:
+-------------
+wap to return the no.of occurencess of each and every element in our list object with element?
+
+input:
+	[10,20,30,20,10,40,10,30,10]
+
+output:
+	[(10,4),(20,2),(30,2),(40,1)]
+
+x=eval(input("enter your list object: "))
+y=[]
+z=[]
+for ele in x:
+    if ele not in y:
+        y.append(ele)
+for ele in y:
+    z.append((ele,x.count(ele)))
+print(z)
+
+
+assignment-3:
+------------
+wap to return the no.of charecters in each and every word in a given string object with word into list?
+
+input:
+	hai siva krishna good evening
+
+output:
+	[('hai',3),('siva',4),('krishna',7),('good',4),
+         ('evening',7)]
+
+
+x=input("enter your string: ")
+words=x.split()
+y=[]
+z=[]
+for w in words:
+    if w not in y:
+        y.append(w)
+for w in y:
+    z.append((w,len(w)))
+print(z)
+
+
+ex1:
+---
+wap to perform matrix addition?
+
+x=eval(input("enter x matrix: "))
+y=eval(input("enter y matrix: "))
+z=eval(input("enter z matrix: "))
+print("Enter the Elements into X-matrix")
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(int(input()))
+print("Enter the Elements into Y-matrix")
+for i in range(len(y)):
+    for j in range(len(y)):
+        y[i].append(int(input()))
+print("X-matrix:",x)
+print("Y-matrix:",y)
+for i in range(len(z)):
+    for j in range(len(z)):        
+        z[i].append(x[i][j]+y[i][j])
+print("Result Matrix:",z)
+
+output:
+------
+enter x matrix: [[],[]]
+enter y matrix: [[],[]]
+enter z matrix: [[],[]]
+Enter the Elements into X-matrix
+3
+2
+4
+1
+Enter the Elements into Y-matrix
+3
+5
+2
+7
+X-matrix: [[3, 2], [4, 1]]
+Y-matrix: [[3, 5], [2, 7]]
+Result Matrix: [[6, 7], [6, 8]]
+
+
+	(or)
+
+a=int(input("enter the no.of list objects: "))
+b=int(input("enter no.of list object elements: "))
+print("Enter the Elements into X-matrix")
+x=[[int(input()) for j in range(b)] for i in range(a)]
+print("Enter the Elements into Y-matrix")
+y=[[int(input()) for j in range(b)] for i in range(a)]
+print("X-matrix:",x)
+print("Y-matrix:",y)
+z=[[x[i][j]+y[i][j] for j in range(b)] for i in range(a)]
+print("Result Matrix:",z)
+
+output:
+------
+enter the no.of list objects: 2
+enter no.of list object elements: 2
+Enter the Elements into X-matrix
+2
+3
+1
+5
+Enter the Elements into Y-matrix
+3
+2
+4
+5
+X-matrix: [[2, 3], [1, 5]]
+Y-matrix: [[3, 2], [4, 5]]
+Result Matrix: [[5, 5], [5, 10]]
+
+ex:
+---
+wap to perform matrix multiplication?
+
+
+x=eval(input("enter x matrix: "))
+y=eval(input("enter y matrix: "))
+z=eval(input("enter z matrix: "))
+print("Enter the Elements into X-matrix")
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(int(input()))
+print("Enter the Elements into Y-matrix")
+for i in range(len(y)):
+    for j in range(len(y)):
+        y[i].append(int(input()))
+print("X-matrix:",x)
+print("Y-matrix:",y)
+for i in range(len(z)):
+    for j in range(len(z)):
+        for k in range(len(z)):
+            z[i][j]+=x[i][k]*y[k][j]
+       
+print("Result Matrix:",z)
+
+output:
+-----
+enter x matrix: [[],[]]
+enter y matrix: [[],[]]
+enter z matrix: [[0,0],[0,0]]
+Enter the Elements into X-matrix
+2
+3
+1
+4
+Enter the Elements into Y-matrix
+4
+2
+5
+1
+X-matrix: [[2, 3], [1, 4]]
+Y-matrix: [[4, 2], [5, 1]]
+Result Matrix: [[23, 7], [24, 6]]
+
+ex:
+---
+wap to perform transpose of matrix?
+
+x=eval(input("enter x matrix: "))
+y=eval(input("enter y matrix: "))
+print("Enter the Elements into X-matrix")
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(int(input()))
+print("X-matrix:",x)
+for i in range(len(y)):
+    for j in range(len(y)):
+        y[i].append(x[j][i])
+       
+print("Result Matrix:",y)
+
+output:
+-------
+enter x matrix: [[],[]]
+enter y matrix: [[],[]]
+Enter the Elements into X-matrix
+3
+2
+5
+1
+X-matrix: [[3, 2], [5, 1]]
+Result Matrix: [[3, 5], [2, 1]]
+
+
+
+
+
+
+
+
+
+

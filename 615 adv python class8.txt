@@ -1,0 +1,190 @@
+hierarchical inheritance:
+-------------------------
+	the concept of inherit/access/acquire the properties from single class into multiple classes,is known as a hierarchical inheritance.
+
+ex:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(x):
+    def m3(self):
+        print("i am in m3")
+y1=y()
+y1.m1()
+y1.m2()
+z1=z()
+z1.m1()
+z1.m3()
+
+output:
+------
+i am in m1
+i am in m2
+i am in m1
+i am in m3
+
+Hybrid Inheritance:
+-----------------
+	it is a combination of 2 or more inheritances.
+
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(y):
+    def m3(self):
+        print("i am in m3")
+class a(y):
+    def m4(self):
+        print("i am in m4")
+class b(z,a):
+    def m5(self):
+        print("i am in m5")
+b1=b()
+b1.m1()
+b1.m2()
+b1.m3()
+b1.m4()
+b1.m5()
+print(b.mro())
+
+output:
+------
+i am in m1
+i am in m2
+i am in m3
+i am in m4
+i am in m5
+[<class '__main__.b'>, <class '__main__.z'>, <class '__main__.a'>, <class '__main__.y'>, <class '__main__.x'>, <class 'object'>]
+
+Cyclic Inheritance:
+-------------------
+	the concept of inherit the properties from super class into sub class and sub class into super class,is known as a Cyclic Inheritance.
+
+
+class x(z):
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(y):
+    def m3(self):
+        print("i am in m3")
+z1=z()
+z1.m1()
+z1.m2()
+z1.m3()
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Users/DELL/Desktop/test.py", line 1, in <module>
+    class x(z):
+NameError: name 'z' is not defined
+
+note:
+-----
+python dont supporting Cyclic inheritance concept.
+
+PolyMorphism:
+-------------
+	Poly Means Many
+	Morphism Means Forms
+
+in Generally,the PolyMorphism means one name in Many forms.
+
+the concept of defineing multiple functionalities or Logics to perform a single action or operation is known as a Polymorphism.
+
+the Polymorphism can be categorized into two types,they are
+
+	1).Static/compiletime Polymorphism
+
+		method overloading
+
+	2).Dynamic/runtime Polymorphism
+
+		method overriding
+
+method overloading
+------------------
+	The concept of defineing multiple methods with same name but different no.of parameters within the same class,is known as a method overloading.
+
+ex1:
+---
+class test:
+    def m1(self):
+        print("hai")
+    def m1(self,a):
+        print("hello")
+    def m1(self,a,b):
+        print("Good evening")
+t1=test()
+#t1.m1()
+#t1.m1(4)
+t1.m1(4,5)
+
+output:
+------
+Good evening
+
+ex2:
+----
+class test:    
+    def m1(self,a):
+        print("hello")
+    def m1(self,a,b):
+        print("Good evening")
+    def m1(self):
+        print("hai")
+t1=test()
+#t1.m1(4)
+#t1.m1(4,5)
+t1.m1()
+
+output:
+------
+hai
+
+note:
+-----
+python dont supporting method overloading concept because whenever we are defineing multiple methods with same name and different no.of parameters with in the same class in that case our python interpreter to recognize recent/last defined method only.
+
+Constructor Overloading:
+------------------------
+the concept of defineing multiple constructors with same name but different no.of parameters with in the same class is known as a Constructor Overloading.
+
+ex:
+---
+class test:
+    def __init__(self):
+        print("hai")
+    def __init__(self,a):
+        print("hello")
+    def __init__(self,a,b):
+        print("good evening")
+#t1=test()
+#t1=test(4)
+t1=test(4,5)
+
+output:
+-----
+good evening
+
+note:
+-----
+python dont supporting constructor overloading concept because whenever we are defineing multiple constructor's with same name and different no.of parameters with in the same class in that case our python interpreter to recognize recent/last defined constructor only.
+
+
+
+
+
+
+
+

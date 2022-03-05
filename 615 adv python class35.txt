@@ -1,0 +1,306 @@
+ex14:
+----
+wap to fetch the employe data whose employe working under department number 10 and which employe to get the salray between 2700 and 3000?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10 and\
+ sal between 2700 and 3000")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(109, 'shewag', 2900.0, 10)
+Connection Closeing
+
+ex15:
+----
+wap to fetch the employe data whose employe working under department number 10 and which employe to get the salray not between 2700 and 3000?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10 and\
+ sal not between 2700 and 3000")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+(106, 'dhoni', 2500.0, 10)
+Connection Closeing
+
+ex16:
+----
+wap to fetch the employe data whose employe working under department number 10 and which employe to get the salray in 2500 and 3000?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10 and\
+ sal in(2500,3000)")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+	(or)
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10 and\
+ (sal=2500 or sal=3000)")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+Connection Closeing
+
+ex17:
+----
+wap to fetch the employe data whose employe working under department number 10 and which employe to get the salray not in 200 and 3000?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10 and\
+ sal not in(2700,3000)")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+Connection Closeing
+
+ex18:
+----
+working with aggrigate functions?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select count(*),min(sal),max(sal),sum(sal)\
+ from emp")
+for rec in cur_obj:
+    print("Total No.Of Records:",rec[0])
+    print("Minimum Salary:",rec[1])
+    print("Maximum Salary:",rec[2])
+    print("Total Salary:",rec[3])
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+Total No.Of Records: 10
+Minimum Salary: 2500.0
+Maximum Salary: 3100.0
+Total Salary: 29000.0
+Connection Closeing
+
+ex19:
+----
+working with group by clause?
+
+	select * from tablename group by cloumnname;
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select count(*),min(sal),max(sal),sum(sal),\
+dno from emp group by dno")
+for rec in cur_obj:
+    print("Department Number:",rec[4])
+    print("Total No.Of Records:",rec[0])
+    print("Minimum Salary:",rec[1])
+    print("Maximum Salary:",rec[2])
+    print("Total Salary:",rec[3])    
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+Department Number: 10
+Total No.Of Records: 4
+Minimum Salary: 2500.0
+Maximum Salary: 3000.0
+Total Salary: 11400.0
+Department Number: 20
+Total No.Of Records: 3
+Minimum Salary: 3000.0
+Maximum Salary: 3100.0
+Total Salary: 9200.0
+Department Number: 30
+Total No.Of Records: 3
+Minimum Salary: 2700.0
+Maximum Salary: 2900.0
+Total Salary: 8400.0
+Connection Closeing
+
+ex20:
+-----
+working with order by clause?
+
+	select * from tablename order by columname ordertype;
+
+		ordertypes are asc(ascending) order
+			       desc(descending) order
+	by default order type is asc
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+for rec in cur_obj:
+    print(rec)
+print('*'*30)
+cur_obj.execute("select * from emp order by sal")
+for rec in cur_obj:
+    print(rec)
+print('*'*30)
+cur_obj.execute("select * from emp order by sal desc")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+------
+Connection Establish
+(101, 'siva', 3000.0, 10)
+(102, 'drvid', 3100.0, 20)
+(103, 'krishna', 2900.0, 30)
+(104, 'laxman', 3000.0, 10)
+(105, 'virat', 2800.0, 30)
+(106, 'dhoni', 2500.0, 10)
+(107, 'rohith', 3100.0, 20)
+(108, 'sachin', 2700.0, 30)
+(109, 'shewag', 2900.0, 10)
+(110, 'mithali', 3000.0, 20)
+******************************
+(106, 'dhoni', 2500.0, 10)
+(108, 'sachin', 2700.0, 30)
+(105, 'virat', 2800.0, 30)
+(103, 'krishna', 2900.0, 30)
+(109, 'shewag', 2900.0, 10)
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(110, 'mithali', 3000.0, 20)
+(102, 'drvid', 3100.0, 20)
+(107, 'rohith', 3100.0, 20)
+******************************
+(102, 'drvid', 3100.0, 20)
+(107, 'rohith', 3100.0, 20)
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(110, 'mithali', 3000.0, 20)
+(103, 'krishna', 2900.0, 30)
+(109, 'shewag', 2900.0, 10)
+(105, 'virat', 2800.0, 30)
+(108, 'sachin', 2700.0, 30)
+(106, 'dhoni', 2500.0, 10)
+Connection Closeing
+
+ex21:
+----
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+print('*'*30)
+cur_obj.execute("select * from emp where dno=10 order by sal")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+******************************
+(106, 'dhoni', 2500.0, 10)
+(109, 'shewag', 2900.0, 10)
+(101, 'siva', 3000.0, 10)
+(104, 'laxman', 3000.0, 10)
+Connection Closeing
+
+ex22:
+-----
+working with sub-query's
+
+	sub-query means we can define a query inside another query.
+
+the inner-query output is passing input to the outer-query i.e., the outer query takes the input as output of inner query.
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("Connection Establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where sal=\
+(select max(sal) from emp)")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("Connection Closeing")
+
+output:
+-------
+Connection Establish
+(102, 'drvid', 3100.0, 20)
+(107, 'rohith', 3100.0, 20)
+Connection Closeing
+
+
+

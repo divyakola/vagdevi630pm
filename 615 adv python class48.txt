@@ -1,0 +1,285 @@
+Data Science:
+--------------
+Data science is the process of derive the knowledge from the huge ammount of data through the organize,analyze and process the data.
+
+Data Science is a Combination of Both Data Analysis and Data Reporting.
+
+Data Analysis:
+------------
+	Data Analysis means to analyze the data
+
+we can analyze the data by using some data science techniques,that techniques are
+
+	1).Machine Learning
+	2).Deep Learning
+	3).NLP(Natural Language Processing)
+	4).Stastical analysis
+	5).sentimental analysis
+	6).Data mining
+	7).Image processing,
+		.....
+		.....,etc.,
+
+python provides various libraries/packages to analyze the data or process the data,they are
+
+	1).Pandas
+	2).NumPy
+        3).SciPy
+
+pandas:
+------
+	pandas is a standard and high-level data analysis/data processing package.
+
+	if we want to working with pandas first we need to install pandas library.
+
+	pip install pandas
+
+pandas provides two data structure to perform data manipulations,they are
+
+	1).Series
+
+	2).DataFrame
+
+Series:
+-------
+Series is a one-dimensional array with homogenious/hetrogenious data.
+
+DataFrame:
+----------
+DataFrame is a Two-Dimensional Array with homogenious and hetrogenious data.
+
+note:
+----
+to get the all the list of installed 3rd party libraries/packages in our machine
+
+	C:\Python310\Scripts>pip freeze
+
+	C:\Python310\Scripts>pip list
+
+
+ex1:
+---
+wap to get the pandas version?
+
+import pandas
+print(pandas.__version__)
+
+output:
+-------
+1.4.1
+
+ex2:
+---
+wap to get the documentation string of pandas library?
+
+import pandas
+print(pandas.__doc__)
+
+ex3:
+----
+wap to get the path of pandas library?
+
+import pandas
+print(pandas.__path__)
+
+output:
+------
+['C:\\Python310\\lib\\site-packages\\pandas']
+
+ex4:
+---
+wap to create a empty Series object?
+
+import pandas as pd
+s=pd.Series(dtype=object)
+print(s)
+
+output:
+------
+Series([], dtype: object)
+
+ex5:
+---
+wap to create a Series object by using list?
+
+import pandas as pd
+s=pd.Series([5,3,7,9])
+print(s)
+
+output:
+------
+0    5
+1    3
+2    7
+3    9
+dtype: int64
+
+ex6:
+---
+wap to create a Series object by using list with our indexes?
+
+import pandas as pd
+s=pd.Series([5,3,7,9],['a','b','c','d'])
+print(s)
+
+output:
+------
+a    5
+b    3
+c    7
+d    9
+dtype: int64
+
+ex7:
+----
+import pandas as pd
+s=pd.Series(data=[5,3,7,9],index=['a','b','c','d'],
+            dtype=float)
+print(s)
+
+output:
+------
+a    5.0
+b    3.0
+c    7.0
+d    9.0
+dtype: float64
+
+ex8:
+----
+import pandas as pd
+s=pd.Series([5,3,7.2,9])
+print(s)
+
+output:
+------
+0    5.0
+1    3.0
+2    7.2
+3    9.0
+dtype: float64
+
+ex9:
+---
+import pandas as pd
+s=pd.Series([5,3j,7.2,9])
+print(s)
+
+output:
+------
+0    5.0+0.0j
+1    0.0+3.0j
+2    7.2+0.0j
+3    9.0+0.0j
+dtype: complex128
+
+ex10:
+----
+import pandas as pd
+s=pd.Series([5,3j,7.2,9,"siva",[4,5],False])
+print(s)
+
+output:
+------
+0         5
+1        3j
+2       7.2
+3         9
+4      siva
+5    [4, 5]
+6     False
+dtype: object
+
+ex11:
+----
+import pandas as pd
+s=pd.Series([9,3,8,2,5])
+print(s)
+print(s[1])
+print(s[:2])
+print(s.sum())
+print(s.min())
+print(s.max())
+print(s.mean())
+print(s.median())
+
+output:
+-------
+0    9
+1    3
+2    8
+3    2
+4    5
+dtype: int64
+
+3
+
+0    9
+1    3
+dtype: int64
+
+27
+
+2
+
+9
+
+5.4
+
+5.0
+
+ex12:
+----
+wap to create a Series by using dictionary?
+
+import pandas as pd
+s=pd.Series({'a':1,'b':2,'c':3})
+print(s)
+
+output:
+------
+a    1
+b    2
+c    3
+dtype: int64
+
+ex13:
+----
+import pandas as pd
+s=pd.Series({'a':1,'b':2,'c':3},
+            index=["first","second","third"])
+print(s)
+
+output:
+------
+first    NaN
+second   NaN
+third    NaN
+dtype: float64
+
+ex14:
+----
+wap to create a Series by using Scalar?
+
+import pandas as pd
+s=pd.Series(10)
+print(s)
+           
+output:
+-----
+0    10
+dtype: int64
+
+ex15:
+----
+import pandas as pd
+s=pd.Series(13,['a','b','c','d'])
+print(s)
+           
+output:
+-------
+a    13
+b    13
+c    13
+d    13
+dtype: int64

@@ -1,0 +1,337 @@
+Boolean datatypes:
+------------------
+	these datatypes are used to store the boolean values.
+
+in python,we can represent the boolean values True and False
+
+the boolean datatype haveing 'bool' class
+
+ex:
+---
+>>> x=True
+>>> x
+True
+>>> type(x)
+<class 'bool'>
+
+>>> y=False
+>>> y
+False
+>>> type(y)
+<class 'bool'>
+
+>>> z=false
+NameError: name 'false' is not defined
+
+>>> a=true
+NameError: name 'true' is not defined
+
+string datatype:
+----------------
+string datatype haveing 'str' class
+
+we can create a string object by using '' or ""
+
+string object is a sequence object(both input order and output order will be same)
+
+string object is a iterable object(we can apply the iterations or we can use repeated purpose)
+
+string object is a Immutable object(we can't modify the data)
+
+>>> x="siva"
+>>> x
+'siva'
+>>> type(x)
+<class 'str'>
+
+>>> y='krishna'
+>>> y
+'krishna'
+>>> type(y)
+<class 'str'>
+
+>>> y[2]
+'i'
+>>> id(y)
+2258196896880
+>>> y[2]='u'
+TypeError: 'str' object does not support item assignment
+
+List datatype
+-------------
+list datatype haveing 'list' class
+
+we can create a list object by using [ ] or by calling list() or list(iterableobj)
+
+list object is a sequence object
+
+list object is a iterable object
+
+list object is a mutable object(we can modify the data)
+
+ex:
+---
+>>> x=[]
+>>> x
+[]
+>>> type(x)
+<class 'list'>
+
+>>> y=list()
+>>> y
+[]
+>>> type(y)
+<class 'list'>
+
+>>> z=[7,4,8,2]
+>>> z
+[7, 4, 8, 2]
+>>> type(z)
+<class 'list'>
+
+>>> a=list("siva")
+>>> a
+['s', 'i', 'v', 'a']
+>>> type(a)
+<class 'list'>
+
+>>> b=list([6,3,8,2])
+>>> b
+[6, 3, 8, 2]
+>>> type(b)
+<class 'list'>
+
+>>> z=[7,4,8,2]
+>>> z
+[7, 4, 8, 2]
+>>> id(z)
+2258196860352
+>>> z[1]
+4
+>>> z[1]=40
+>>> z
+[7, 40, 8, 2]
+>>> id(z)
+2258196860352
+
+
+tuple datatype:
+---------------
+the tuple datatype haveing 'tuple' class
+
+we can create a tuple object by using ( ) or by calling tuple() or tuple(iterableobj)
+
+tuple object sequence object
+
+tuple object is a iterable object
+
+tuple object is a immutable object
+
+ex:
+--
+>>> x=()
+>>> x
+()
+>>> type(x)
+<class 'tuple'>
+
+>>> y=tuple()
+>>> y
+()
+>>> type(y)
+<class 'tuple'>
+
+>>> z=(6,3,8,2)
+>>> z
+(6, 3, 8, 2)
+>>> type(z)
+<class 'tuple'>
+
+>>> a=tuple("siva")
+>>> a
+('s', 'i', 'v', 'a')
+>>> type(a)
+<class 'tuple'>
+
+>>> b=tuple([5,7,3,8])
+>>> b
+(5, 7, 3, 8)
+>>> type(b)
+<class 'tuple'>
+
+>>> c=tuple((5,3,7,2))
+>>> c
+(5, 3, 7, 2)
+>>> type(c)
+<class 'tuple'>
+
+>>> z=(6,3,8,2)
+>>> z
+(6, 3, 8, 2)
+>>> id(z)
+2258196907328
+>>> z[1]
+3
+>>> z[1]=30
+TypeError: 'tuple' object does not support item assignment
+
+set datatype
+-----------
+the set datatype haveing 'set' class
+
+we can create a set object by using { } or by calling set() or set(iterableobj)
+
+set object is a non-sequence object(both input order and output order will not be same)
+
+set object is a iterable object
+
+set object is a mutable object
+
+ex:
+---
+>>> x={}
+>>> x
+{}
+>>> type(x)
+<class 'dict'>
+
+>>> y=set()
+>>> y
+set()
+>>> type(y)
+<class 'set'>
+
+>>> z={6,8,5,9}
+>>> z
+{8, 9, 5, 6}
+>>> type(z)
+<class 'set'>
+
+>>> a=set("siva")
+>>> a
+{'i', 's', 'a', 'v'}
+>>> type(a)
+<class 'set'>
+
+>>> b=set([5,6,3,9])
+>>> b
+{9, 3, 5, 6}
+>>> type(b)
+<class 'set'>
+
+>>> c=set((4,3,7,9))
+>>> c
+{9, 3, 4, 7}
+>>> type(c)
+<class 'set'>
+
+>>> d=set({6,4,9,3})
+>>> d
+{9, 3, 4, 6}
+>>> type(d)
+<class 'set'>
+
+frozenset datatype
+------------------
+the frozenset datatype haveing frozenset class
+
+we can create a frozenset object by using frozenset() or frozenset(iterableobj)
+
+the frozenset object is a non-sequence object
+
+the frozenset object is a iterable object
+
+the frozenset object is a immutable object.
+
+ex:
+---
+>>> x=frozenset()
+>>> x
+frozenset()
+>>> type(x)
+<class 'frozenset'>
+
+>>> b=frozenset("siva")
+>>> b
+frozenset({'i', 's', 'a', 'v'})
+>>> type(b)
+<class 'frozenset'>
+
+>>> c=frozenset([6,7,3,8])
+>>> c
+frozenset({8, 3, 6, 7})
+>>> type(c)
+<class 'frozenset'>
+
+>>> d=frozenset((5,3,7,9))
+>>> d
+frozenset({9, 3, 5, 7})
+>>> type(d)
+<class 'frozenset'>
+
+>>> e=frozenset({7,4,8,9})
+>>> e
+frozenset({8, 9, 4, 7})
+>>> type(e)
+<class 'frozenset'>
+
+
+dictionary datatype
+-------------------
+the dictionary datatype haveing 'dict' class
+
+we can create a dict object by using { } or by calling dict()
+
+dict object contains group of key-value pairs,each key-value pair act as a one item in our dict object.
+
+	{key:value,key:value,....,key:value}
+
+dict object is a iterable object
+
+dict object object is a mutable object
+
+in python2.x and python3.x(3.0 to 3.4.x) these versions dict object act as a non-sequence object.
+
+ex:
+---
+>>> x={'name':'siva','sal':7000,'dno':10,'age':29}
+>>> x
+{'age': 29, 'dno': 10, 'name': 'siva', 'sal': 7000}
+
+from python3.5+ versions onwards dict object act as a sequence object.
+
+>>> x={'name':'siva','sal':7000,'dno':10,'age':29}
+>>> x
+{'name': 'siva', 'sal': 7000, 'dno': 10, 'age': 29}
+>>> type(x)
+<class 'dict'>
+
+None datatype
+------------
+None datatype haveing 'NoneType' class
+
+>>> x=None
+>>> type(x)
+<class 'NoneType'>
+>>> print(x)
+None
+
+ex:
+---
+	datatypesex.py
+	--------------
+x=10
+print(x)
+print(type(x))
+print(id(x))
+
+	output
+	-----
+C:\Users\DELL\Desktop>python datatypesex.py
+10
+<class 'int'>
+2980099353168
+
+
+
+

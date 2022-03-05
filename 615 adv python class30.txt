@@ -1,0 +1,311 @@
+ex9:
+---
+wap to write the data into the file by using 'w' mode,if file does not existed with different location?
+
+f1=open("E:\\siva\\mysample.txt",'w')
+f1.write("hello siva")
+f1.close()
+        
+output:
+------
+	E:\\siva\\mysample.txt
+	----------------------
+hello siva
+
+ex10:
+----
+wap to read the data from the file with different location?
+
+	E:\\siva\\mysample.txt
+	----------------------
+hello siva
+
+f1=open("E:/siva/mysample.txt")
+print(f1.read())
+f1.close()
+        
+output:
+-----
+hello siva
+
+working with 'with' keyword:
+----------------------------
+	'with' is a keyword in python.
+
+whenever we are opening a file by using 'with' keyword in that case dont required to close the file manually.
+
+ex11:
+---
+f1=open("sample.txt",'w')
+f1.write("hello siva good evening")
+
+output:
+----
+	sample.txt
+	---------
+empty file is created(dont write anything because we cant close the file).
+
+ex12:
+---
+with open("sample1.txt",'w') as f1:
+    f1.write("hello siva good evening")
+
+output
+------
+	sample1.txt
+	-----------
+hello siva good evening
+
+what is File Pointer?
+---------------------
+	whenever we are opening a file one cursor is blinking ,that cursor is called file pointer.
+
+	by default,the file pointer locating at '0' indexing.
+
+
+ex13:
+----
+	sample1.txt
+	-----------
+hello siva good evening
+
+
+with open("sample1.txt") as f1:
+    print(f1.tell())
+    print(f1.read(3))
+    print(f1.tell())
+    print(f1.read(5))
+    print(f1.tell())
+    f1.seek(4)
+    print(f1.read(7))
+    f1.seek(20)
+    print(f1.read(3))
+    print(f1.tell())    
+    
+output:
+------
+0
+hel
+3
+lo si
+8
+o siva 
+ing
+23
+
+ex14:
+----
+wap to read the line from the file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    print(f1.readline())
+    
+output:
+------
+hello siva  
+    
+ex15:
+----
+wap to read all the lines from the file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    print(f1.readlines())
+
+output:
+------
+['hello siva\n', 'good evening\n', 'how are you']
+
+ex16:
+-----
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    for row in f1.readlines():
+        print(row,end="")
+    
+output:
+------
+hello siva
+good evening
+how are you
+
+ex17:
+----
+wap to return the no.of lines in a file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    print(len(f1.readlines()))
+
+output:
+------
+3
+
+ex18:
+----
+wap to return the no.of words in a file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    print(len(f1.read().split()))
+
+output:
+------
+7
+
+ex19:
+----
+wap to return the no.of charecters in a file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+with open("sample1.txt") as f1:
+    print(len(f1.read()))
+
+output:
+------
+35
+
+ex20:
+----
+wap to print Nth row and Nth charecters from the given file?
+
+	sample1.txt
+	-----------
+hello siva
+good evening
+how are you
+
+r=int(input("enter row number: "))
+c=int(input("enter column number: "))
+with open("sample1.txt") as f1:
+    x=f1.readlines()
+    print(x[r-1][c-1])
+       
+output:
+------
+enter row number: 2
+enter column number: 7
+v
+
+ex21:
+----
+wap to write the multiple lines into the file by using write()?
+
+with open("sample2.txt",'w') as f1:
+    f1.write("hai\nsiva krishna\ngood evening")
+
+output:
+------
+	sample2.txt
+	-----------
+hai
+siva krishna
+good evening
+
+ex22:
+----
+wap to write the multiple lines into the file by using writelines()?
+
+with open("sample3.txt",'w') as f1:
+    f1.writelines(["hai\n","siva krishna\n","good evening"])
+       
+output:
+------
+	sample3.txt
+	-----------
+hai
+siva krishna
+good evening
+
+ex23:
+----
+wap to copy the data from one file to another file?
+
+	sample3.txt
+	-----------
+hai
+siva krishna
+good evening
+
+with open("sample3_copy.txt",'w') as f1:
+    with open("sample3.txt") as f2:
+        f1.write(f2.read())
+
+output:
+-------
+	sample3_copy.txt
+	-----------
+hai
+siva krishna
+good evening   
+    
+ex24:
+----
+wap to append the data from one file to another file?
+
+	sample3.txt
+	-----------
+hai
+siva krishna
+good evening
+
+	sample4.txt
+	-----------
+hello
+rama krishna
+good night
+
+with open("sample3.txt",'a') as f1:
+    with open('sample4.txt') as f2:
+        f1.write("\n")
+        f1.write(f2.read())
+
+output:
+------
+	sample3.txt
+	-----------
+hai
+siva krishna
+good evening
+hello
+rama krishna
+good night  
+    
+
+
+
+
+
+
+

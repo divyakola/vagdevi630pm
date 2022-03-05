@@ -1,0 +1,227 @@
+identifier's:
+--------------
+Identifier is a name(it's may be either variable name,function name,class name,method name,module name,....)
+
+in python,at the time of defineing a identifier we are following some rules,
+
+	rule1:
+	-----
+	the identifier contains alphabets(upper/lower/both),
+digits(0-9) and underscore(_) symbols.
+
+	rule2:
+	-----
+	the identifier must begin with Alphabets or underscore symbols only.
+
+		(or)
+
+	the identifier should not begin with digits
+
+	rule3:
+	-----
+	the identifier not a keyword(we can't assign any keyword as identifier)
+
+note:
+----
+the identifier's are case-sensitive
+
+Variables
+----------
+	the variable is a name,which is used to store the data for future use/purpose.
+
+	syntax
+	------
+	variablename=value
+
+examples:
+--------
+>>> x=10
+>>> x
+10
+
+>>> My_Name_123="siva"
+>>> My_Name_123
+'siva'
+
+>>> _y=32
+>>> _y
+32
+
+>>> 2c=56  
+SyntaxError: invalid syntax	
+
+>>> and=67  
+SyntaxError: invalid syntax
+
+>>> break=67  
+SyntaxError: invalid syntax
+
+>>> Break=67
+>>> Break
+67
+
+>>> my name="siva"
+SyntaxError: invalid syntax
+
+>>> my@name="rama" 
+SyntaxError: cannot assign to operator
+
+if we want to assign single value to multiple variables at a time,in that case we are using following syntax
+
+	var_1=var_2=....=var_n=value
+
+>>> x=y=z=10
+>>> x
+10
+>>> y
+10
+>>> z
+10
+
+if we want to assign different values to different variables at a time,in that case we are using following syntax,
+
+	var_1,var_2,....,var_n=value_1,value_2,....,value_n
+
+>>> a,b,c=10,20,30
+>>> a
+10
+>>> b
+20
+>>> c
+30
+
+
+>>> p=1,2,3
+>>> p
+(1, 2, 3)
+
+>>> q,r,s=1
+TypeError: cannot unpack non-iterable int object
+
+>>> q,r,s=1,2
+ValueError: not enough values to unpack (expected 3, got 2)
+
+>>> q,r,s=1,2,3,4
+ValueError: too many values to unpack (expected 3)
+
+>>> x=1,2,3
+>>> x
+(1, 2, 3)
+>>> p,q,r=x
+>>> p
+1
+>>> q
+2
+>>> r
+3
+
+>>> x=10,000
+>>> x
+(10, 0)
+
+>>> y=10000
+>>> y
+10000
+
+>>> z=10_000
+>>> z
+10000
+
+ex1:
+---
+wap to perform swapping(exchangeing) of two numbers by using temporary variable?
+
+	swapping.py
+	----------
+x,y=10,20
+print("Before swapping x=",x,"and y=",y)
+temp=x
+x=y
+y=temp
+print("After swapping x=%d and y=%d"%(x,y))
+
+	output
+	------
+C:\Users\DELL\Desktop>python swapping.py
+Before swapping x= 10 and y= 20
+After swapping x=20 and y=10
+
+ex2:
+---
+wap to perform swapping(exchangeing) of two numbers without temporary variable?
+
+	swapping.py
+	----------
+x,y=10,20
+print("Before swapping x=%d and y=%d"%(x,y))
+x=x+y
+y=x-y
+x=x-y
+print("After swapping x=%d and y=%d"%(x,y))
+
+	(or)
+
+x,y=10,20
+print("Before swapping x=%d and y=%d"%(x,y))
+x,y=y,x
+print("After swapping x=%d and y=%d"%(x,y))
+
+	output
+	------
+C:\Users\DELL\Desktop>python swapping.py
+Before swapping x=10 and y=20
+After swapping x=20 and y=10
+
+ex3:
+---
+wap to find the area of the triangle?
+
+base=4
+height=6
+print(base*height/2)
+
+output:
+------
+12.0
+
+assignment-1:
+------------
+wap to find the perimeter of the triangle?
+
+ex4:
+---
+wap to find the area of the square?
+
+side=4
+print(side*side)
+
+output:
+------
+16
+
+assignment-2:
+-------------
+wap to find the area of the rectangle?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+ex15:
+----
+wap to create a window with frames?
+
+from tkinter import *
+window=Tk()
+F1=Frame(window,bd=5,height=200,width=300,relief="raised",
+         bg="red")
+F1.grid(row=0,column=0)
+
+F2=Frame(window,bd=5,height=200,width=300,relief="groove",
+         bg="blue")
+F2.grid(row=0,column=1)
+
+F3=Frame(window,bd=5,height=200,width=300,relief="solid",
+         bg="blue")
+F3.grid(row=1,column=0)
+
+F4=Frame(window,bd=5,height=200,width=300,relief="sunken",
+         bg="red")
+F4.grid(row=1,column=1)
+
+window.mainloop()
+
+ex16:
+----
+from tkinter import *
+window=Tk()
+window.geometry("1200x1300")
+F1=Frame(window,bd=5,height=500,width=1000,relief="raised")
+F1.grid(row=0,column=0)
+L1=Label(F1,text="Enter your name: ",fg="red",
+         font=("elephant",20,'bold'))
+L1.place(x=20,y=50)
+E1=Entry(F1,bd=5,fg="blue",font=("elephant",20,"italic"))
+E1.place(x=300,y=50)
+
+window.mainloop()
+
+ex17:
+----
+create a gui application with sqlite3 database connection?
+
+	tablecreation.py
+	----------------
+import sqlite3
+conn_obj=sqlite3.connect("myemploye.db")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""create table emp(eid integer,ename string,
+eadd string,sal double(6,2))""")
+print("table created successfully")
+cur_obj.close()
+conn_obj.close()
+
+	guiapp.py
+	----------
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+window=Tk()
+window.geometry("1200x1300")
+def insert():
+    e1=eid.get()
+    e2=ename.get()
+    e3=eadd.get()
+    e4=esal.get()
+    conn_obj=sqlite3.connect("myemploye.db")
+    cur_obj=conn_obj.cursor()
+    cur_obj.execute("""insert into emp(eid,ename,eadd,sal)
+ values(?,?,?,?)""",(e1,e2,e3,e4))
+    cur_obj.execute("commit")
+    messagebox.showinfo("result","Inserted successfully")
+    eid.set(0)
+    ename.set('')
+    eadd.set('')
+    esal.set(0.0)
+    
+
+eid=IntVar()
+ename=StringVar()
+eadd=StringVar()
+esal=DoubleVar()
+
+L=Label(window,text="Welcome to Vagdevi Technologies",
+        fg="blue",bg="yellow",font=("elephant",20,"italic"))
+L.place(x=400,y=20)
+L1=Label(window,text="Enter EmployeId:",
+        fg="blue",font=("elephant",20,"bold"))
+L1.place(x=10,y=100)
+E1=Entry(window,bd=5,fg="red",font=("elephant",20,"italic"),
+         textvariable=eid)
+E1.place(x=400,y=100)
+L2=Label(window,text="Enter Employe Name:",
+        fg="blue",font=("elephant",20,"bold"))
+L2.place(x=10,y=150)
+E2=Entry(window,bd=5,fg="red",font=("elephant",20,"italic"),
+         textvariable=ename)
+E2.place(x=400,y=150)
+L3=Label(window,text="Enter Employe address:",
+        fg="blue",font=("elephant",20,"bold"))
+L3.place(x=10,y=200)
+E3=Entry(window,bd=5,fg="red",font=("elephant",20,"italic"),
+         textvariable=eadd)
+E3.place(x=400,y=200)
+L4=Label(window,text="Enter Employe salary:",
+        fg="blue",font=("elephant",20,"bold"))
+L4.place(x=10,y=250)
+E4=Entry(window,bd=5,fg="red",font=("elephant",20,"italic"),
+         textvariable=esal)
+E4.place(x=400,y=250)
+B=Button(window,text="insert",fg="red",bg="yellow",
+         font=("elephant",20,"bold"),command=insert)
+B.place(x=400,y=320)
+window.mainloop()
+
+	result.py
+	---------
+import sqlite3
+conn_obj=sqlite3.connect("myemploye.db")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()

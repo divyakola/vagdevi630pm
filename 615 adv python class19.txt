@@ -1,0 +1,198 @@
+ex1: birthday remainder application
+----
+from datetime import datetime
+from calendar import isleap
+name=input("enter your name: ")
+m=int(input("enter month number: "))
+d=int(input("enter day: "))
+date=datetime.now()
+d1=date.year
+
+days=date.timetuple()
+cy=date.today().year
+cm=date.today().month
+cd=date.today().day
+if cm<=m:
+    cy_days=days.tm_yday
+    date=datetime(cy,m,d)
+    d1=date.year
+    days=date.timetuple()
+    by_days=days.tm_yday
+    print("hey %s,%dday's are left"%(name,by_days-cy_days-1))
+    
+else:
+    if isleap(cy):
+        re_days=366-days.tm_yday
+        x=datetime(cy+1,m,d)
+        y=x.timetuple()
+        print(y.tm_yday+re_days)
+    else:
+        re_days=365-days.tm_yday
+        x=datetime(cy+1,m,d)
+        y=x.timetuple()
+        print("hey %s,%dday's are left"%(name,y.tm_yday+re_days-1))
+        
+outputs:
+-------
+enter your name: siva
+enter month number: 12
+enter day: 31
+hey siva,3day's are left
+
+
+enter your name: siva
+enter month number: 1
+enter day: 14
+hey siva,17day's are left
+
+working with 'os' module
+------------------------
+	if we want to display all the properties of 'os' module by using following command
+
+	import os
+	dir(os)
+
+ex1: 
+---
+wap to get the current working directory?
+
+import os
+print(os.getcwd())
+
+output:
+-----
+C:\Python310
+
+ex2:
+---
+wap to make/create a directory?
+
+import os
+os.mkdir('siva')
+print("Director created at %s successfully"%os.getcwd())
+os.mkdir('E:\\krishna\\Rossum')
+print("Directory created at E:\\krishna\\Rossum successfully")
+
+output:
+--------
+Director created at C:\Python310 successfully
+Directory created at E:\krishna\Rossum successfully
+
+ex3:
+---
+wap to change the directory?
+
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+os.chdir("E:\\krishna\\Rossum")
+print(os.getcwd())
+
+output:
+------
+C:\Python310
+C:\Python310\siva
+E:\krishna\Rossum
+
+ex4:
+---
+wap to create a directories by using iteration?
+
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+for i in ['python','django','flask']:
+    os.mkdir(i)
+print("Directories are created successfully")
+
+output:
+------
+C:\Python310
+C:\Python310\siva
+Directories are created successfully
+
+ex5:
+----
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+files=['sample.py','demo.py','addition.java',
+       'welcome.html','style.css']
+for file in files:
+    open(file,'w')
+print("Files are created successfully")
+
+output:
+------
+C:\Python310
+C:\Python310\siva
+Files are created successfully
+
+ex6
+----
+wap to display list of all the files and directories in the given location/path?
+
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+print(os.listdir())
+print('*'*20)
+os.chdir('E:\\krishna')
+print(os.getcwd())
+print(os.listdir())
+
+output:
+---------
+C:\Python310
+C:\Python310\siva
+['addition.java', 'demo.py', 'django', 'flask', 'python', 'sample.py', 'style.css', 'welcome.html']
+********************
+E:\krishna
+['demo4.txt', 'Divyakola Siva Krishna_329597.pdf', 'entri', 'Guido', 'iglobal', 'mybirths.csv', 'mydemo.txt', 'mysample.txt', 'mysimple.txt', 'rama', 'Rossum', 'sachin', 'sample3.txt', 'sample4.txt', 'simple3.txt', 'siva', 'vagpython']
+
+ex7:
+----
+wap to return the directories from the given location?
+
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+for i in os.listdir():
+    if os.path.isdir(i):
+        print(i)
+
+output:
+------
+C:\Python310
+C:\Python310\siva
+django
+flask
+python
+
+ex8:
+---
+wap to return the files from the given location?
+
+import os
+print(os.getcwd())
+os.chdir('siva')
+print(os.getcwd())
+for i in os.listdir():
+    if os.path.isfile(i):
+        print(i)
+
+output:
+------
+C:\Python310
+C:\Python310\siva
+addition.java
+demo.py
+sample.py
+style.css
+welcome.html
+

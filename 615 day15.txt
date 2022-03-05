@@ -1,0 +1,481 @@
+Bitwise Operators:
+------------------
+	these operators are used to perform the operation on the binary data.
+
+	the bitwise operators takes the input as decimal and to return the output as decimal.
+
+	the bitwise operator internally to perform the following operatins,
+
+	step1: to convert Decimal into Binary
+
+	step2: to perform the operation on the Binary data
+
+	step3: to convert binary into decimal
+
+the bitwise operators are
+
+	bitwise and		--> &
+
+	bitwise or		--> |
+
+	bitwise xor		--> ^
+
+	bitwise negation	--> ~
+
+	bitwise leftshift	--> <<
+
+	bitwise rightshift	--> >>
+
+bitwise and(&) example:
+----------------------
+>>> x=10
+>>> y=3
+>>> x&y
+2
+
+	step1: to convert Decimal into binary
+	-----
+		x=10	--> 1010
+		y=3	--> 0011
+
+	step2: to perform the operation on the binary data
+	------
+ip_1    ip_2   ip_1 & ip_2
+--------------------------
+0     	0	    0		1010
+0	1	    0		0011
+1	0	    0		-----
+1	1	    1		0010
+
+
+	step3: to convert binary into decimal
+	-----
+		0010
+		  |
+		0*2**3+0*2**2+1*2**1+0*2**0
+		0*8+0*4+1*2+0*1
+		0+0+2+0
+		   2
+
+bitwise or(|) example:
+---------------------
+>>> x=10
+>>> y=3
+>>> x|y
+11
+
+	step1: to convert Decimal into binary
+	-----
+		x=10	--> 1010
+		y=3	--> 0011
+
+	step2: to perform the operation on the binary data
+	------
+ip_1    ip_2   ip_1 | ip_2
+--------------------------
+0     	0	    0		1010
+0	1	    1		0011
+1	0	    1		-----
+1	1	    1		1011
+
+
+	step3: to convert binary into decimal
+	-----
+		1011
+                  |
+		1*2**3+0*2**2+1*2**1+1*2**0
+		1*8+0*4+1*2+1*1
+		8+0+2+1
+		11
+
+
+bitwise xor(^) example:
+------------------------
+>>> x=10
+>>> y=3
+>>> x^y
+9
+
+	step1: to convert Decimal into binary
+	-----
+		x=10	--> 1010
+		y=3	--> 0011
+
+	step2: to perform the operation on the binary data
+	------
+ip_1    ip_2   ip_1 ^ ip_2
+--------------------------
+0     	0	    0		1010
+0	1	    1		0011
+1	0	    1		-----
+1	1	    0		1001
+
+
+	step3: to convert binary into decimal
+	-----
+		1001
+                  |
+		1*2**3+0*2**2+0*2**1+1*2**0
+		  |
+		1*8+0*4+0*2+1*1
+		  |
+		8+0+0+1
+		  |
+		  9
+
+bitwise negation(~) exmple
+---------------------------
+>>> x=10
+>>> ~x
+-11
+
+		10
+	        | to convert decimal into binary
+	       1010
+	        | to apply the 1's compliment
+	       0101
+                | to padding one bit(1) at leftside
+              10101
+                | the padding bit result is negative
+	   -1*2**4+0*2**3+1*2**2+0*2**1+1*2**0
+		|
+	   -1*16+0*8+1*4+0*2+1*1
+		|
+	    -16+0+4+0+1
+		|
+	      -11
+
+note:
+----
+the even number of negations always to return the same number as a output.
+
+>>> x=3
+>>> ~~x
+3
+>>> y=7
+>>> ~~~~y
+7
+>>> z=-2
+>>> ~~~~~~z
+-2
+
+the odd number of negations to return the output as -(num+1)
+
+>>> x=5
+>>> ~x
+-6
+>>> y=4
+>>> ~~~y
+-5
+>>> z=-2
+>>> ~~~~~z
+1
+
+bitwise leftshift(<<) example
+-----------------------------
+>>> x=10
+>>> x<<2
+40
+
+bitwise rightshif(>>) example
+-----------------------------
+>>> x=10
+>>> x>>2
+2
+
+note:
+----
+whenever we are moveing the bits at leftside,that no.of bits fit into the memory but whenever we are moveing the bits at rightside,that no.of bits exit from memory.
+
+Assignment Operators:
+--------------------
+	these operators are used to assign the value to the variables.
+
+in python the assignment operators can be categorized into 3-types,they are
+
+	1).Normal Assignment Operator
+
+	2).Shorthand Assignment Operator
+
+	3).walrus Assignment Operator
+
+Normal Assignment Operator:
+--------------------------
+	'=' is a Normal Assignment Operator,it is used to assign the     R-value to L-value
+
+ex:
+--
+x=10
+y=x
+print(x)
+print(y)
+
+output:
+------
+10
+10
+
+Shorthand Assignment Operator:
+-------------------------------
+	the Normal Assignment Operator which contains prefix with any another operator like Arithmetic,Bitwise,that type of Normal Assignement Operators are called Shorthand Assignment Operators.
+
+x=10
+
+x += 3		--> x=x+3	--> x=13
+
+x -= 3		--> x=x-3	--> x=7
+
+x *= 3		--> x=x*3	--> x=30
+
+x &= 3		--> x=x&3	--> x=2
+
+x |= 3		--> x=x|3	--> x=11
+
+note:
+----
+python dont supporting both increment(++) and decrement(--) operators concept,but we can achive that concept indirectly by using shorthand assignment operators concept.
+
+		c/c++/java		python
+		----------		-------
+	i++	--> i=i+1	   i+=1		--> i=i+1
+
+	i--	--> i=i-1	   i-=1		--> i=i-1
+
+walrus assignment operator:
+-------------------------
+	':=' is a walrus assignment operator
+
+this operator is used to perform both initialization and evaluation at a time.
+
+this operator introduced from python3.8 versions onwards
+
+ex1:
+---
+x=10
+print(x)
+y=20
+print(y)
+print(x+y)
+
+output:
+-----
+10
+20
+30
+
+ex2:
+---
+print(x:=10)
+print(y:=20)
+print(x+y)
+
+output:
+-----
+10
+20
+30
+
+identity operators:
+------------------
+these operators are used to compare the address of the objects.
+
+in python,the identity operators are is,is not
+
+if address are equal the 'is' operator to return True otherwise the 'is' operator to return False.
+
+if address are not equal the 'is not' operator to return True otherwise the 'is not' operator to return False.
+
+ex1:
+---
+>>> x=10
+>>> y=10
+>>> x==y
+True
+>>> x is y
+True
+>>> x is not y
+False
+>>> id(x)
+1869786055184
+>>> id(y)
+1869786055184
+
+ex2:
+----
+>>> a=[1,2,3]
+>>> b=[1,2,3]
+>>> a==b
+True
+>>> a is b
+False
+>>> a is not b
+True
+>>> id(a)
+1869787446656
+>>> id(b)
+1869787436544
+
+ex3:
+---
+	sample.py
+	---------
+x=(1,2,3)
+y=(1,2,3)
+print(x==y)
+print(x is y)
+print(x is not y)
+print(id(x))
+print(id(y))
+
+output
+------
+C:\Users\DELL\Desktop>python sample.py
+True
+True
+False
+2038971701440
+2038971701440
+
+membership operators:
+---------------------
+	these operators are used to serach/find an element in a given iterable object.
+
+	in python,the membership operators are in,not in
+
+if element is find/match,the 'in' operator to return True otherwise the 'in' operator to return False.
+
+if element is not find/match,the 'not in' operator to return True otherwise the 'not in' operator to return False.
+
+ex1:
+---
+>>> x="siva"
+>>> 'i' in x
+True
+>>> 'b' in x
+False
+>>> 's' not in x
+False
+>>> 'k' not in x
+True
+
+ex2:
+----
+>>> y=[5,3,7,2]
+>>> 2 in y
+True
+>>> 8 in y
+False
+>>> 9 not in y
+True
+>>> 7 not in y
+False
+
+operator presidency:
+--------------------
+	whenever our expression contains multiple operators in that case we need to identify which operator is executed first,which opertaor is executed second,....,which operator is executed last by using operator presidency concept.
+
+	in our expresssion the multiple operators haveing the same priority in that case we are following left to right associativity.
+
+in arithmetic operators we are following PEMDAS rule
+
+	P	--> ( )
+
+	E	--> **
+
+	MD	--> *,/,//,%
+
+	AS	--> +,-
+
+in logical operators we are following and,or
+
+in Bitwise operators we are following 
+			~
+			<< or >>
+			&
+			^
+			|
+
+ex1:
+---
+x=3+2*3-(2+1)/2**2-3%2
+          |
+  3+2*3-3/2**2-3%2
+            |
+  3+2*3-3/4-3%2
+     |
+  3+6-3/4-3%2
+       |
+  3+6-0.75-3%2
+            |
+   3+6-0.75-1
+    |
+    9-0.75-1
+     |
+    8.25-1
+        |
+      7.25
+
+ex2:
+---
+y=True and not False or not True and True or False and True
+        |
+       True          or not True and True or False and True 
+                                  |
+        True          or       False      or False and True
+                                                    |
+	True          or       False      or       False
+		       |
+                      True                or       False
+                                          |
+					True
+
+ex3:
+----
+z=3&2<<2|3^2
+      |
+  3&8|3^2
+   |
+   0|3^2
+      |
+   0|1
+    |
+    1
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

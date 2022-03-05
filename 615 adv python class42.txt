@@ -1,0 +1,227 @@
+ex7:
+----
+	fact.py
+	------
+def myfactorial(x):
+    if x==0:
+        return 1
+    else:
+        return x*myfactorial(x-1)
+if __name__=='__main__':
+    num=int(input("enter your number: "))
+    res=myfactorial(num)
+    print(res)
+
+
+	demo.py
+	------
+from fact import myfactorial
+from math import factorial
+import unittest
+class myfacttest(unittest.TestCase):
+    def test_myfact(self):
+        num=5
+        res=myfactorial(num)
+        self.assertEqual(res,factorial(num))
+
+if __name__=='__main__':
+    unittest.main()
+
+output:
+-------
+.
+--------------------------------
+Ran 1 test in 0.018s
+
+OK
+
+working with pytest library?
+----------------------------
+	if we want to perform unittesting by using pytest library,first we need to install pytest library/framework.
+
+	pip install pytest
+
+ex:
+---
+C:\Python310\Scripts>pip install pytest
+
+ex1:
+---
+	demo_test.py
+	------------
+def test_1():
+    pass
+
+	(or)
+
+	test_demo.py
+	------------
+def test_1():
+    pass
+
+	output
+	------
+C:\Users\DELL\Desktop>pytest
+===========test session starts ================
+platform win32 -- Python 3.10.2, pytest-7.0.0, pluggy-1.0.0
+
+rootdir: C:\Users\DELL\Desktop
+collected 2 items
+
+demo_test.py .                                [ 50%]
+test_caseexample.py .                         [100%]
+
+========2 passed in 1.60s ========================
+
+ex2:
+---
+	demo_test.py
+	-----------
+def add(x,y):
+    return x+y
+def test_add():
+    #Arrange
+    a=4
+    b=5
+    #Act
+    res=add(a,b)
+    #Assert
+    assert res==a+b
+
+	output
+	------
+C:\Users\DELL\Desktop>pytest demo_test.py
+=============test session starts ===============
+platform win32 -- Python 3.10.2, pytest-7.0.0, pluggy-1.0.0
+
+rootdir: C:\Users\DELL\Desktop
+collected 1 item
+
+demo_test.py .                           [100%]
+
+===========1 passed in 0.09s ==================
+
+		(or)
+
+C:\Users\DELL\Desktop>pytest demo_test.py -v
+=============test session starts ===============
+platform win32 -- Python 3.10.2, pytest-7.0.0, 
+pluggy-1.0.0 -- C:\Python310\python.exe
+
+cachedir: .pytest_cache
+rootdir: C:\Users\DELL\Desktop
+collected 1 item
+
+demo_test.py::test_add PASSED              [100%]
+
+=============1 passed in 0.08s =================
+
+ex3:
+----
+	demo_test.py
+	------------
+def add(x,y):
+    return x+y
+def sub(x,y):
+    return x-y
+def test_add():
+    #Arrange
+    a=4
+    b=5
+    #Act
+    res=add(a,b)
+    #Assert
+    assert res==a+b
+def test_sub():
+    #Arrange
+    a=4
+    b=5
+    #Act
+    res=sub(a,b)
+    #Assert
+    assert res==a+b
+
+	output
+	-------
+C:\Users\DELL\Desktop>pytest demo_test.py -v
+================test session starts =========
+platform win32 -- Python 3.10.2, pytest-7.0.0, pluggy-1.0.0 
+--C:\Python310\python.exe
+
+cachedir: .pytest_cache
+rootdir: C:\Users\DELL\Desktop
+collected 2 items
+
+demo_test.py::test_add PASSED                       [ 50%]
+demo_test.py::test_sub FAILED                       [100%]
+
+================ FAILURES ======================
+_______________ test_sub _______________________
+
+    def test_sub():
+        #Arrange
+        a=4
+        b=5
+        #Act
+        res=sub(a,b)
+        #Assert
+>       assert res==a+b
+E       assert -1 == 9
+E         +-1
+E         -9
+
+demo_test.py:20: AssertionError
+====short test summary info =========
+FAILED demo_test.py::test_sub - assert -1 == 9
+=======1 failed, 1 passed in 0.43s ========
+
+ex4:
+----
+	addition.py
+	----------
+def add(x,y):
+    return x+y
+
+	subtraction.py
+	--------------
+def sub(x,y):
+    return x-y
+
+	demo_test.py
+	-------------
+from addition import add
+from subtraction import sub
+def test_add():
+    #Arrange
+    a=4
+    b=5
+    #Act
+    res=add(a,b)
+    #Assert
+    assert res==a+b
+def test_sub():
+    #Arrange
+    a=4
+    b=5
+    #Act
+    res=sub(a,b)
+    #Assert
+    assert res==a-b
+	
+	output
+	-------
+C:\Users\DELL\Desktop>pytest demo_test.py -v
+============test session starts ===============
+platform win32 -- Python 3.10.2, pytest-7.0.0, pluggy-1.0.0 -- 
+C:\Python310\python.exe
+
+cachedir: .pytest_cache
+rootdir: C:\Users\DELL\Desktop
+collected 2 items
+
+demo_test.py::test_add PASSED                         [ 50%]
+demo_test.py::test_sub PASSED                         [100%]
+
+===========2 passed in 0.17s ===================
+
+

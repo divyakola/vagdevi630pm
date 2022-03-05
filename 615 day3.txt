@@ -1,0 +1,107 @@
+note:
+----
+except idle,if we want to working with any another IDE first we need to download and install manually.
+
+how to download PycharmIDE?
+--------------------------
+	goto www.jetbrains.com
+		|
+	goto developer tools menu
+		|
+	goto IDE's section
+		|
+	select PycharmIDE
+		|
+	click on download
+		|
+	select operating system and 
+  to download any one application(prpfessional or community)
+
+how to install pycharmIDE?
+--------------------------
+	double click on pycharmIDE downloaded file
+			|
+		click on yes
+			|
+		click on next
+			|
+	to select installation location and click on next
+			|
+	to enable desktop shortcut icon and click on next
+			|
+	to select startmenu foldername and click on install
+			|
+		click on finish
+
+
+working with pycharm IDE?
+--------------------------
+	double click on pycharmIDE shortcut icon
+			|
+	goto file menu and click on create new project
+			|
+	set the project name and interpreter and click on create
+			|
+	right click on our project,goto new and to select python file
+			|
+	to set the filename and to press enetr
+			|
+	to write python statements into that file
+
+
+how to run python files in pycharmIDE?
+--------------------------------------
+	goto run menu
+	      |
+	click on run
+	      |
+	to confirm your file
+
+Keywords:
+----------
+the keywords are some special words or reserved words for some special purpose.
+
+we can use that words only for that particular purpose.
+
+python2.x versions supporting 31 keywords
+
+			python3.x
+			    |
+	---------------------------------------------
+	|		    |			    |
+3.0,3.1,...,3.6.x  3.7.0,3.7.1,...,3.8.x      3.9.0,3.9.1,...,3.9.7
+	|		    |			    |
+     33 keywords          35 keywords             36 keywords
+
+
+ex:
+---
+write a program(W.A.P) to print the list of all the keywords?
+
+	keywordslist.py
+	---------------
+import keyword
+print(keyword.kwlist)
+
+	output
+	------
+C:\Users\DELL\Desktop>python keywordslist.py
+['False', 'None', 'True', '__peg_parser__', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+ex:
+---
+W.A.P to return the no.of keywords?
+
+	noofkeywords.py
+	---------------
+import keyword
+print(len(keyword.kwlist))
+
+	output
+	------
+C:\Users\DELL\Desktop>python noofkeywords.py
+36
+
+
+	
+

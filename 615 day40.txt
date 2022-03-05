@@ -1,0 +1,216 @@
+round()
+------
+to return the round figure value of the given number
+
+	round(number,noofdigits)
+
+example in python2.x
+---------------------
+>>> round(2.49)
+2.0
+>>> round(2.50)
+3.0
+>>> round(2.51)
+3.0
+
+example in python3.x
+--------------------
+round(2.49)
+2
+round(2.50)
+2
+round(2.51)
+3
+
+ex:
+---
+round(2.324214)
+2
+round(2.324214,1)
+2.3
+round(2.324214,2)
+2.32
+round(2.324214,3)
+2.324
+
+pow()
+----
+to return the power of the given two numbers.
+
+	pow(x,y)	--> x**y
+
+	pow(x,y,z)	--> x**y%z
+
+pow(2,3)
+8
+pow(3,2)
+9
+pow(2,3,3)
+2
+pow(2,3,2)
+0
+pow(3,2,2)
+1
+
+zip()
+----
+to combine the elements from the given iterable object
+
+the zip() to return the zip object
+
+	zip(*iterableobj)
+
+
+ex:
+---
+eid=[1,2,3,4]
+enames=["siva","rama","krishna","suresh"]
+sal=[1000,4000,3000,2000]
+dno=[10,20,30,40]
+x=zip(eid,enames,sal,dno)
+print(x)
+print(type(x))
+for rec in x:
+    print(rec)
+print('*'*20)
+print(list(zip(eid,enames,sal,dno)))
+
+output:
+-------
+<zip object at 0x000001E97FD13700>
+<class 'zip'>
+(1, 'siva', 1000, 10)
+(2, 'rama', 4000, 20)
+(3, 'krishna', 3000, 30)
+(4, 'suresh', 2000, 40)
+********************
+[(1, 'siva', 1000, 10), (2, 'rama', 4000, 20), (3, 'krishna', 3000, 30), (4, 'suresh', 2000, 40)]
+
+ex2:
+----
+eid=[1,2,3,4]
+enames=["siva","rama","krishna","suresh"]
+sal=[1000,4000,3000,2000]
+dno=[10,20,30,40]
+x=zip(eid,enames,sal,dno)
+for a,b,c,d in x:
+    print(a,b,c,d)
+
+output:
+-----
+1 siva 1000 10
+2 rama 4000 20
+3 krishna 3000 30
+4 suresh 2000 40
+
+ex3:
+---
+eid=[1,2,3]
+enames=["siva","rama","krishna","suresh"]
+sal=[1000]
+dno=[10,20]
+print(list(zip(eid,enames,sal,dno)))
+
+output:
+------
+[(1, 'siva', 1000, 10)]
+
+ex4:
+----
+x=[1,2,3]
+y=[4,5,6]
+z=[]
+for i,j in zip(x,y):
+    z.append(i+j)
+print(z)
+
+	(or)
+
+print([i+j for i,j in zip([1,2,3],[4,5,6])])
+
+output:
+------
+[5, 7, 9]
+
+user-defined functions:
+----------------------
+	we can define a function to perform a particular operation according to our business requirements,that type of functions are called User-Defined Functions.
+
+	syntax
+	------
+	def  functionname(p_1,p_2,...,p_n):
+		"""doc string"""
+		stmt_1
+		stmt_2
+		.....
+		stmt_n
+		return [Value]
+
+ex1:
+---
+print("hai")
+def wishes():
+    print("siva")
+    print("good evening")
+print("bye")
+    
+
+output:
+------
+hai
+bye
+
+note:
+----
+in above example our program successfully executed but our function is not executed.
+
+function is not executed automatically,whenever we are calling a function then only function logic will be executed.
+
+we can call the function directly by using function name
+
+ex2:
+---
+print("hai")
+def wishes():
+    print("siva")
+    print("good evening")
+wishes()
+print("bye")
+    
+output:
+-----
+hai
+siva
+good evening
+bye
+
+
+we can call one function N-no.of times
+
+ex3:
+----
+print("hai")
+def wishes():    
+    print("good evening")
+print("siva")
+wishes()
+print("hello")
+wishes()
+print("krishna")
+print("bye")
+    
+output:
+-----
+hai
+siva
+good evening
+hello
+good evening
+krishna
+bye
+
+
+
+
+
+

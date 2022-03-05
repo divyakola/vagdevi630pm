@@ -1,0 +1,233 @@
+Iterators:
+----------
+iterator is an object that can be iterated upon,on top of the iterator object we can apply the iterations.
+
+we can create iterator object of any class,that class should contains
+__iter__() and __next__(),collectively these two methods are called Iterative Protocol.
+
+we can create iterator object of any class object by using iter()
+
+we can get the one by one element from the iterator object by using next()
+
+if no-more elements in our iterator object still we can call next() to raise the StopIteration Exception.
+
+ex1:
+----
+wap to create iterator object on builtin iterable object?
+
+x=[5,3,7,2]
+print(x)
+print(type(x))
+i=iter(x)
+print(i)
+print(type(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+
+output:
+-------
+[5, 3, 7, 2]
+<class 'list'>
+<list_iterator object at 0x000002B492E4D8A0>
+<class 'list_iterator'>
+5
+3
+7
+2
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 11, in <module>
+    print(next(i))
+StopIteration
+
+ex2:
+----
+x=[5,3,7,2]
+print(x)
+print(type(x))
+i=iter(x)
+print(i)
+print(type(i))
+for ele in i:
+    print(ele)
+
+output:
+------
+[5, 3, 7, 2]
+<class 'list'>
+<list_iterator object at 0x0000010BB785D8A0>
+<class 'list_iterator'>
+5
+3
+7
+2
+
+ex3:
+---
+wap to create iterator object on our own class object?
+
+class powtwo:
+    def __init__(self,m):
+        self.max=m
+    def __iter__(self):
+        self.n=0
+        return self
+    def __next__(self):
+        if self.n<=self.max:
+            res=self.n**2
+            self.n+=1
+            return res
+        else:
+            raise StopIteration
+p=powtwo(4)
+i=iter(p)
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+
+output:
+-------
+0
+1
+4
+9
+16
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 21, in <module>
+    print(next(i))
+  File "C:/Python310/e.py", line 13, in __next__
+    raise StopIteration
+StopIteration
+
+ex4:
+---
+class powtwo:
+    def __init__(self,m):
+        self.max=m
+    def __iter__(self):
+        self.n=0
+        return self
+    def __next__(self):
+        if self.n<=self.max:
+            res=self.n**2
+            self.n+=1
+            return res
+        else:
+            raise StopIteration
+p=powtwo(4)
+i=iter(p)
+for j in i:
+    print(j)
+
+output:
+------
+0
+1
+4
+9
+16
+
+Generator's:
+-----------
+	the Generators are used to implement the iterators in easy way and simplified manner by using functions instead of classes.
+
+the Generator is a function,which contains one or more yield statements.
+
+the generator function to return the generator object.
+
+whenever we are calling next() in that case our generator function is executed upto yield statement.
+
+if no more yield statements in our generator function still we can call next() to raise the StopIteration exception.
+
+
+ex:
+---
+def f1():
+    n=0
+    print("hai")
+    yield n
+    n+=1
+    print("hello")
+    yield n
+    n+=1
+    print("good morning")
+    yield n
+    print("bye")
+a=f1()
+print(a)
+print(type(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+
+output:
+------
+<generator object f1 at 0x0000015721BBA260>
+<class 'generator'>
+hai
+0
+hello
+1
+good morning
+2
+bye
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 18, in <module>
+    print(next(a))
+StopIteration
+
+
+ex2:
+----
+def f1():
+    n=0
+    print("hai")
+    yield n
+    n+=1
+    print("hello")
+    yield n
+    n+=1
+    print("good morning")
+    yield n
+    print("bye")
+a=f1()
+print(a)
+print(type(a))
+for i in a:
+    print(i)
+
+output:
+------
+<generator object f1 at 0x000001EFC431A260>
+<class 'generator'>
+hai
+0
+hello
+1
+good morning
+2
+bye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,261 @@
+		Control flow statements
+		----------------------
+these statements are used to control the flow of the program execution.
+
+why we need to control the flow of the program execution?
+--------------------------------------------------------
+	by default any programming language program,all the statements are executed at only once/onetime.
+
+
+	if we want to execute some statements repeatedly/repeated no.of times,if we want to skip the execution some statements,in these two scenarios to control the flow of the program execution.
+
+how to control the flow of the program execution?
+------------------------------------------------
+	we can control the flow of the program execution by using control-flow statements.
+
+	the control flow statements can be categorized into 3-types,they are
+
+	1).Conditional/Sequential statements
+
+	2).Looping/Iterative statements
+
+	3).Jumping/Transform statements
+
+elements of control flow statements:
+-----------------------------------
+	the elements of control flow statements are
+		1).condition
+		2).block/clause
+
+what is Condition?
+-----------------
+	any expression to return the output as boolean values,that type of Expressions are called Conditions.
+
+	
+ex:
+---
+x=10,y=3
+
+x+y	--> 13		--> expression
+x-y	--> 7		--> expression
+x*y	--> 30		--> expression
+x==y	--> False	--> expression		--> condition
+x>y	--> True	--> expression		--> condition
+x<y	--> False	--> expression		--> condition
+x&y	--> 2		--> expression
+x|y	--> 11		--> expression
+
+note:
+-----
+all conditions are expressions but all expressions are not conditions
+
+what is Block/Clause?
+----------------------
+	in python,the group of statements which are following same space indentation,is known as a Block/Clause.
+
+	c/c++/java		python
+	-----------		-------
+	stmt_1			stmt_1
+	stmt_2			stmt_2
+        {			     stmt_a
+          stmt_a		     stmt_b
+	  stmt_b		     ......
+	  ......	             stmt_z
+	  stmt_z		stmt_n-1
+         }			stmt_n
+        stmt_n-1
+	stmt_n
+
+Conditional statements:
+-----------------------
+	these statements are used to execute the block of statements or to skip the execution of block of statements or to execute the one block of statements among from multiple blocks of statements.
+
+	in python,the conditional statements are
+			if
+			if else
+			if elif else
+
+if block
+---------
+	we can define any block which is preceeded by 'if' keyword that block is called if block.
+
+	syntax
+	------
+	if condition: statement
+
+		(or)
+
+	if condition:
+		statement_1
+		statement_2
+		..........
+		statement_n
+
+whenever 'if' condition is True then only control will goto 'if' block and 'if' block will be executed otherwise control dont goto the if block.
+
+ex1:
+---
+print("hai")
+age=int(input("enter your age: "))
+if age>18:print("hello siva")
+print("bye")
+    
+outputs:
+--------
+hai
+enter your age: 17
+bye
+
+
+enter your age: 20
+hello siva
+bye
+
+ex2:
+----
+print("hai")
+age=int(input("enter your age: "))
+if age>18:
+    print("hello siva")
+    print("Good Evening")
+print("bye")
+    
+outputs:
+--------
+hai
+enter your age: 17
+bye
+
+
+hai
+enter your age: 20
+hello siva
+Good Evening
+bye
+
+if else
+--------
+	if condition:
+		statement_1
+		statement_2
+		...........
+		statement_n
+	else:
+	     statement_1
+	     statement_2
+	     ........
+	     statement_n
+
+whenever 'if' condition is True then only control will goto 'if' block and 'if' block will be executed otherwise control will goto 'else' block and 'else' block will be executed.
+
+ex1:
+---
+print("hai")
+age=int(input("enter your age: "))
+if age>18:
+    print("hello siva")
+    print("Good Evening")
+else:
+    print("hello krishna")
+    print("Good Morning")    
+print("bye")
+ 
+outputs:
+--------   
+hai
+enter your age: 13
+hello krishna
+Good Morning
+bye
+
+
+hai
+enter your age: 20
+hello siva
+Good Evening
+bye
+
+ex2:
+---
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+if x>y:
+    print("x is Greaterthan y")
+else:
+    print("x is Lessthan y")
+
+outputs:
+-------
+enter x value: 3
+enter y value: 4
+x is Lessthan y
+
+
+enter x value: 5
+enter y value: 2
+x is Greaterthan y
+
+ex3:
+---
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+if x>y:
+    print("%d is Greaterthan %d"%(x,y))
+else:
+    print("{} is Lessthan {}".format(x,y))
+
+output:
+------
+enter x value: 3
+enter y value: 2
+3 is Greaterthan 2
+
+
+enter x value: 2
+enter y value: 6
+2 is Lessthan 6
+
+ex3:
+---
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+if x>y:
+    print(f"{x} is Greaterthan {y}")
+else:
+    print(f"{x} is Lessthan {y}")
+
+output:
+------
+enter x value: 2
+enter y value: 6
+2 is Lessthan 6
+
+
+enter x value: 3
+enter y value: 1
+3 is Greaterthan 1
+
+assignment-1:
+-------------
+wap to check wheather given number is Even or Odd?
+
+input:
+	5		8
+
+output:
+	Odd		Even
+
+
+assigment-2:
+------------
+wap to check wheather given string is Palindrom string or not,with ignore the cases?
+
+input		reverse_order		result
+-----		-------------		------
+siva		avis			not a palindrom string
+
+madam		madam			palindrom string
+
+LevEl		lEveL			palindrom string
+
+
